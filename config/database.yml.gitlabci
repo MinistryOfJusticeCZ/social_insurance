@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: postgres
+  pool: 5
+  username: runner
+  password: ""
+  timeout: 5000
+development:
+  <<: *default
+  database: victims_compenstaion_devel
+test:
+  <<: *default
+  database: test_db
