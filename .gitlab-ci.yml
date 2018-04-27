@@ -32,22 +32,22 @@ test:2.3:
     - postgres
     - redis
   script:
-    - BASE_URL=`echo $CI_REPOSITORY_URL | sed "s;/*$CI_PROJECT_PATH.*;;"`
+    - BASE_URL=`echo $CI_REPOSITORY_URL | sed "s;\/*$CI_PROJECT_PATH.*;;"`
     - REPO_URL="$BASE_URL/libraries/egon_gate.git"
     - REPO_DIR=libraries/egon_gate
     - rm -fr $REPO_DIR
     - git clone $REPO_URL $REPO_DIR
-    - "sed -i "s|gem 'egon_gate', path: '.*'|gem 'egon_gate', path: '$REPO_DIR'|g" Gemfile_devel"
+    - "sed -i \"s|gem 'egon_gate', path: '.*'|gem 'egon_gate', path: '$REPO_DIR'|g\" Gemfile_devel"
     - REPO_URL="$BASE_URL/libraries/azahara_schema.git"
     - REPO_DIR=libraries/azahara_schema
     - rm -fr $REPO_DIR
     - git clone $REPO_URL $REPO_DIR
-    - "sed -i "s|gem 'azahara_schema', path: '.*'|gem 'azahara_schema', path: '$REPO_DIR'|g" Gemfile_devel"
+    - "sed -i \"s|gem 'azahara_schema', path: '.*'|gem 'azahara_schema', path: '$REPO_DIR'|g\" Gemfile_devel"
     - REPO_URL="$BASE_URL/libraries/egov_utils-rails.git"
     - REPO_DIR=libraries/egov_utils
     - rm -fr $REPO_DIR
     - git clone $REPO_URL $REPO_DIR
-    - "sed -i "s|gem 'egov_utils', path: '.*'|gem 'egov_utils', path: '$REPO_DIR'|g" Gemfile_devel"
+    - "sed -i \"s|gem 'egov_utils', path: '.*'|gem 'egov_utils', path: '$REPO_DIR'|g\" Gemfile_devel"
     - git config --global http.proxy 194.213.41.2:8080
     - http_proxy=http://proxy.justice.cz:3128 RAILS_ENV=test bundle install --path=cache/bundler --without production --jobs $(nproc)  "${FLAGS[@]}"
     - cp config/database.yml.gitlabci config/database.yml
@@ -64,8 +64,7 @@ deploy_lab:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - echo "$LAB_USER_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
-    - sed -n ':a;N;$!ba;s/
-/ /g' ~/.ssh/id_rsa
+    - sed -n ':a;N;$!ba;s/\n/ /g' ~/.ssh/id_rsa
     - ssh-add ~/.ssh/id_rsa
     - gem install capistrano-rails
     - gem install capistrano3-unicorn
@@ -83,8 +82,7 @@ deploy_staging:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - echo "$STAGING_USER_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
-    - sed -n ':a;N;$!ba;s/
-/ /g' ~/.ssh/id_rsa
+    - sed -n ':a;N;$!ba;s/\n/ /g' ~/.ssh/id_rsa
     - ssh-add ~/.ssh/id_rsa
     - gem install capistrano-rails
     - gem install capistrano3-unicorn
@@ -105,8 +103,7 @@ deploy_production:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - echo "$PRODUCTION_USER_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
-    - sed -n ':a;N;$!ba;s/
-/ /g' ~/.ssh/id_rsa
+    - sed -n ':a;N;$!ba;s/\n/ /g' ~/.ssh/id_rsa
     - ssh-add ~/.ssh/id_rsa
     - gem install capistrano-rails
     - gem install capistrano3-unicorn
