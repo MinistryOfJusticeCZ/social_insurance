@@ -22,6 +22,7 @@
 
 /config/database.yml
 /config/config.yml
+/config/cssz.yml
 
 /public/assets
 .byebug_history

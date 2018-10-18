@@ -5,7 +5,7 @@ namespace :deploy do
   end
 end
 
-server "serviscssz.servis.justice.cz", user: ENV['DEPLOY_USER_NAME'], roles: %w{app db web}
+server "cssz01.servis.justice.cz", user: ENV['DEPLOY_USER_NAME'], roles: %w{app db web}
 
 set :unicorn_config_path, File.join(current_path, "config", "unicorn.rb")
 

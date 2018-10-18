@@ -1,0 +1,9 @@
+---
+client_id: MSp
+organization_name: Ministerstvo spravedlnosti ČR
+organization_ico: 00025429
+organization_ds_id: kq4aawz
+# absolute paths to the files
+client_certificate_file: /srv/social_insurence_justice/shared/ISCSSZ.pem
+client_key_file: /srv/social_insurence_justice/shared/ISCSSZ_key.pem
+client_key_password: strongpassword #password for a key_file
