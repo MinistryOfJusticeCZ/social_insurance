@@ -5,7 +5,7 @@ module Cssz
     TYPES_NS_ID = 'ikreTypes'
 
     def base_url
-      'https://10.254.16.169/B2B'
+      "https://#{Cssz::Settings.cssz_server}/B2B"
     end
 
     def base_namespaces
@@ -17,9 +17,9 @@ module Cssz
           wsdl: base_url + request.service_path + '?wsdl',
           endpoint: base_url + request.service_path,
           namespace: service_namespace,
-          ssl_cert_file: 'ISCSSZ.pem',
-          ssl_cert_key_file: 'ISCSSZ_key.pem',
-          ssl_cert_key_password: 'iscssz',
+          ssl_cert_file: Cssz::Settings.client_certificate_file,
+          ssl_cert_key_file: Cssz::Settings.client_key_file,
+          ssl_cert_key_password: Cssz::Settings.client_key_password,
           ssl_verify_mode: :none,
           convert_request_keys_to: :camelcase
           #, log: true, log_level: :debug, pretty_print_xml: true
@@ -27,16 +27,16 @@ module Cssz
     end
 
     def request_payload(request)
-      {"#{MESSAGES_NS_ID}:PozadavekHlavicka" => request_head}.merge(request_body)
+      {"#{MESSAGES_NS_ID}:PozadavekHlavicka" => request_head(request)}.merge(request.request_body)
     end
 
-    def request_head
+    def request_head(request)
       {
         "#{MESSAGES_NS_ID}:KodSluzby" => service_code,
         "#{MESSAGES_NS_ID}:PozadavekInfo" => {
           "#{TYPES_NS_ID}:Cas" => Time.now.iso8601,
-          "#{TYPES_NS_ID}:DuvodUcel" => 'Nevim',
-          "#{TYPES_NS_ID}:Popis" => 'Nevim proc se ptam',
+          "#{TYPES_NS_ID}:DuvodUcel" => request.reason,
+          "#{TYPES_NS_ID}:Popis" => request.reason_description,
           "#{TYPES_NS_ID}:VstupniKanalId" => 'B2B',
           "#{TYPES_NS_ID}:PozadovanyVystupniKanalId" => 'B2B'
         },
@@ -50,6 +50,10 @@ module Cssz
           "#{TYPES_NS_ID}:IdentifikatorDatoveSchranky" => Cssz::Settings.organization_ds_id
         }
       }
+    end
+
+    def send_request(request)
+      client(request).call(request.soap_method, body: request_payload)
     end
 
   end

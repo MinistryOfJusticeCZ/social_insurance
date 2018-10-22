@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'information_requests#new'
+
+  resources :information_requests
+
+  mount EgovUtils::Engine => '/internals'
 end

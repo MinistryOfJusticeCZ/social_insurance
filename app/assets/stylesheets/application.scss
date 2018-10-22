@@ -1,0 +1,13 @@
+@import url(//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$brand-primary: #2196f3;
+$footer_height: 10rem;
+$breadcrumb-divider: quote(">");
+@import 'egov_utils/bootstrap_variables';
+@import 'themes/sako_variables';
+
+@import 'bootstrap';
+@import 'azahara_schema/schema_options';
+@import 'egov_utils/egov_utils';

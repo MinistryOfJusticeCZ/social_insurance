@@ -12,3 +12,6 @@ module Cssz
     # namespace Rails.env
   end
 end
+
+require 'cssz/service'
+require 'cssz/request'

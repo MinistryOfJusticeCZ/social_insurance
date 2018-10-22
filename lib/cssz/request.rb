@@ -1,6 +1,7 @@
 module Cssz
   class Request
 
+    # ---- To override ----
     def service_path
       '/IkreVratCelyCiselnik-v1'
     end
@@ -16,6 +17,50 @@ module Cssz
     def request_body
       {}
     end
+
+    def soap_method
+      :dummy
+    end
+    # ---- end override ----
+
+    attr_reader :data, :reason, :reason_description
+
+    def initialize(request_data)
+      @data = request_data
+      @reason, @reason_description = request_data.reason, request_data.reason_description
+    end
+
+    def service
+      @service = Service.new
+    end
+
+    def send
+      service.send_request(self)
+    end
+
+    def types_ns
+      Cssz::Service::TYPES_NS_ID
+    end
+
+    protected
+
+      # Returns definition of interval from an inputed date.
+      # If there was no date on input, it takes today as a date.
+      #
+      # Interface of cssz allows interval as from to dates, but it is not needed by courts
+      def interval
+        {"#{types_ns}:KeDni" =>  (data.on_day || Date.today).to_date.iso8601}
+      end
+
+      # Returns a identification of the insured person from the inputed data.
+      def insured_person_details
+        {
+          "#{types_ns}:Jmeno" => data.firstname,
+          "#{types_ns}:Prijmeni" => data.lastname,
+          "#{types_ns}:DatumNarozeni" => data.birth_date,
+          "#{types_ns}:RodneCislo" => data.birth_number
+        }.merge( data.birth_lastname ? {"#{types_ns}:PrijmeniRodne" => data.birth_lastname} : {})
+      end
 
   end
 end
