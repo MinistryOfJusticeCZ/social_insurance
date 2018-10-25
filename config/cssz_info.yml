@@ -1,0 +1,11 @@
+name: Zažádat ČSSZ o informace k osobě
+purposes:
+  - ziskání údajů o pojištěnci
+description:
+  - Žádostí budete postupně provedeni. Před odesláním budete mít možnost vyplněné údaje změnit.
+  - Vyplnění formuláře trvá okolo 3 minut.
+prerequisities:
+  - datum a místo narození požadované osoby
+  - v případě nezletilosti požadované osoby, znáte datum a místo narození rodičů nebo rodiče
+contacts:
+  helpdesk: helpdesk@msp.justice.cz

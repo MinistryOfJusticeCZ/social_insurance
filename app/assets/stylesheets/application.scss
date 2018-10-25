@@ -5,9 +5,9 @@
 $brand-primary: #2196f3;
 $footer_height: 10rem;
 $breadcrumb-divider: quote(">");
-@import 'egov_utils/bootstrap_variables';
-@import 'themes/sako_variables';
+@import 'czegov_frontend/czegov-bootstrap';
 
-@import 'bootstrap';
 @import 'azahara_schema/schema_options';
 @import 'egov_utils/egov_utils';
+
+@import 'cssz';

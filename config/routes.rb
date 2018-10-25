@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'information_requests#new'
+  root to: 'information_requests#index'
 
   resources :information_requests
 

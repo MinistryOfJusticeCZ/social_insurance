@@ -1,0 +1,11 @@
+.callout {
+  padding: $callout-padding-y $callout-padding-x;
+  margin: $callout-margin-y $callout-margin-x;
+  //border: $btn-border-width solid $gray-100;
+  border-left: $callout-border-left;
+  background-color: $gray-100;
+
+  & p:last-child {
+    margin-bottom: 0
+  }
+}

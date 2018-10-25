@@ -1,0 +1,53 @@
+<section>
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="heading-xl"><%= info.name %></h1>
+
+      <p class="body">Tato služba slouží k:</p>
+
+      <ul class="list list--bullet">
+        <% info.purposes.each do |purpose| %>
+        <li><%= purpose %></li>
+        <% end %>
+      </ul>
+
+      <% info.description.each do |desc| %>
+      <p class="body"><%= desc %></p>
+      <% end %>
+
+      <a href="<% info.path %>" role="button" draggable="false" class="btn btn-success btn-lg mt-3 mb-5">
+        Spustit službu
+      </a>
+
+      <h2 class="heading-m">Než začnete</h2>
+
+      <p class="body">Ujistěte se, že znáte:</p>
+
+      <ul class="list list--bullet">
+        <% info.prerequisities.each do |prereq| %>
+        <li><%= prereq %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-lg-3 offset-lg-1">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="heading-m--aside" id="subsection-title">
+          Kontakt
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="list !-font-size-16">
+            <li>E-mail:
+              <a class="link" href="mailto:helpdesk@msp.justice.cz"><%= info.contacts.helpdesk %></a>
+            </li>
+
+            <li>Správce systému:
+              <a class="link" href="mailto:helpdesk@msp.justice.cz">Bude doplněno</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+</section>

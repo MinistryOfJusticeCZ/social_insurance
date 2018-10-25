@@ -1,6 +1,10 @@
 class InformationRequestsController < ApplicationController
 
   def index
+    @info = ServiceInfoPresenter.new
+    info_payload = YAML.load(File.read(Rails.root.join('config', 'cssz_info.yml')))
+    info_payload['path'] = new_information_request_path
+    @info.load(info_payload)
   end
 
   def new
