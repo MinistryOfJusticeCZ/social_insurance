@@ -3,13 +3,14 @@
 %nav.navbar.navbar-expand-lg.navbar-dark.pt-4.pl-4.pb-4.pl-lg-0.pt-lg-2.pb-lg-2
   .container
     = link_to '/', class: 'navbar-brand mr-0 mr-md-2', title: t(:title_goto_homepage), 'aria-label' => "Justice.cz - #{t(:app_name)}" do
-      = image_tag(logo) if logo
+      .navbar-brand__logo
+        = image_tag(logo) if logo
       .navbar-brand__name
         %div Justice.cz
         %div= t(:app_name)
     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "top_navigation", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#top_navigation", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
-    #top_navigation.collapse.navbar-collapse.bg-white
+    #top_navigation.collapse.navbar-collapse
       %ul.nav.navbar-nav.mr-auto.main-menu
         / %li.nav-item.main-item= link_to t(:app_abbrev), '/', class: 'nav-link'
       = render_navigation(context: :main)
