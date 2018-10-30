@@ -48,7 +48,9 @@ a {
   border-bottom: 1px solid;
 
   &:hover {
-    border-bottom: 2px solid;
+    background: #F7B400;
+    box-shadow: 0 0 0 4px #F7B400;
+    color: #323232;
     text-decoration: none;
   }
 

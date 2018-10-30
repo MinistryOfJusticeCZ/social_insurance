@@ -1,0 +1,11 @@
+<% button = GovukPublishingComponents::Presenters::ButtonHelper.new(local_assigns) %>
+
+<% if button.link? %>
+  <%= link_to button.text, button.href, button.html_options %>
+<% else %>
+  <%= content_tag :button, button.text, button.html_options %>
+<% end %>
+
+<% if button.info_text %>
+  <%= tag.span button.info_text, class: "gem-c-button__info-text" %>
+<% end %>

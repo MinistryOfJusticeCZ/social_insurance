@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <header>
+        <%= render "govuk_publishing_components/components/title", {
+          title: "Souhrn žádosti",
+          margin_bottom: 4
+        } %>
+
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: "Předtím než formulář odešlete, zkontrolujte, zda jsou tyto informace správně."
+        } %>
+      </header>
+    </div>
+  </div>
+
+  <main class="main-wrapper " id="main-content" role="main">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="heading-medium">Požadované informace</h2>
+        <table class="table-summary">
+          <caption class="sr-only">Seznam vytvořený odpověďmi skrz průvodce</caption>
+          <tbody>
+            <tr>
+              <th class="table-summary-title" scope="row">Týká se</th>
+              <td class="table-summary-content">Jedince</td>
+              <td class="table-summary-action"><a href="/">Změnit <span class="sr-only">koho se žádost týká</span></a></td>
+            </tr>
+
+            <tr>
+              <th class="table-summary-title" scope="row">Základní údaje osoby</th>
+              <td class="table-summary-content">
+                <div>Matka žádané osoby</div>
+                <div>Jmeno a prijmeni</div>
+                <div>datum narozeni</div>
+                <div>misto narozeni</div>
+              </td>
+              <td class="table-summary-action"><a href="/">Změnit <span class="sr-only">základní údaje</span></a></td>
+            </tr>
+
+            <tr>
+              <th class="table-summary-title" scope="row">Důvod žádosti</th>
+              <td class="table-summary-content">Aktuální kontaktní adresa</td>
+              <td class="table-summary-action"><a href="/">Změnit <span class="sr-only">důvod žádosti</span></a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Odeslat žádost"
+        } %>
+      </div>
+    </div>
+  </main>
+</div>

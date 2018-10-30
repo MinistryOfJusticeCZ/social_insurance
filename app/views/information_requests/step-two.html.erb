@@ -1,0 +1,125 @@
+<div class="container">
+
+  <main class="main-wrapper " id="main-content" role="main">
+    <div class="row">
+      <div class="col-lg-8">
+        <%= render "govuk_publishing_components/components/title", {
+          title: "Základní údaje požadované osoby",
+          margin_bottom: 4
+        } %>
+
+        <p>V případě, že je pole označeno jako nepovinné, nemusíte ho vyplňovat.</p>
+
+        <h2>Matka požadované osoby</h2>
+
+        <form action="/form-handler" method="post" novalidate>          
+          <div class="form-group">
+            <fieldset class="fieldset" role="group">
+              <legend><h3 class="mb-0">Jméno a příjmení</h3></legend>
+
+              <%= render "govuk_publishing_components/components/input", {
+                label: {
+                  text: "Jméno"
+                },
+                name: "parent-mother-firstname",
+              } %>
+
+              <%= render "govuk_publishing_components/components/input", {
+                label: {
+                  text: "Příjmení"
+                },
+                name: "parent-mother-lastname",
+              } %>
+
+              <%= render "govuk_publishing_components/components/input", {
+                label: {
+                  text: "Rodné příjmení (nepovinné)"
+                },
+                name: "parent-mother-birthname",
+              } %>
+
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
+              <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Datum narození</h3>
+              </legend>
+              <span id="expiry-hint" class="hint">
+                Například, 31 3 1980
+              </span>
+              <div class="date-input" id="expiry">
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-day">
+                      Den
+                    </label>
+                    <input class="form-control date-input__input input--width-2" id="expiry-day" name="expiry-day" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-month">
+                      Měsíc
+                    </label>
+                    <input class="form-control date-input__input input--width-2" id="expiry-month" name="expiry-month" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-year">
+                      Rok
+                    </label>
+                    <input class="form-control date-input__input input--width-4" id="expiry-year" name="expiry-year" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
+              <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Místo narození</h3>
+              </legend>
+              <div class="date-input" id="expiry">
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-day">
+                      Den
+                    </label>
+                    <input class="form-control date-input__input input--width-2" id="expiry-day" name="expiry-day" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-month">
+                      Měsíc
+                    </label>
+                    <input class="form-control date-input__input input--width-2" id="expiry-month" name="expiry-month" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+                <div class="date-input__item">
+                  <div class="form-group">
+                    <label class="label date-input__label" for="expiry-year">
+                      Rok
+                    </label>
+                    <input class="form-control date-input__input input--width-4" id="expiry-year" name="expiry-year" type="number" pattern="[0-9]*">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <%= render "govuk_publishing_components/components/button", {
+            text: "Pokračovat na otce"
+          } %>
+
+          <div>
+            <a href="/">Zrušit</a>            
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

@@ -16,7 +16,7 @@
     = render 'czegov_publishing_components/phase_banner', phase: 'alpha'
     %header.header{role: 'banner'}
       = render 'czegov_template/navigation'
-    %main#container{role: 'main'}
+    %div#container{role: 'main'}
       #content.container
         = render 'layouts/egov_utils/messages'
         = content_for?(:content) ? content_for(:content) : yield
