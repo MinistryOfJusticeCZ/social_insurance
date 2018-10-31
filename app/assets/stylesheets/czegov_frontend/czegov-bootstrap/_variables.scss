@@ -283,6 +283,12 @@ $h4-font-size:                $font-size-base * 1.18 !default;
 $h5-font-size:                $font-size-base !default;
 $h6-font-size:                $font-size-base !default;
 
+//adds - hardcode, fix it
+$h1-font-size-sm:             30px !default;
+$h2-font-size-sm:             26px !default;
+$h3-font-size-sm:             22px !default;
+$h4-font-size-sm:             $font-size-base !default;
+
 $headings-margin-bottom:      ($spacer / 2) !default;
 $headings-font-family:        inherit !default;
 $headings-font-weight:        700 !default;
@@ -309,6 +315,7 @@ $text-muted:                  $gray-600 !default;
 
 $blockquote-small-color:      $gray-600 !default;
 $blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-small-font-size:  $small-font-size !default;
 
 $hr-border-color:             rgba($black, .1) !default;
 $hr-border-width:             $border-width !default;
