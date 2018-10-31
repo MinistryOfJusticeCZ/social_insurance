@@ -1,4 +1,4 @@
-<% button = GovukPublishingComponents::Presenters::ButtonHelper.new(local_assigns) %>
+<% button = CzegovPublishingComponents::Presenters::ButtonHelper.new(local_assigns) %>
 
 <% if button.link? %>
   <%= link_to button.text, button.href, button.html_options %>

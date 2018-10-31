@@ -1,6 +1,6 @@
 require 'action_view'
 
-module GovukPublishingComponents
+module CzegovPublishingComponents
   module Presenters
     class ButtonHelper
       attr_reader :href, :text, :title, :info_text, :rel, :data_attributes,
@@ -39,8 +39,8 @@ module GovukPublishingComponents
     private
 
       def css_classes
-        classes = %w(btn btn-primary)
-        classes << "govuk-button--start" if start
+        classes = %w(btn btn-success)
+        classes << "btn--start btn-lg" if start
         classes << "gem-c-button--secondary" if secondary
         classes << "gem-c-button--secondary-quiet" if secondary_quiet
         classes << "gem-c-button--destructive" if destructive

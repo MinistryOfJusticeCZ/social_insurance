@@ -1,4 +1,4 @@
-<% related_nav_helper = GovukPublishingComponents::Presenters::RelatedNavigationHelper.new(local_assigns) %>
+<% related_nav_helper = CzegovPublishingComponents::Presenters::RelatedNavigationHelper.new(local_assigns) %>
 
 <% if related_nav_helper.anything_to_show? %>
   <% random = SecureRandom.hex(4) %>
@@ -16,7 +16,7 @@
 
       <% section_index += 1 %>
 
-      <%= render 'govuk_publishing_components/components/related_navigation/section',
+      <%= render 'czegov_publishing_components/related_navigation/section',
         related_nav_helper: related_nav_helper,
         section_title: section_title,
         links: links,

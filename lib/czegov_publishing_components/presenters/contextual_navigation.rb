@@ -1,4 +1,4 @@
-module GovukPublishingComponents
+module CzegovPublishingComponents
   module Presenters
     # @private
     class ContextualNavigation

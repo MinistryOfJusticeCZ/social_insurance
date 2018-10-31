@@ -1,0 +1,10 @@
+<%
+  text ||= ""
+  inverse ||= false
+%>
+
+<% if text.present? %>
+  <p class="lead <% if inverse %>gem-c-lead-paragraph--inverse<% end %>">
+    <%= text %>
+  </p>
+<% end %>

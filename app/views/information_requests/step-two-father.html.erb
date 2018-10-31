@@ -3,7 +3,7 @@
   <main class="main-wrapper " id="main-content" role="main">
     <div class="row">
       <div class="col-lg-8">
-        <%= render "govuk_publishing_components/components/title", {
+        <%= render "czegov_publishing_components/title", {
           title: "Základní údaje požadované osoby",
           margin_bottom: 4
         } %>
@@ -17,14 +17,14 @@
             <fieldset class="fieldset" role="group">
               <legend><h3 class="mb-0">Jméno a příjmení</h3></legend>
 
-              <%= render "govuk_publishing_components/components/input", {
+              <%= render "czegov_publishing_components/input", {
                 label: {
                   text: "Jméno"
                 },
                 name: "parent-mother-firstname",
               } %>
 
-              <%= render "govuk_publishing_components/components/input", {
+              <%= render "czegov_publishing_components/input", {
                 label: {
                   text: "Příjmení"
                 },
@@ -102,7 +102,7 @@
             </fieldset>
           </div>
 
-          <%= render "govuk_publishing_components/components/button", {
+          <%= render "czegov_publishing_components/button", {
             text: "Pokračovat"
           } %>
 
