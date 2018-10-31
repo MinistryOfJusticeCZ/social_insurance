@@ -3,7 +3,7 @@
 @import "czegov-bootstrap/mixins";
 @import "bootstrap/root";
 @import "bootstrap/reboot";
-@import "bootstrap/type";
+@import "czegov-bootstrap/type";
 @import "bootstrap/images";
 @import "czegov-bootstrap/code";
 @import "bootstrap/grid";
@@ -86,8 +86,14 @@ a {
   color: #905;
 }
 
-.beta-wrapper .wrapper-content .beta-wrapper-text p {
+.phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
   margin-bottom: 0;
+}
+
+@media (min-width: 641px) {
+  .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
+    margin-bottom: 0;
+  }
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
