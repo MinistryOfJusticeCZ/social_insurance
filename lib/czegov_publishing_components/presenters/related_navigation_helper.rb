@@ -1,4 +1,4 @@
-module GovukPublishingComponents
+module CzegovPublishingComponents
   module Presenters
     # @private
     # Only used by the related_navigation component

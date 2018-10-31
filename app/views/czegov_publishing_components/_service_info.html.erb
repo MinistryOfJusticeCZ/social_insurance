@@ -1,7 +1,10 @@
-<section>
+<section class="main-wrapper">
   <div class="row">
     <div class="col-lg-8">
-      <h1 class="heading-xl"><%= info.name %></h1>
+      <%= render "czegov_publishing_components/title", {
+        title: info.name,
+        margin_bottom: 4
+      } %>
 
       <p class="body">Tato služba slouží k:</p>
 
@@ -15,6 +18,12 @@
       <p class="body"><%= desc %></p>
       <% end %>
 
+      <%= render "czegov_publishing_components/button", {
+        text: "Spustit službu",
+        href: "#",
+        start: "true",
+        rel: "external"
+      } %>
       <a href="<%= info.path %>" role="button" draggable="false" class="btn btn-success btn-lg mt-3 mb-5">
         Spustit službu
       </a>
