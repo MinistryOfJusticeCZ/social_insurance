@@ -1,35 +1,25 @@
-<div class="form-group">
-  <fieldset class="fieldset">
-    <legend class="fieldset__legend fieldset__legend--xl">
-      <%= render "govuk_publishing_components/components/title", {
-        title: "O kom informace požadujete?",
-        margin_bottom: 4
-      } %>
-    </legend>
-
-    <div class="radios">
-      <%= render "govuk_publishing_components/components/radio", {
-        name: "radio-group-or-divider",
-        items: [
-          {
-            value: "individual",
-            text: "Jedinec (požadovaná osoba musí být zletilá)"
-          },
-          :or,
-          {
-            value: "parent-mother",
-            text: "Matka požadované osoby"
-          },
-          {
-            value: "parent-father",
-            text: "Otec požadované osoby"
-          },
-          {
-            value: "parent-both",
-            text: "Matka i otec zároveň"
-          }
-        ]
-      } %>
-    </div>
-  </fieldset>
+<div class="radios">
+  <%= render "czegov_publishing_components/radio", {
+    name: "radio-group-or-divider",
+    items: [
+      {
+        value: "individual",
+        text: "Jedinec (požadovaná osoba musí být zletilá)"
+      },
+      :or,
+      {
+        value: "parent-mother",
+        text: "Matka požadované osoby"
+      },
+      {
+        value: "parent-father",
+        text: "Otec požadované osoby"
+      },
+      {
+        value: "parent-both",
+        text: "Matka i otec zároveň"
+      }
+    ]
+  } %>
 </div>
+

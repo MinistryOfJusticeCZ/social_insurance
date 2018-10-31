@@ -18,15 +18,12 @@
       <p class="body"><%= desc %></p>
       <% end %>
 
-      <%= render "czegov_publishing_components/button", {
+      <%= render "czegov_publishing_components/components/button", {
         text: "Spustit službu",
-        href: "#",
+        href: info.path,
         start: "true",
         rel: "external"
       } %>
-      <a href="<%= info.path %>" role="button" draggable="false" class="btn btn-success btn-lg mt-3 mb-5">
-        Spustit službu
-      </a>
 
       <h2 class="heading-m">Než začnete</h2>
 

@@ -8,15 +8,20 @@
       <div class="col-lg-8">
         <!--form action="/form-handler" method="post" novalidate-->
         <%= bootstrap_form_for(@information_request) do |f| %>
-          <!--= f.text_field(:firstname)
-          = f.text_field(:lastname)
-          = f.date_field(:birth_date)
-          = f.text_field(:birth_number)
-          = f.text_field(:birth_lastname)
-          = f.date_field(:on_day)
-          = f.check_box(:actual_employments_only)
-          = f.text_area(:request_legitimacy_reason)
-          = f.submit-->
+
+          <div class="form-group">
+            <fieldset class="fieldset">
+              <legend class="fieldset__legend fieldset__legend--xl">
+                <%= render "czegov_publishing_components/title", {
+                  title: @pages.page_title,
+                  margin_bottom: 4
+                } %>
+              </legend>
+
+
+              <%= render @pages.page_path %>
+            </fieldset>
+          </div>
 
           <%= render "czegov_publishing_components/components/button", {text: "Pokračovat"} %>
           <div><%= link_to 'Zrušit', "/" %></div>
