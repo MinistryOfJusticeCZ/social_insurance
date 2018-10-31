@@ -36,7 +36,7 @@
     } do %>
     <% items.each_with_index do |item, index| %>
       <% if item === :or %>
-        <div class="gem-c-radios__divider govuk-radios__divider">
+        <div class="gem-c-radios__divider radios__divider">
           <%= t('components.radio.or') %>
         </div>
       <% else %>
@@ -54,7 +54,7 @@
             item[:value],
             item[:checked],
             {
-              class: "govuk-radios__input",
+              class: "govuk-radios__input custom-control-input",
               id: label_id,
               type: "radio",
               aria: {
@@ -66,7 +66,7 @@
           <%= render "czegov_publishing_components/label", {
             hint_id: label_hint_id,
             html_for: label_id,
-            classes: "govuk-radios__label",
+            classes: "govuk-radios__label label custom-control-label",
             hint_text_classes: "govuk-radios__hint",
             hint_text: item[:hint_text],
             text: item[:text],
