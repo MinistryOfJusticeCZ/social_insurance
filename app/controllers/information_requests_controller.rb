@@ -9,6 +9,7 @@ class InformationRequestsController < ApplicationController
 
   def new
     @information_request = InformationRequest.new
+    @pages = InformationRequestPagesPresenter.new(@information_request)
   end
 
   def create

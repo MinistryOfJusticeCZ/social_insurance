@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="mt-3">
+    <%= render "czegov_publishing_components/components/back_link", { href: "?page_number=#{pages.page_number - 1}" } %>
+  </div>
+
+  <main id="main-content" class="main-wrapper" role="main">
+    <div class="row">
+      <div class="col-lg-8">
+        <!--form action="/form-handler" method="post" novalidate-->
+        <%= bootstrap_form_for(@information_request) do |f| %>
+          <!--= f.text_field(:firstname)
+          = f.text_field(:lastname)
+          = f.date_field(:birth_date)
+          = f.text_field(:birth_number)
+          = f.text_field(:birth_lastname)
+          = f.date_field(:on_day)
+          = f.check_box(:actual_employments_only)
+          = f.text_area(:request_legitimacy_reason)
+          = f.submit-->
+
+          <%= render "czegov_publishing_components/components/button", {text: "Pokračovat"} %>
+          <div><%= link_to 'Zrušit', "/" %></div>
+</div>

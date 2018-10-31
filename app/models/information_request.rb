@@ -4,15 +4,21 @@ class InformationRequest
   extend ActiveModel::Naming
   include ActiveModel::Attributes
 
-  attribute :firstname, :string
-  attribute :lastname, :string
-  attribute :birth_date, :date
-  attribute :birth_number, :string
-  attribute :birth_lastname, :string
-
   attribute :on_day, :date
   attribute :actual_employments_only, :boolean #only actual employments
   attribute :request_legitimacy_reason, :string
+
+  def insured_people
+    @insured_people ||= []
+  end
+
+  def insured_people_attributes=(attrs)
+    @insured_people = []
+    attrs = attrs.keys if attrs.is_a?(Hash)
+    attrs.each do |person_attrs|
+      insured_people << InsuredPerson.new(person_attrs)
+    end
+  end
 
   def reason
     'Some default reason'
