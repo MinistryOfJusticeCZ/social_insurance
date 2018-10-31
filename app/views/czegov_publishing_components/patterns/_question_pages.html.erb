@@ -6,22 +6,14 @@
   <main id="main-content" class="main-wrapper" role="main">
     <div class="row">
       <div class="col-lg-8">
+        <%= render "czegov_publishing_components/title", {
+          title: @pages.page_title,
+          margin_bottom: 4
+        } %>
         <!--form action="/form-handler" method="post" novalidate-->
         <%= bootstrap_form_for(@information_request) do |f| %>
 
-          <div class="form-group">
-            <fieldset class="fieldset">
-              <legend class="fieldset__legend fieldset__legend--xl">
-                <%= render "czegov_publishing_components/title", {
-                  title: @pages.page_title,
-                  margin_bottom: 4
-                } %>
-              </legend>
-
-
-              <%= render @pages.page_path %>
-            </fieldset>
-          </div>
+          <%= render @pages.page_path %>
 
           <%= render "czegov_publishing_components/components/button", {text: "Pokračovat"} %>
           <div><%= link_to 'Zrušit', "/" %></div>

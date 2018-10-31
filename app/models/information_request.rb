@@ -4,6 +4,8 @@ class InformationRequest
   extend ActiveModel::Naming
   include ActiveModel::Attributes
 
+  attribute :insured_person_type
+
   attribute :on_day, :date
   attribute :actual_employments_only, :boolean #only actual employments
   attribute :request_legitimacy_reason, :string

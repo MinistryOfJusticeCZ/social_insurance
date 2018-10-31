@@ -33,6 +33,18 @@ module CzegovPublishingComponents
       current_page[:title]
     end
 
+    def last_page?
+      page_number == pages.size
+    end
+
+    def current_valid?
+      true
+    end
+
+    def next_page!
+      @page_number += 1
+    end
+
     def pages
       @pages ||= []
     end

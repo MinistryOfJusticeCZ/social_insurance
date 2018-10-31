@@ -1,25 +1,32 @@
-<div class="radios">
-  <%= render "czegov_publishing_components/radio", {
-    name: "radio-group-or-divider",
-    items: [
-      {
-        value: "individual",
-        text: "Jedinec (požadovaná osoba musí být zletilá)"
-      },
-      :or,
-      {
-        value: "parent-mother",
-        text: "Matka požadované osoby"
-      },
-      {
-        value: "parent-father",
-        text: "Otec požadované osoby"
-      },
-      {
-        value: "parent-both",
-        text: "Matka i otec zároveň"
-      }
-    ]
-  } %>
+<div class="form-group">
+
+  <div class="radios">
+    <div class="custom-control custom-radio">
+      <%= render "czegov_publishing_components/radio", {
+        name: "information_request[insured_person_type]",
+        items: [
+          {
+            value: "individual",
+            text: "Jedinec (požadovaná osoba musí být zletilá)"
+          },
+          :or,
+          {
+            value: "parent-mother",
+            text: "Matka požadované osoby"
+          },
+          {
+            value: "parent-father",
+            text: "Otec požadované osoby"
+          },
+          {
+            value: "parent-both",
+            text: "Matka i otec zároveň"
+          }
+        ]
+      } %>
+    </div>
+  </div>
+
 </div>
+
 
