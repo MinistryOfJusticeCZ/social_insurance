@@ -8,6 +8,7 @@ variables:
 before_script:
   - export http_proxy=http://proxy.justice.cz:3128/
   - export https_proxy=http://proxy.justice.cz:3128/
+  - export yarn_proxy=http://proxy.justice.cz:3128/
   - export no_proxy="git.servis.justice.cz"
 
 stages:
