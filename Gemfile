@@ -27,8 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 
-gem 'gds-api-adapters'
-gem 'govuk_publishing_components'
+# gem 'gds-api-adapters'
+# gem 'govuk_publishing_components'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
