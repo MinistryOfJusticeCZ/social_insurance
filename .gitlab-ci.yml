@@ -8,7 +8,6 @@ variables:
 before_script:
   - export http_proxy=http://proxy.justice.cz:3128/
   - export https_proxy=http://proxy.justice.cz:3128/
-  - export yarn_proxy=http://proxy.justice.cz:3128/
   - export no_proxy="git.servis.justice.cz"
 
 stages:
@@ -110,6 +109,7 @@ deploy_production:
     - gem install capistrano-rails
     - gem install capistrano3-unicorn
     - gem install capistrano-sidekiq
+    - gem 'capistrano-yarn'
     - cap production deploy
   environment:
     name: production

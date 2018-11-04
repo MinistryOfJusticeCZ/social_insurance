@@ -45,5 +45,11 @@ set :bundle_env_variables, {
   'http_proxy' => 'http://proxy.justice.cz:3128/',
   'https_proxy' => 'http://proxy.justice.cz:3128/'
 }
+set :yarn_env_variables, {
+  'proxy' => 'http://proxy.justice.cz:3128/',
+  'yarn_proxy' => 'http://proxy.justice.cz:3128/',
+  'http_proxy' => 'http://proxy.justice.cz:3128/',
+  'https_proxy' => 'http://proxy.justice.cz:3128/'
+}
 
 set :sidekiq_options, "-C #{fetch(:release_path)}config/sidekiq_queues.yml"
