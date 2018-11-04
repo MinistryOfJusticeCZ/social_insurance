@@ -6,7 +6,8 @@ variables:
   POSTGRES_PASSWORD: ""
 
 before_script:
-  - export http_proxy=http://proxy.justice.cz:3128
+  - export http_proxy=http://proxy.justice.cz:3128/
+  - export https_proxy=http://proxy.justice.cz:3128/
   - export no_proxy="git.servis.justice.cz"
 
 stages:
