@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <header>
+        <%= render "czegov_publishing_components/components/title", {
+          title: "Souhrn žádosti",
+          margin_bottom: 4
+        } %>
+
+        <%= render "czegov_publishing_components/components/lead_paragraph", {
+          text: "Předtím než formulář odešlete, zkontrolujte, zda jsou tyto informace správně."
+        } %>
+      </header>
+    </div>
+  </div>
+
+  <main class="main-wrapper " id="main-content" role="main">
+    <div class="row">
+      <div class="col-lg-8">
+        <%= bootstrap_form_for(check_answers.model) do |f| %>
+          <%= hidden_field_tag(:page_number, check_answers.page_number) %>
+          <%= hidden_field_tag(:confirmation_page, '1') %>
+
+          <% check_answers.pages.each_with_index do |page, pidx| %>
+          <h2 class="heading-medium"><%= page[:title] %></h2>
+          <table class="table-summary">
+            <caption class="sr-only">Seznam vytvořený odpověďmi skrz průvodce</caption>
+            <tbody>
+              <% page[:questions].each do |question| %>
+              <tr>
+                <th class="table-summary-title" scope="row"><%= question %></th>
+                <td class="table-summary-content">
+                  <%= check_answers.answer(question) %>
+                </td>
+                <td class="table-summary-action">
+                  <a href="<%= question_pages_page_path(check_answers, pidx+1) %>">
+                    Změnit <span class="sr-only">základní údaje <!-- kde tohle mam vzit --></span>
+                  </a>
+                </td>
+              </tr>
+              <% end %>
+              <!--tr>
+                <th class="table-summary-title" scope="row">Týká se</th>
+                <td class="table-summary-content">Jedince</td>
+                <td class="table-summary-action"><a href="/">Změnit <span class="sr-only">koho se žádost týká</span></a></td-->
+              </tr>
+            </tbody>
+          </table>
+          <% end %>
+
+          <%= render "czegov_publishing_components/components/button", {
+            text: "Odeslat žádost"
+          } %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

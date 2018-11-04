@@ -17,14 +17,14 @@
 <%= content_tag :div, class: form_group_css_classes do %>
 
   <% if hint %>
-    <%= render "czegov_publishing_components/hint", {
+    <%= render "czegov_publishing_components/components/hint", {
       id: hint_id,
       text: hint
     } %>
   <% end %>
 
   <% if error_message %>
-    <%= render "czegov_publishing_components/error_message", {
+    <%= render "czegov_publishing_components/components/error_message", {
       id: error_message_id,
       text: error_message
     } %>
@@ -63,7 +63,7 @@
               data: data_attrs,
             }
           %>
-          <%= render "czegov_publishing_components/label", {
+          <%= render "czegov_publishing_components/components/label", {
             hint_id: label_hint_id,
             html_for: label_id,
             classes: "govuk-radios__label label custom-control-label",

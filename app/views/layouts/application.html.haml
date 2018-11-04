@@ -13,7 +13,7 @@
     = google_analytics_snippet unless internal_network?
   %body
     = render 'czegov_template/skippy'
-    = render 'czegov_publishing_components/phase_banner', phase: 'alpha'
+    = render 'czegov_publishing_components/components/phase_banner', phase: 'alpha'
     %header.header{role: 'banner'}
       = render 'czegov_template/navigation'
     %div#container{role: 'main'}

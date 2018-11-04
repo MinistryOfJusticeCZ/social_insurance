@@ -2,7 +2,7 @@
 
   <div class="radios">
     <div class="custom-control custom-radio">
-      <%= render "czegov_publishing_components/radio", {
+      <%= render "czegov_publishing_components/components/radio", {
         name: "information_request[insured_person_type]",
         items: [
           {
@@ -11,15 +11,15 @@
           },
           :or,
           {
-            value: "parent-mother",
+            value: "mother",
             text: "Matka požadované osoby"
           },
           {
-            value: "parent-father",
+            value: "father",
             text: "Otec požadované osoby"
           },
           {
-            value: "parent-both",
+            value: "parents",
             text: "Matka i otec zároveň"
           }
         ]

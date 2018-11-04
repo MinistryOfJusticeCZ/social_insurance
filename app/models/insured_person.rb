@@ -3,6 +3,7 @@ class InsuredPerson
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   include ActiveModel::Attributes
+  include ActiveModel::AttributeAssignment
 
   attribute :firstname, :string
   attribute :lastname, :string

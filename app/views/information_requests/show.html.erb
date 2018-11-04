@@ -1,0 +1,37 @@
+<div class="container">
+  <main class="main-wrapper main-wrapper--l" id="main-content" role="main">
+    <div class="row">
+      <div class="col-lg-8">
+        <%= render "czegov_publishing_components/components/lead_paragraph", {
+          text: "Děkujeme."
+        } %>
+
+        <%= render "czegov_publishing_components/components/panel", {
+          title: "Application complete",
+          description: "Your reference number
+            HDJ2123F
+            "
+        } %>
+        <h3 class="heading-m">Co se stane teď</h3>
+
+        <p class="body">
+          Níže si můžete výsledný formulář stáhnout.
+        </p>
+        <p class="body">
+          Pokud máte nějaké dotazy kontaktujte nás na XXX.
+        </p>
+
+        <p class="body">
+          <a class="app-c-download-link" href="/download-map">
+            <svg class="app-c-download-link__icon" aria-hidden="true" viewBox="0 0 25 25" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path d="M23 5h2v20H5v-2h18V5z"></path>
+                <path d="M0 0h20v20H0z"></path>
+              </g>
+            </svg>Stáhnout výsledný formulář (PDF, 10KB)
+          </a>
+        </p>
+      </div>
+    </div>
+  </main>
+</div>

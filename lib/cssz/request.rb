@@ -35,7 +35,11 @@ module Cssz
     end
 
     def send
-      service.send_request(self)
+      @response = service.send_request(self)
+    end
+
+    def response
+      @response
     end
 
     def types_ns
@@ -53,13 +57,13 @@ module Cssz
       end
 
       # Returns a identification of the insured person from the inputed data.
-      def insured_person_details
+      def insured_person_details(person_data)
         {
-          "#{types_ns}:Jmeno" => data.firstname,
-          "#{types_ns}:Prijmeni" => data.lastname,
-          "#{types_ns}:DatumNarozeni" => data.birth_date,
-          "#{types_ns}:RodneCislo" => data.birth_number
-        }.merge( data.birth_lastname ? {"#{types_ns}:PrijmeniRodne" => data.birth_lastname} : {})
+          "#{types_ns}:Jmeno" => person_data.firstname,
+          "#{types_ns}:Prijmeni" => person_data.lastname,
+          "#{types_ns}:DatumNarozeni" => person_data.birth_date,
+          "#{types_ns}:RodneCislo" => person_data.birth_number
+        }.merge( person_data.birth_lastname ? {"#{types_ns}:PrijmeniRodne" => person_data.birth_lastname} : {})
       end
 
   end

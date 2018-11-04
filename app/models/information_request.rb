@@ -1,25 +1,13 @@
-class InformationRequest
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
-  include ActiveModel::Attributes
+class InformationRequest < ApplicationRecord
 
-  attribute :insured_person_type
+  enum insured_person_type: {individual: 1, mother: 4, father: 8, parents: 12}, _prefix: 'request_for_'
 
-  attribute :on_day, :date
-  attribute :actual_employments_only, :boolean #only actual employments
-  attribute :request_legitimacy_reason, :string
+  delegate  'on_day', 'on_day=',
+            'insured_people', 'insured_people_attributes=',
+            to: :request_data
 
-  def insured_people
-    @insured_people ||= []
-  end
-
-  def insured_people_attributes=(attrs)
-    @insured_people = []
-    attrs = attrs.keys if attrs.is_a?(Hash)
-    attrs.each do |person_attrs|
-      insured_people << InsuredPerson.new(person_attrs)
-    end
+  def request_data
+    @request_data ||= RequestData.new
   end
 
   def reason
@@ -28,9 +16,5 @@ class InformationRequest
 
   def reason_description
     'Reason longer description'
-  end
-
-  def persisted?
-    false
   end
 end

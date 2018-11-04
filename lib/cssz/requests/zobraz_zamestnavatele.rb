@@ -2,6 +2,8 @@ module Cssz
   module Requests
     class ZobrazZamestnavatele
 
+      attr_accessor :person_index
+
       def service_path
         '/IkreZobrazZamestnavatele-v1'
       end
@@ -22,9 +24,13 @@ module Cssz
         {'PozadavekData' => inner_body}
       end
 
+      def person_data(index=self.person_index)
+        data.insured_people[index]
+      end
+
       def inner_body
         {
-          'Pojistenec' => insured_person_details,
+          'Pojistenec' => insured_person_details(person_data),
           'Obdobi' => interval,
           'PouzeOtevreneVztahy' => data.actual_employments_only || true,
           'DuvodOpravnenostiDotazu' => data.request_legitimacy_reason,

@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_143207) do
+ActiveRecord::Schema.define(version: 2018_11_04_174919) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_143207) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
-  create_table "egov_utils_addresses", force: :cascade do |t|
+  create_table "egov_utils_addresses", id: :serial, force: :cascade do |t|
     t.integer "egov_identifier"
     t.string "street"
     t.string "house_number"
@@ -60,14 +63,14 @@ ActiveRecord::Schema.define(version: 2018_04_24_143207) do
   end
 
   create_table "egov_utils_groups_users", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "user_id"
+    t.bigint "group_id"
+    t.bigint "user_id"
     t.index ["group_id"], name: "index_egov_utils_groups_users_on_group_id"
     t.index ["user_id"], name: "index_egov_utils_groups_users_on_user_id"
   end
 
   create_table "egov_utils_legal_people", force: :cascade do |t|
-    t.integer "person_id"
+    t.bigint "person_id"
     t.string "name"
     t.string "ico"
     t.integer "legal_form"
@@ -82,8 +85,8 @@ ActiveRecord::Schema.define(version: 2018_04_24_143207) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "birth_place"
-    t.integer "residence_id"
-    t.integer "person_id"
+    t.bigint "residence_id"
+    t.bigint "person_id"
     t.string "title"
     t.string "higher_title"
     t.index ["person_id"], name: "index_egov_utils_natural_people_on_person_id"
@@ -93,11 +96,11 @@ ActiveRecord::Schema.define(version: 2018_04_24_143207) do
   create_table "egov_utils_people", force: :cascade do |t|
     t.integer "person_type"
     t.string "joid"
-    t.integer "residence_id"
+    t.bigint "residence_id"
     t.index ["residence_id"], name: "index_egov_utils_people_on_residence_id"
   end
 
-  create_table "egov_utils_users", force: :cascade do |t|
+  create_table "egov_utils_users", id: :serial, force: :cascade do |t|
     t.string "login"
     t.string "mail"
     t.string "password_digest"
@@ -114,4 +117,18 @@ ActiveRecord::Schema.define(version: 2018_04_24_143207) do
     t.datetime "password_changed_at"
   end
 
+  create_table "information_requests", force: :cascade do |t|
+    t.string "file_uid"
+    t.string "court_uid"
+    t.integer "insured_person_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "egov_utils_groups_users", "egov_utils_groups", column: "group_id"
+  add_foreign_key "egov_utils_groups_users", "egov_utils_users", column: "user_id"
+  add_foreign_key "egov_utils_legal_people", "egov_utils_people", column: "person_id"
+  add_foreign_key "egov_utils_natural_people", "egov_utils_addresses", column: "residence_id"
+  add_foreign_key "egov_utils_natural_people", "egov_utils_people", column: "person_id"
+  add_foreign_key "egov_utils_people", "egov_utils_addresses", column: "residence_id"
 end
