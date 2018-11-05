@@ -1,6 +1,6 @@
 module Cssz
   module Requests
-    class VratCelyCiselnik < Request
+    class VratCelyCiselnik < ::Cssz::Request
 
       def service_path
         '/IkreVratCelyCiselnik-v1'

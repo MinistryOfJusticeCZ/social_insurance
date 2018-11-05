@@ -1,7 +1,7 @@
 class SendCsszRequestJob < ApplicationJob
   queue_as :default
 
-  def perform(request_id, **serialized)
+  def perform(request_id, serialized)
     ir = InformationRequest.find(request_id)
     ir.assign_attributes(serialized)
     requests = []

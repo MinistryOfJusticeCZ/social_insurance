@@ -1,6 +1,6 @@
 module Cssz
   module Requests
-    class ZobrazZamestnavatele
+    class ZobrazZamestnavatele < ::Cssz::Request
 
       attr_accessor :person_index
 
