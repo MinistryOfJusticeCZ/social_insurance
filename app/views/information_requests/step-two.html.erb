@@ -81,31 +81,13 @@
             <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
               <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Místo narození</h3>
               </legend>
-              <div class="date-input" id="expiry">
-                <div class="date-input__item">
-                  <div class="form-group">
-                    <label class="label date-input__label" for="expiry-day">
-                      Den
-                    </label>
-                    <input class="form-control date-input__input input--width-2" id="expiry-day" name="expiry-day" type="number" pattern="[0-9]*">
-                  </div>
-                </div>
-                <div class="date-input__item">
-                  <div class="form-group">
-                    <label class="label date-input__label" for="expiry-month">
-                      Měsíc
-                    </label>
-                    <input class="form-control date-input__input input--width-2" id="expiry-month" name="expiry-month" type="number" pattern="[0-9]*">
-                  </div>
-                </div>
-                <div class="date-input__item">
-                  <div class="form-group">
-                    <label class="label date-input__label" for="expiry-year">
-                      Rok
-                    </label>
-                    <input class="form-control date-input__input input--width-4" id="expiry-year" name="expiry-year" type="number" pattern="[0-9]*">
-                  </div>
-                </div>
+              <div class="text-input">
+                 <%= render "czegov_publishing_components/input", {
+                  label: {
+                    text: "Místo narození"
+                  },
+                  name: "birthplace",
+                } %>                
               </div>
             </fieldset>
           </div>

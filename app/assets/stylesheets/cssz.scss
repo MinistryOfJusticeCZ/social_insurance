@@ -27,7 +27,7 @@ p {
 }
 
 .app-related-items {
-  border-top: 10px solid #00549b;
+  border-top: 10px solid $blue;
   margin-top: 1rem;
 
   & h2 {
@@ -49,14 +49,14 @@ p {
   float: none;
   clear: left;
   position: relative;
-  background: #dee0e2;
-  border: 1px solid #dee0e2;
+  background: $white;
+  border: 1px solid $gray-300;
   padding: 18px 30px 15px 45px;
   margin-bottom: 10px;
   cursor: pointer;
 
   &:hover {
-    border-color: #323232;
+    border-color: $black;
   }
 }
 
@@ -68,7 +68,7 @@ p {
 .hint {
   display: block;
   margin-bottom: 15px;
-  color: #6f777b;
+  color: $gray-500;
 }
 
 .date-input__item {
@@ -78,15 +78,11 @@ p {
 }
 
 .input--width-2 {
-  max-width: 6ex;
+  max-width: 5ex;
 }
 
 .input--width-4 {
-  max-width: 8.5ex;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
+  max-width: 6.5ex;
 }
 
 .radios__divider {
@@ -191,11 +187,6 @@ table tbody td {
 .table-summary-action {
   padding-right: 0;
   text-align: right;
-}
-
-::-moz-selection {
-  background: #dee0e2;
-  color: #323232;
 }
 
 .app-c-download-link {
