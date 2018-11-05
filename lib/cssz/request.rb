@@ -31,7 +31,7 @@ module Cssz
     end
 
     def service
-      @service = Service.new
+      @service ||= Service.new
     end
 
     def send

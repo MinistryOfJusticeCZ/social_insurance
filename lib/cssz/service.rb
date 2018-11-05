@@ -13,6 +13,7 @@ module Cssz
     end
 
     def client(request)
+      additional_ns = base_namespaces
       Savon.client(
           wsdl: base_url + request.service_path + '?wsdl',
           endpoint: base_url + request.service_path,
@@ -23,7 +24,7 @@ module Cssz
           ssl_verify_mode: :none,
           convert_request_keys_to: :camelcase
           #, log: true, log_level: :debug, pretty_print_xml: true
-        ) { namespaces base_namespaces }
+        ) { namespaces additional_ns }
     end
 
     def request_payload(request)
@@ -53,7 +54,7 @@ module Cssz
     end
 
     def send_request(request)
-      client(request).call(request.soap_method, body: request_payload)
+      client(request).call(request.soap_method, message: request_payload(request))
     end
 
   end
