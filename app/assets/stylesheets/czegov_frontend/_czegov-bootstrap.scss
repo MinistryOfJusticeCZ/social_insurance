@@ -48,19 +48,18 @@ a {
   border-bottom: 1px solid;
 
   &:hover {
-    background: #F7B400;
-    box-shadow: 0 0 0 4px #F7B400;
+    background: $orange;
+    box-shadow: 0 0 0 4px $orange;
     color: #323232;
-    text-decoration: none;
   }
 
   &:focus {
-    background-color: #F7B400;
+    background-color: $orange;
     color: #323232;
   }
 
   &:visited {
-    color: #936;
+    color: $purple;
   }
 
   &[role=button]:visited,
