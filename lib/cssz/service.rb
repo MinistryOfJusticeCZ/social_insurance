@@ -16,7 +16,7 @@ module Cssz
       Savon.client(
           wsdl: base_url + request.service_path + '?wsdl',
           endpoint: base_url + request.service_path,
-          namespace: service_namespace,
+          namespace: request.service_namespace,
           ssl_cert_file: Cssz::Settings.client_certificate_file,
           ssl_cert_key_file: Cssz::Settings.client_key_file,
           ssl_cert_key_password: Cssz::Settings.client_key_password,
@@ -32,7 +32,7 @@ module Cssz
 
     def request_head(request)
       {
-        "#{MESSAGES_NS_ID}:KodSluzby" => service_code,
+        "#{MESSAGES_NS_ID}:KodSluzby" => request.service_code,
         "#{MESSAGES_NS_ID}:PozadavekInfo" => {
           "#{TYPES_NS_ID}:Cas" => Time.now.iso8601,
           "#{TYPES_NS_ID}:DuvodUcel" => request.reason,
