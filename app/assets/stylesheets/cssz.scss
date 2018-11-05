@@ -78,15 +78,11 @@ p {
 }
 
 .input--width-2 {
-  max-width: 6ex;
+  max-width: 5ex;
 }
 
 .input--width-4 {
-  max-width: 8.5ex;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
+  max-width: 6.5ex;
 }
 
 .radios__divider {
