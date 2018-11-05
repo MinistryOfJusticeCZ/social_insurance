@@ -17,7 +17,7 @@ module Cssz
       end
 
       def soap_method
-        :zobraz_zamestnavatele
+        :ikre_zobraz_zamestnavatele
       end
 
       def request_body
