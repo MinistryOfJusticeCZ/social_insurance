@@ -35,9 +35,10 @@ pre {
   font-size: $code-font-size;
   color: $pre-color;
   padding: 1rem;
-  border: 2px solid $gray-100;
-  max-width: 42rem;
+  margin: 0.5em 0;
+  border: 2px solid $gray-300;
   overflow: auto;
+  background: $white;
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -55,7 +56,7 @@ pre {
     -webkit-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    background: #fff;
+    background: 0 0;
   }
 }
 
@@ -63,4 +64,21 @@ pre {
 .pre-scrollable {
   max-height: $pre-scrollable-max-height;
   overflow-y: scroll;
+}
+
+//add token css
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+  color: slategray;
+}
+
+.token.selector {
+  color: #690;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.token.property {
+  color: #905;
 }
