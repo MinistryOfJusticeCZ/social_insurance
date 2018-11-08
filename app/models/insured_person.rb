@@ -11,4 +11,19 @@ class InsuredPerson
   attribute :birth_number, :string
   attribute :birth_lastname, :string
 
+  def assign_attributes(attrs)
+    birth_date_ks = attrs.keys.select{|k| k.starts_with?('birth_date')}
+    if birth_date_ks.include?('birth_date')
+      birth_date_ks.each{|k| attrs.delete(k) if k != 'birth_date'}
+    elsif birth_date_ks.size >= 3
+      bd = {}
+      birth_date_ks.each do |k|
+        bd[k[-3].to_i] = attrs.delete(k).to_i
+      end
+      attrs['birth_date'] = Date.civil(bd[1], bd[2], bd[3])
+      pp attrs['birth_date']
+    end
+    super(attrs)
+  end
+
 end

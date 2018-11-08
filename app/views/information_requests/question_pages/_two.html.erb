@@ -37,26 +37,26 @@
     <div class="date-input" id="expiry">
       <div class="date-input__item">
         <div class="form-group">
-          <label class="label date-input__label" for="information_request[insured_people_attributes][#{person_number}][birth_date(3i)]">
+          <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(3i)]">
             Den
           </label>
-          <input class="form-control date-input__input input--width-2" id="expiry-day" name="information_request[insured_people_attributes][#{person_number}][birth_date(3i)]" type="number" pattern="[0-9]*">
+          <input class="form-control date-input__input input--width-2" id="expiry-day" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(3i)]" type="number" pattern="[0-9]*">
         </div>
       </div>
       <div class="date-input__item">
         <div class="form-group">
-          <label class="label date-input__label" for="information_request[insured_people_attributes][#{person_number}][birth_date(2i)]">
+          <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(2i)]">
             Měsíc
           </label>
-          <input class="form-control date-input__input input--width-2" id="expiry-month" name="information_request[insured_people_attributes][#{person_number}][birth_date(2i)]" type="number" pattern="[0-9]*">
+          <input class="form-control date-input__input input--width-2" id="expiry-month" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(2i)]" type="number" pattern="[0-9]*">
         </div>
       </div>
       <div class="date-input__item">
         <div class="form-group">
-          <label class="label date-input__label" for="information_request[insured_people_attributes][#{person_number}][birth_date(1i)]">
+          <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(1i)]">
             Rok
           </label>
-          <input class="form-control date-input__input input--width-4" id="expiry-year" name="information_request[insured_people_attributes][#{person_number}][birth_date(1i)]" type="number" pattern="[0-9]*">
+          <input class="form-control date-input__input input--width-4" id="expiry-year" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(1i)]" type="number" pattern="[0-9]*">
         </div>
       </div>
     </div>
