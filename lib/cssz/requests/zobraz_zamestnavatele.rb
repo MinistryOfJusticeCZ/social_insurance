@@ -30,7 +30,12 @@ module Cssz
 
       def convert_boolean(value, default=nil)
         value = default if value.nil?
-        value ? 'A' : 'N'
+        case value
+        when true
+          'A'
+        when false
+          'N'
+        end
       end
 
       def inner_body
