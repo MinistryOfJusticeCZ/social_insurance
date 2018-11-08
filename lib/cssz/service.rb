@@ -3,6 +3,7 @@ module Cssz
 
     MESSAGES_NS_ID = 'ikre'
     TYPES_NS_ID = 'ikreTypes'
+    REQUEST_NS_ID = 'req'
 
     def base_url
       "https://#{Cssz::Settings.cssz_server}/B2B"
@@ -18,6 +19,7 @@ module Cssz
           wsdl: base_url + request.service_path + '?wsdl',
           endpoint: base_url + request.service_path,
           namespace: request.service_namespace,
+          namespace_identifier: REQUEST_NS_ID,
           ssl_cert_file: Cssz::Settings.client_certificate_file,
           ssl_cert_key_file: Cssz::Settings.client_key_file,
           ssl_cert_key_password: Cssz::Settings.client_key_password,

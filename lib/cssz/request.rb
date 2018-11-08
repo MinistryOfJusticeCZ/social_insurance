@@ -46,6 +46,10 @@ module Cssz
       Cssz::Service::TYPES_NS_ID
     end
 
+    def request_ns
+      Cssz::Service::REQUEST_NS_ID
+    end
+
     protected
 
       # Returns definition of interval from an inputed date.
