@@ -28,7 +28,7 @@ module Cssz
         data.insured_people[index]
       end
 
-      def convert_boolean(value, default)
+      def convert_boolean(value, default=nil)
         value = default if value.nil?
         value ? 'A' : 'N'
       end

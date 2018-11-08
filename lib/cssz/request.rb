@@ -67,7 +67,7 @@ module Cssz
           "#{types_ns}:Prijmeni" => person_data.lastname,
           "#{types_ns}:DatumNarozeni" => person_data.birth_date,
           "#{types_ns}:RodneCislo" => person_data.birth_number
-        }.merge( person_data.birth_lastname ? {"#{types_ns}:PrijmeniRodne" => person_data.birth_lastname} : {})
+        }.merge( person_data.birth_lastname.blank? ? {} : {"#{types_ns}:PrijmeniRodne" => person_data.birth_lastname})
       end
 
   end

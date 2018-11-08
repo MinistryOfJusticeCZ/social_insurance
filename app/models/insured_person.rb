@@ -12,6 +12,7 @@ class InsuredPerson
   attribute :birth_lastname, :string
 
   def assign_attributes(attrs)
+    attrs = attrs.stringify_keys
     birth_date_ks = attrs.keys.select{|k| k.starts_with?('birth_date')}
     if birth_date_ks.include?('birth_date')
       birth_date_ks.each{|k| attrs.delete(k) if k != 'birth_date'}

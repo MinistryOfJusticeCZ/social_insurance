@@ -25,8 +25,8 @@ module Cssz
           ssl_cert_key_password: Cssz::Settings.client_key_password,
           ssl_version: :SSLv23,
           ssl_verify_mode: :none,
-          convert_request_keys_to: :camelcase
-          #, log: true, log_level: :debug, pretty_print_xml: true
+          convert_request_keys_to: :camelcase,
+          log: true, log_level: :debug, pretty_print_xml: true
         ) { namespaces additional_ns }
     end
 
