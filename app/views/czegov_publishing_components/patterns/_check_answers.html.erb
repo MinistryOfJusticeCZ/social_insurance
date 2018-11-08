@@ -26,8 +26,6 @@
           <table class="table-summary">
             <caption class="sr-only">Seznam vytvořený odpověďmi skrz průvodce</caption>
             <tbody>
-              <% pp page %>
-              <% pp check_answers.model.insured_people %>
               <% page[:questions].each do |question| %>
               <tr>
                 <th class="table-summary-title" scope="row"><%= question %></th>

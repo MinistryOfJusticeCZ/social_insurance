@@ -21,7 +21,6 @@ class InsuredPerson
         bd[k[-3].to_i] = attrs.delete(k).to_i
       end
       attrs['birth_date'] = Date.civil(bd[1], bd[2], bd[3])
-      pp attrs['birth_date']
     end
     super(attrs)
   end
