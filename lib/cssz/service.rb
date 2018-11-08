@@ -23,7 +23,7 @@ module Cssz
           ssl_cert_file: Cssz::Settings.client_certificate_file,
           ssl_cert_key_file: Cssz::Settings.client_key_file,
           ssl_cert_key_password: Cssz::Settings.client_key_password,
-          ssl_version: :SSLv3,
+          ssl_version: :SSLv23,
           ssl_verify_mode: :none,
           convert_request_keys_to: :camelcase
           #, log: true, log_level: :debug, pretty_print_xml: true
