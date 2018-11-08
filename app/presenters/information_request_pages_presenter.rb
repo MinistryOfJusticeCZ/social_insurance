@@ -20,12 +20,16 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
       title: 'Základní údaje otce požadované osoby',
       questions: insured_person_questions('insured_people-[1]')
     } if both_parents?
-    # p << {path: 'question_pages/three'}
+    p << {
+      path: 'question_pages/three',
+      title: 'Typ a důvod žádosti',
+      questions: ['request_legitimacy_reason']
+    }
     p
   end
 
   def insured_person_questions(prefix='insured_people-[0]')
-    %w{firstname lastname birth_lastname}.map{|q| prefix+'-'+q }
+    %w{firstname lastname birth_lastname birth_date birth_number}.map{|q| prefix+'-'+q }
   end
 
   def both_parents?
