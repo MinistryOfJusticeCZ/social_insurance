@@ -28,22 +28,24 @@ module Cssz
         data.insured_people[index]
       end
 
-      def convert_boolean(value, default=nil)
-        value = default if value.nil?
-        case value
-        when true
-          'A'
-        when false
-          'N'
-        end
-      end
-
       def inner_body
         {
           "#{request_ns}:Pojistenec" => insured_person_details(person_data),
           "#{request_ns}:Obdobi" => interval,
           "#{request_ns}:PouzeOtevreneVztahy" => convert_boolean(data.actual_employments_only, true),
           "#{request_ns}:DuvodOpravnenostiDotazu" => data.request_legitimacy_reason,
+        }
+      end
+
+      def parse_response(soap_response)
+        data = soap_response[:ikre_zobraz_zamestnavatele_odpoved][:odpoved_data]
+        {
+          'employments' => Array.wrap(data[:zamestnani_zamestnavatelem]).collect do |ed|
+            {
+              'employer_name' => ed[:uctarna_zamestnavatele][:nazev],
+              'start' => ed[:zamestnani][:zacatek_vztahu]
+            }
+          end
         }
       end
 

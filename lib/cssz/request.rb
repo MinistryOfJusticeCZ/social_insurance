@@ -21,6 +21,10 @@ module Cssz
     def soap_method
       :dummy
     end
+
+    def parse_response(soap_response)
+
+    end
     # ---- end override ----
 
     attr_reader :data, :reason, :reason_description
@@ -35,11 +39,11 @@ module Cssz
     end
 
     def send
-      @response = service.send_request(self)
+      @soap_response = service.send_request(self)
     end
 
     def response
-      @response
+      @response ||= parse_response(@soap_response)
     end
 
     def types_ns
@@ -51,6 +55,17 @@ module Cssz
     end
 
     protected
+
+      # Converts boolean to the soap Asseco representation
+      def convert_boolean(value, default=nil)
+        value = default if value.nil?
+        case value
+        when true
+          'A'
+        when false
+          'N'
+        end
+      end
 
       # Returns definition of interval from an inputed date.
       # If there was no date on input, it takes today as a date.
