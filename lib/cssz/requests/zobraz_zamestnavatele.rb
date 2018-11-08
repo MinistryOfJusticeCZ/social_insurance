@@ -28,11 +28,16 @@ module Cssz
         data.insured_people[index]
       end
 
+      def convert_boolean(value, default)
+        value = default if value.nil?
+        value ? 'A' : 'N'
+      end
+
       def inner_body
         {
           "#{request_ns}:Pojistenec" => insured_person_details(person_data),
           "#{request_ns}:Obdobi" => interval,
-          "#{request_ns}:PouzeOtevreneVztahy" => data.actual_employments_only || true,
+          "#{request_ns}:PouzeOtevreneVztahy" => convert_boolean(data.actual_employments_only, true),
           "#{request_ns}:DuvodOpravnenostiDotazu" => data.request_legitimacy_reason,
         }
       end
