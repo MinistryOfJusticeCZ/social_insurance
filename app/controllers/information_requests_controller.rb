@@ -27,9 +27,9 @@ class InformationRequestsController < ApplicationController
       @pages.next_page! if @pages.current_valid?
       render 'new'
     else
-      session.delete(:information_request)
+      attrs = session.delete(:information_request)
       @information_request.save
-      SendCsszRequestJob.perform_later(@information_request.id, @information_request.request_data.serialize)
+      SendCsszRequestJob.perform_later(@information_request.id, attrs)
       redirect_to @information_request
     end
   end

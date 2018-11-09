@@ -3,6 +3,7 @@ module Cssz
 
     MESSAGES_NS_ID = 'ikre'
     TYPES_NS_ID = 'ikreTypes'
+    REQUEST_NS_ID = 'req'
 
     def base_url
       "https://#{Cssz::Settings.cssz_server}/B2B"
@@ -13,17 +14,20 @@ module Cssz
     end
 
     def client(request)
+      additional_ns = base_namespaces
       Savon.client(
           wsdl: base_url + request.service_path + '?wsdl',
           endpoint: base_url + request.service_path,
-          namespace: service_namespace,
+          namespace: request.service_namespace,
+          namespace_identifier: REQUEST_NS_ID,
           ssl_cert_file: Cssz::Settings.client_certificate_file,
           ssl_cert_key_file: Cssz::Settings.client_key_file,
           ssl_cert_key_password: Cssz::Settings.client_key_password,
+          ssl_version: :SSLv23,
           ssl_verify_mode: :none,
-          convert_request_keys_to: :camelcase
-          #, log: true, log_level: :debug, pretty_print_xml: true
-        ) { namespaces base_namespaces }
+          convert_request_keys_to: :camelcase,
+          log: true, log_level: :debug, pretty_print_xml: true
+        ) { namespaces additional_ns }
     end
 
     def request_payload(request)
@@ -32,7 +36,7 @@ module Cssz
 
     def request_head(request)
       {
-        "#{MESSAGES_NS_ID}:KodSluzby" => service_code,
+        "#{MESSAGES_NS_ID}:KodSluzby" => request.service_code,
         "#{MESSAGES_NS_ID}:PozadavekInfo" => {
           "#{TYPES_NS_ID}:Cas" => Time.now.iso8601,
           "#{TYPES_NS_ID}:DuvodUcel" => request.reason,
@@ -53,7 +57,7 @@ module Cssz
     end
 
     def send_request(request)
-      client(request).call(request.soap_method, body: request_payload)
+      client(request).call(request.soap_method, message: request_payload(request))
     end
 
   end

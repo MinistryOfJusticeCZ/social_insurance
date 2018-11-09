@@ -4,6 +4,8 @@ class InformationRequest < ApplicationRecord
 
   delegate  'on_day', 'on_day=',
             'insured_people', 'insured_people_attributes=',
+            'actual_employments_only', 'actual_employments_only=',
+            'request_legitimacy_reason', 'request_legitimacy_reason=',
             to: :request_data
 
   def request_data

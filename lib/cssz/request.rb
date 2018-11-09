@@ -21,6 +21,10 @@ module Cssz
     def soap_method
       :dummy
     end
+
+    def parse_response(soap_response)
+
+    end
     # ---- end override ----
 
     attr_reader :data, :reason, :reason_description
@@ -31,22 +35,37 @@ module Cssz
     end
 
     def service
-      @service = Service.new
+      @service ||= Service.new
     end
 
     def send
-      @response = service.send_request(self)
+      @soap_response = service.send_request(self)
     end
 
     def response
-      @response
+      @response ||= parse_response(@soap_response)
     end
 
     def types_ns
       Cssz::Service::TYPES_NS_ID
     end
 
+    def request_ns
+      Cssz::Service::REQUEST_NS_ID
+    end
+
     protected
+
+      # Converts boolean to the soap Asseco representation
+      def convert_boolean(value, default=nil)
+        value = default if value.nil?
+        case value
+        when true
+          'A'
+        when false
+          'N'
+        end
+      end
 
       # Returns definition of interval from an inputed date.
       # If there was no date on input, it takes today as a date.
@@ -63,7 +82,7 @@ module Cssz
           "#{types_ns}:Prijmeni" => person_data.lastname,
           "#{types_ns}:DatumNarozeni" => person_data.birth_date,
           "#{types_ns}:RodneCislo" => person_data.birth_number
-        }.merge( person_data.birth_lastname ? {"#{types_ns}:PrijmeniRodne" => person_data.birth_lastname} : {})
+        }.merge( person_data.birth_lastname.blank? ? {} : {"#{types_ns}:PrijmeniRodne" => person_data.birth_lastname})
       end
 
   end
