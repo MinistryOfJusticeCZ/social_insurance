@@ -24,7 +24,7 @@
 
         <% if File.exists?(@information_request.file_path) %>
         <p class="body">
-          <a class="app-c-download-link" href="<%= url_for(@information_request, format: 'pdf', only_path: true) %>">
+          <a class="app-c-download-link" href="<%= information_request_path(@information_request, format: 'pdf') %>">
             <svg class="app-c-download-link__icon" aria-hidden="true" viewBox="0 0 25 25" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
               <g>
                 <path d="M23 5h2v20H5v-2h18V5z"></path>
