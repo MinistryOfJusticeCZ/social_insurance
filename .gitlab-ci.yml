@@ -25,7 +25,6 @@ test:2.3:
     - export BUNDLE_GEMFILE="Gemfile_devel"
     - git config --global http.sslVerify false
   cache:
-    untracked: true
     key: "$CI_BUILD_REF_NAME"
     paths:
       - cache/bundler/

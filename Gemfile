@@ -65,6 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'egov_utils', '~> 0.4'
 gem 'sidekiq', '~> 5.0'
 gem 'savon', '~> 2.11'
+gem 'httparty', '~> 0.16'
 
 group :development, :test do
   gem 'rspec-rails'
