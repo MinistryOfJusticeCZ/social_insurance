@@ -10,8 +10,8 @@
 .custom-control {
   position: relative;
   display: block;
-  min-height: 28px;
-  padding: 0 0 0 28px;
+  min-height: 30px;
+  padding: 0 0 0 30px;
   margin-bottom: 10px;
   clear: left;
 }
@@ -23,19 +23,19 @@
 
 .custom-control-input {
   position: absolute;
-  z-index: -1; // Put the input behind the label so it doesn't overlay text
+  z-index: 1;
   top: 0;
   left: 0;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   margin: 0;
   opacity: 0;
 
   &:checked ~ .custom-control-label::before {
-    color: $custom-control-indicator-checked-color;
-    @include gradient-bg($custom-control-indicator-checked-bg);
-    @include box-shadow($custom-control-indicator-checked-box-shadow);
+    // color: $custom-control-indicator-checked-color;
+    // @include gradient-bg($custom-control-indicator-checked-bg);
+    // @include box-shadow($custom-control-indicator-checked-box-shadow);
   }
 
   &:focus ~ .custom-control-label::before {
@@ -83,8 +83,8 @@
     top: 8px;
     left: 0;
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     pointer-events: none;
     content: "";
     user-select: none;
@@ -115,14 +115,35 @@
 .custom-checkbox {
   .custom-control-label::before {
     @include border-radius($custom-checkbox-indicator-border-radius);
+    border: 2px solid currentColor;
+    background: transparent;
+  }
+
+  .custom-control-label::after {
+    top: 11px;
+    left: 9px;
+    width: 18px;
+    height: 7px;
+    transform: rotate(-45deg);
+    border: solid;
+        border-top-color: currentcolor;
+        border-top-width: medium;
+        border-right-width: medium;
+        border-bottom-width: medium;
+        border-left-width: medium;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::before {
-      @include gradient-bg($custom-control-indicator-checked-bg);
+      //@include gradient-bg($custom-control-indicator-checked-bg);
     }
     &::after {
-      background-image: $custom-checkbox-indicator-icon-checked;
+      opacity: 1;
+      //background-image: $custom-checkbox-indicator-icon-checked;
     }
   }
 
@@ -132,7 +153,7 @@
       @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
     }
     &::after {
-      background-image: $custom-checkbox-indicator-icon-indeterminate;
+      //background-image: $custom-checkbox-indicator-icon-indeterminate;
     }
   }
 
@@ -153,20 +174,43 @@
 .custom-radio {
   .custom-control-label::before {
     border-radius: $custom-radio-indicator-border-radius;
+    border: 2px solid currentColor;
+    background: $white;
+  }
+
+  .custom-control-label::after {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 17px;
+    width: 0;
+    height: 0;
+    border: 8px solid currentColor;
+    border-radius: $custom-radio-indicator-border-radius;
+    opacity: 0;
+    background: currentColor;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-repeat: repeat;
+        background-size: auto auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::before {
-      @include gradient-bg($custom-control-indicator-checked-bg);
+      //@include gradient-bg($custom-control-indicator-checked-bg);
     }
     &::after {
-      background-image: $custom-radio-indicator-icon-checked;
+      //background-image: $custom-radio-indicator-icon-checked;
+      opacity: 1;
     }
   }
 
   .custom-control-input:disabled {
     &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
+      //background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
 }
