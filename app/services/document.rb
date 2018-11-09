@@ -17,7 +17,7 @@ class Document
     {
       "person" => {
         request.data.person_data.firstname,
-        request.data.person_data.lastname,
+        request.data.person_data.lastname
       },
       'employments' => request.response['employments']
     }
