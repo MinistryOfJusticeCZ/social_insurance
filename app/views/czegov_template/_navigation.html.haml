@@ -4,7 +4,7 @@
   .container
     = link_to '/', class: 'navbar-brand mr-0 mr-md-2', title: t(:title_goto_homepage), 'aria-label' => "Justice.cz - #{t(:app_name)}" do
       .navbar-brand__logo
-        = image_tag(logo, "role" => "presentation", "focusable" => "false", "viewbox" => "0 0 132 97", "36" => "false", "height" => "42") if logo
+        = render 'czegov_template/govcz_logotype', 'role' => 'presentation', 'focusable' => 'false'
       .navbar-brand__name
         %div Justice.cz
         %div= t(:app_name)
@@ -13,7 +13,7 @@
       /%ul.nav.navbar-nav.mr-auto.main-menu
       /   %li.nav-item.main-item= link_to t(:app_abbrev), '/', class: 'nav-link'
       -# render_navigation(context: :main)
-      %ul.nav.navbar-nav
+      %ul.nav.navbar-nav.ml-auto
         - if can?(:manage, EgovUtils::User)
           %li.nav-item.dropdown
             = link_to 'javascript:void(0)', id: 'navbarAdminDropdownLink', class: 'nav-link dropdown-toggle', aria: {haspopup: true}, data: {toggle: 'dropdown'} do
