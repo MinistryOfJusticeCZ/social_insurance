@@ -14,8 +14,9 @@ class SendCsszRequestJob < ApplicationJob
 
     requests.each do |r|
       file = ir.file_path(r.person_index)
+      f_content = Document.new(r).cssz_response({})
       File.open(file, 'w') do |f|
-        f.write(Document.new(r).cssz_response({}))
+        f.write(Base64.decode64(f_content).force_encoding('UTF-8'))
       end
     end
   end
