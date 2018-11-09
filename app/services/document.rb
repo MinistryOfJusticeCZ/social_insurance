@@ -16,8 +16,8 @@ class Document
   def context_data
     {
       "person" => {
-        request.data.person_data.firstname,
-        request.data.person_data.lastname
+        'firstname' => request.person_data.firstname,
+        'lastname' => request.person_data.lastname
       },
       'employments' => request.response['employments']
     }
