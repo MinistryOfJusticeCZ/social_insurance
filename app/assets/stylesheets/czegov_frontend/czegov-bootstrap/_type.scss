@@ -5,7 +5,7 @@
 //
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.heading-xl, .heading-l, .heading-m, .heading-s, .heading-xs, .h6 {
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
@@ -14,19 +14,18 @@ h1, h2, h3, h4, h5, h6,
 }
 
 //check _variables.scss for font-sizes
-h1, .h1 { font-size: $h1-font-size-sm; }
-h2, .h2 { font-size: $h2-font-size-sm; }
-h3, .h3 { font-size: $h3-font-size-sm; }
-h4, .h4 { font-size: $h4-font-size-sm; }  
+h1, .heading-xl { font-size: $h1-font-size-sm; }
+h2, .heading-l { font-size: $h2-font-size-sm; }
+h3, .heading-m { font-size: $h3-font-size-sm; }
+h4, .heading-s { font-size: $h4-font-size-sm; }  
 
 //adds
 @media (min-width: 641px) {
-  h1, .h1 { font-size: $h1-font-size; }
-  h2, .h2 { font-size: $h2-font-size; }
-  h3, .h3 { font-size: $h3-font-size; }
-  h4, .h4 { font-size: $h4-font-size; }
-  h5, .h5 { font-size: $h5-font-size; }
-  h6, .h6 { font-size: $h6-font-size; }
+  h1, .heading-xl { font-size: $h1-font-size; }
+  h2, .heading-l { font-size: $h2-font-size; }
+  h3, .heading-m { font-size: $h3-font-size; }
+  h4, .heading-s { font-size: $h4-font-size; }
+  h5, .heading-xs { font-size: $h5-font-size; }
 }
 
 .lead {

@@ -39,7 +39,7 @@ module CzegovPublishingComponents
     private
 
       def css_classes
-        classes = %w(btn btn-success)
+        classes = %w(btn)
         classes << "btn--start btn-lg" if start
         classes << "gem-c-button--secondary" if secondary
         classes << "gem-c-button--secondary-quiet" if secondary_quiet

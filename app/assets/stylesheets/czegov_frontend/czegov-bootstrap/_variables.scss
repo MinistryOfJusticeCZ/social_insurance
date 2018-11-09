@@ -351,6 +351,9 @@ $table-striped-order:         odd !default;
 
 $table-caption-color:         $black !default;
 
+$table-bg-level:              -9 !default;
+$table-border-level:          -6 !default;
+
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
@@ -986,5 +989,5 @@ $pre-scrollable-max-height:         340px !default;
 
 
 // Printing
-$print-page-size:                   a3 !default;
-$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+$print-page-size:                   auto !default;
+$print-body-min-width:              500px !default; //was map-get($grid-breakpoints, "lg"), see https://github.com/twbs/bootstrap/issues/27576

@@ -41,6 +41,9 @@
   &:focus ~ .custom-control-label::before {
     // the mixin is not used here to make sure there is feedback
     box-shadow: $custom-control-indicator-focus-box-shadow;
+    outline: 3px solid transparent;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px $orange;
   }
 
   &:active ~ .custom-control-label::before {

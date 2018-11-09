@@ -6,12 +6,17 @@
 
 .btn {
   display: inline-block;
+  position: relative;
   font-weight: $btn-font-weight;
   text-align: center;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: top;
   user-select: none;
   border: $btn-border-width solid transparent;
+
+  color: $white;
+  background-color: $green;
+
   @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
@@ -48,6 +53,18 @@
       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
     }
   }
+}
+
+//add, due to high contrast mode on Windows
+.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -4px;
+  left: -2px;
+  background: transparent;
 }
 
 // Future-proof disabling of clicks on `<a>` elements
