@@ -19,4 +19,8 @@ class InformationRequest < ApplicationRecord
   def reason_description
     'Reason longer description'
   end
+
+  def file_path(person_index = 0)
+    Rails.root.join('storage', "#{id}-#{person_index}.pdf")
+  end
 end

@@ -10,7 +10,11 @@ class InformationRequestsController < ApplicationController
   end
 
   def show
-
+    @information_request = InformationRequest.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf{ send_file @information_request.file_path }
+    end
   end
 
   def new

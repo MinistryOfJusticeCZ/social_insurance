@@ -13,7 +13,7 @@ class SendCsszRequestJob < ApplicationJob
     end
 
     requests.each do |r|
-      file = Rails.root.join('storage', "#{request_id}-#{r.person_index}.pdf")
+      file = ir.file_path(r.person_index)
       File.open(file, 'w') do |f|
         f.write(Document.new(r).cssz_response({}))
       end
