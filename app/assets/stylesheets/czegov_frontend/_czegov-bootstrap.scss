@@ -62,10 +62,16 @@ a {
     color: $purple;
   }
 
+  &[role=button]:hover {
+    color: $white;
+    background-color: $green;
+    text-decoration: underline;
+  }
+
   &[role=button]:visited,
   &[type=button]:visited,
   &.btn:visited {
-    color: #fff;
+    color: $white;
   }
 }
 
