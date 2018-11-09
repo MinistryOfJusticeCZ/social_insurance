@@ -38,7 +38,7 @@ module Cssz
       end
 
       def parse_response(soap_response)
-        data = soap_response[:ikre_zobraz_zamestnavatele_odpoved][:odpoved_data]
+        data = soap_response.body[:ikre_zobraz_zamestnavatele_odpoved][:odpoved_data]
         {
           'employments' => Array.wrap(data[:zamestnani_zamestnavatelem]).collect do |ed|
             {
