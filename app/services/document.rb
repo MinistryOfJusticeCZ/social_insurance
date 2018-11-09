@@ -15,12 +15,11 @@ class Document
 
   def context_data
     {
-      "person"=> {
+      "person" => {
         request.data.person_data.firstname,
         request.data.person_data.lastname,
       },
       'employments' => request.response['employments']
-      }
     }
   end
 
