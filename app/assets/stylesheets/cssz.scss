@@ -114,80 +114,80 @@ p {
   }
 }
 
-caption,
-tbody,
-tr,
-th,
-td {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
+// caption,
+// tbody,
+// tr,
+// th,
+// td {
+//   border: none;
+//   margin: 0;
+//   padding: 0;
+// }
 
-table,
-caption,
-tbody,
-tr,
-th,
-td {
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-  font-weight: normal;
-}
+// table,
+// caption,
+// tbody,
+// tr,
+// th,
+// td {
+//   font-size: inherit;
+//   font-family: inherit;
+//   line-height: inherit;
+//   font-weight: normal;
+// }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-}
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+//   width: 100%;
+// }
 
-table th,
-table td {
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
-  padding: .75em 1.25em .5625em 0;
-  text-align: left;
-  border-bottom: 1px solid #bfc1c3;
-}
+// table th,
+// table td {
+//   font-size: 16px;
+//   line-height: 1.25;
+//   font-weight: 400;
+//   text-transform: none;
+//   padding: .75em 1.25em .5625em 0;
+//   text-align: left;
+//   border-bottom: 1px solid #bfc1c3;
+// }
 
-@media (max-width: 640px) {
-  table th,
-  table td {
-    font-size: 14px;
-    line-height: 1.14286;
-  }
-}
-table th {
-  font-weight: 700;
-}
+// @media (max-width: 640px) {
+//   table th,
+//   table td {
+//     font-size: 14px;
+//     line-height: 1.14286;
+//   }
+// }
+// table th {
+//   font-weight: 700;
+// }
 
-table {
-  margin-bottom: 2.10526em;
-}
+// table {
+//   margin-bottom: 2.10526em;
+// }
 
-table tbody th,
-table tbody td {
-  font-weight: 400;
-  vertical-align: top;
-}
+// table tbody th,
+// table tbody td {
+//   font-weight: 400;
+//   vertical-align: top;
+// }
 
-.table-summary tr:first-child th,
-.table-summary tr:first-child td {
-  border-top: 1px solid #bfc1c3;
-}
+// .table-summary tr:first-child th,
+// .table-summary tr:first-child td {
+//   border-top: 1px solid #bfc1c3;
+// }
 
-.table-summary-title {
-  font-weight: 700;
-  width: 45%;
-}
+// .table-summary-title {
+//   font-weight: 700;
+//   width: 45%;
+// }
 
-.table-summary-action {
-  padding-right: 0;
-  text-align: right;
-}
+// .table-summary-action {
+//   padding-right: 0;
+//   text-align: right;
+// }
 
 .app-c-download-link {
   display: inline-block;

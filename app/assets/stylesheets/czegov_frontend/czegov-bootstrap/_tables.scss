@@ -2,29 +2,41 @@
 // Basic Bootstrap table
 //
 
-.table {
+table {
   width: 100%;
   margin-bottom: $spacer;
-  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  background-color: $white;
+  //background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  position: relative;
+  border: 1em solid #fff;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 40px 0;
 
   th,
   td {
     padding: $table-cell-padding;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
+    text-align: left;
+    text-transform: none;
   }
 
-  thead th {
-    vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  td {
+    border-bottom: $table-border-width solid $table-border-color;
   }
 
-  tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
+  td:hover {
+    background-color: #fffbce;
   }
 
-  .table {
-    background-color: $body-bg;
+  th {
+    border-bottom: 2px solid #768692;
+    font-weight: 600;
+  }
+
+  th:hover {
+    background-color: #fffbce;
   }
 }
 
