@@ -3,9 +3,9 @@ purposes:
   - získání údajů o pojištěnci
 description:
   - Žádostí budete postupně provedeni. Před odesláním budete mít možnost vyplněné údaje změnit.
-  - Vyplnění formuláře trvá okolo 3 minut.
+  - Výsledkem bude službou vytvořený PDF formulář.
 prerequisities:
   - datum a místo narození požadované osoby
-  - v případě nezletilosti požadované osoby, znáte datum a místo narození rodičů nebo rodiče
+  - v případě nezletilosti požadované osoby, znáte datum a místo narození obou rodičů nebo rodiče
 contacts:
   helpdesk: helpdesk@msp.justice.cz

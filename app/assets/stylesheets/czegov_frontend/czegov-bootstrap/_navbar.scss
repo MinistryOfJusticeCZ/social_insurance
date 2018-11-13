@@ -269,9 +269,6 @@
 
       @include hover-focus {
         color: $navbar-dark-hover-color;
-
-        //adds
-        border-bottom: 2px solid currentColor;
       }
 
       &.disabled {
