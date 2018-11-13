@@ -10,6 +10,7 @@ class InsuredPerson
   attribute :birth_date, :date
   attribute :birth_number, :string
   attribute :birth_lastname, :string
+  attribute :birth_place, :string
 
   def assign_attributes(attrs)
     attrs = attrs.stringify_keys

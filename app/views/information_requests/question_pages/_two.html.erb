@@ -5,23 +5,23 @@
 
     <%= render "czegov_publishing_components/components/input", {
       label: {
-        text: "Jméno"
+        text: page[:questions][0][:label]
       },
-      name: "information_request[insured_people_attributes][#{person_number}][firstname]",
+      name: "information_request[insured_people_attributes][#{person_number}][firstname]"
     } %>
 
     <%= render "czegov_publishing_components/components/input", {
       label: {
-        text: "Příjmení"
+        text: page[:questions][1][:label]
       },
-      name: "information_request[insured_people_attributes][#{person_number}][lastname]",
+      name: "information_request[insured_people_attributes][#{person_number}][lastname]"
     } %>
 
     <%= render "czegov_publishing_components/components/input", {
       label: {
-        text: "Rodné příjmení (nepovinné)"
+        text: page[:questions][2][:label]
       },
-      name: "information_request[insured_people_attributes][#{person_number}][birth_lastname]",
+      name: "information_request[insured_people_attributes][#{person_number}][birth_lastname]"
     } %>
 
   </fieldset>
@@ -29,7 +29,7 @@
 
 <div class="form-group">
   <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
-    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Datum narození</h3>
+    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0"><%= page[:questions][3][:label] %></h3>
     </legend>
     <span id="expiry-hint" class="hint">
       Například, 31 3 1980
@@ -65,14 +65,14 @@
 
 <div class="form-group">
   <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
-    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Rodné číslo</h3>
+    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0"><%= page[:questions][4][:label] %></h3>
     </legend>
     <div class="text-input">
       <%= render "czegov_publishing_components/input", {
         label: {
-          text: "Rodné číslo"
+          text: page[:questions][4][:label]
         },
-        name: "information_request[insured_people_attributes][#{person_number}][birth_number]",
+        name: "information_request[insured_people_attributes][#{person_number}][birth_number]"
       } %>
     </div>
   </fieldset>
@@ -80,14 +80,14 @@
 
 <div class="form-group">
   <fieldset class="fieldset" aria-describedby="expiry-hint" role="group">
-    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0">Místo narození</h3>
+    <legend class="fieldset__legend fieldset__legend--m"><h3 class="mb-0"><%= page[:questions][5][:label] %></h3>
     </legend>
     <div class="text-input">
       <%= render "czegov_publishing_components/input", {
         label: {
-          text: "Místo narození"
+          text: page[:questions][5][:label]
         },
-        name: "birthplace",
+        name: "information_request[insured_people_attributes][#{person_number}][birth_place]"
       } %>
     </div>
   </fieldset>

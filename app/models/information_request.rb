@@ -6,6 +6,7 @@ class InformationRequest < ApplicationRecord
             'insured_people', 'insured_people_attributes=',
             'actual_employments_only', 'actual_employments_only=',
             'request_legitimacy_reason', 'request_legitimacy_reason=',
+            'request_employments', 'request_employments=',
             to: :request_data
 
   def request_data

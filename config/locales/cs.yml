@@ -4,3 +4,47 @@ cs:
 
 # czegov translations
   title_goto_homepage: Přejít na domovskou stránku
+
+  models: &my_models
+    information_request: Žádost o informace ČSSZ
+    insured_person: Pojištěnec
+
+  model_attributes: &my_attributes
+    information_request:
+      request_legitimacy_reason: Jaký je důvod žádosti?
+      insured_person_type: O kom informace požadujete?
+      insured_person_types:
+        individual: Jedinec (požadovaná osoba musí být zletilá)
+        mother: Matka požadované osoby
+        father: Otec požadované osoby
+        parents: Matka i otec zároveň
+    insured_person:
+      firstname: Křestní jméno
+      lastname: Příjmení
+      birth_lastname: Rodné příjmení
+      birth_date: Datum narození
+      birth_number: Rodné číslo
+      birth_place: Místo narození
+
+  # helpers:
+  #   action:
+  #     appeal:
+  #       new: Nová žádost
+  #     redemption:
+  #       new: Nová vybraná částka
+  #   label:
+  #     <<: *my_labels
+  #   submit:
+  #     state_budget_item:
+  #       create: Převést do státního rozpočtu
+
+  activerecord:
+    models:
+      <<: *my_models
+    attributes:
+      <<: *my_attributes
+    # help:
+    #   <<: *my_help_messages
+    # errors:
+    #   models:
+    #     <<: *my_model_errors

@@ -1,17 +1,8 @@
 <div class="form-group">
-  <%= render "czegov_publishing_components/components/input", {
-    label: {
-      text: "Oprávněnost dotazu"
-    },
-    name: "information_request[request_legitimacy_reason]",
-  } %>
 
   <fieldset class="fieldset">
     <legend class="fieldset__legend fieldset__legend--xl">
-      <%= render "czegov_publishing_components/components/title", {
-        title: "Jaký je důvod žádosti?",
-        margin_bottom: 4
-      } %>
+      <%= page[:title] %>
     </legend>
     <p>Můžete zvolit i více položek.</p>
 
@@ -21,38 +12,6 @@
 
     <div class="checkboxes">
       <div class="custom-control custom-checkbox">
-        <%= render "czegov_publishing_components/components/checkboxes", {
-          name: "reason-for-information",
-          heading: "Jaké informace požadujete?",
-          hint_text: "Vyberte všechny možnosti, které jsou pro vás podstatné.",
-          items: [
-            {
-              label: "Prochází evidencí ČSSZ???",
-              value: "why-reason-for-information-1",
-              conditional: "including English, Scottish, Welsh and Northern Irish"
-            },
-            {
-              label: "Aktuální kontaktní adresu či jiné kontaktní údaje",
-              value: "why-reason-for-information-2"
-            },
-            {
-              label: "Pobírá důchod &ndash; od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán",
-              value: "why-reason-for-information-3"
-            },
-            {
-              label: "Pobírá dávky &ndash; které a od kdy, jakým způsobem a na jakou adresu jsou zasílány",
-              value: "why-reason-for-information-4"
-            },
-            {
-              label: "Pracovní neschopnost &ndash; doba trvání pracovní neschopnosti, jakou uvádí adresu, na které se zdržuje v době pracovní neschopnosti",
-              value: "why-reason-for-information-5"
-            },
-            {
-              label: "V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem",
-              value: "why-reason-for-information-6"
-            }
-          ]
-        } %>
 
         <input class="custom-control-input" id="why-reason-for-information-1" name="why-reason-for-information" type="checkbox" value="pension">
         <label class="label custom-control-label" for="why-reason-for-information-1">
@@ -141,8 +100,8 @@
       </div>
 
       <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="why-reason-for-information-6" name="why-reason-for-information" type="checkbox" value="keep-as-employee">
-        <label class="label custom-control-label" for="why-reason-for-information-6">
+        <input class="custom-control-input" id="request_types-6" name="information_request[request_employments]" type="checkbox" value="1">
+        <label class="label custom-control-label" for="request_types-6">
           V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem
         </label>
       </div>

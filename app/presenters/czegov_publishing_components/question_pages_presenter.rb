@@ -1,6 +1,26 @@
 module CzegovPublishingComponents
   class QuestionPagesPresenter
 
+    class Question
+      def initialize(model, question)
+        @model = model
+        case question
+        when Hash
+          @name, @label = question[:name], question[:label]
+        else String
+          @name = question
+        end
+      end
+
+      def name
+        @name
+      end
+
+      def label
+        @label || @model.class.human_attribute_name(name)
+      end
+    end
+
     attr_accessor :model, :page_number, :options, :confirmed
 
     def initialize(model, **options)
@@ -40,6 +60,10 @@ module CzegovPublishingComponents
 
     def current_page
       page(page_number)
+    end
+
+    def questions(page_number)
+      page(page_number)[:questions].collect{|q| Question.new(model, q) }
     end
 
     def page_partial_path(page_number=self.page_number)

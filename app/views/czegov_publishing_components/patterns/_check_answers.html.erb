@@ -26,11 +26,11 @@
           <table class="table-summary">
             <caption class="sr-only">Seznam vytvořený odpověďmi skrz průvodce</caption>
             <tbody>
-              <% page[:questions].each do |question| %>
+              <% check_answers.questions(pidx + 1).each do |question| %>
               <tr>
-                <th class="table-summary-title" scope="row"><%= question %></th>
+                <th class="table-summary-title" scope="row"><%= question.label %></th>
                 <td class="table-summary-content">
-                  <%= check_answers.answer(question) %>
+                  <%= check_answers.answer(question.name) %>
                 </td>
                 <td class="table-summary-action">
                   <a href="<%= question_pages_page_path(check_answers, pidx+1) %>">

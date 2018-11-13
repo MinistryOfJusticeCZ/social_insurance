@@ -22,14 +22,21 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
     } if both_parents?
     p << {
       path: 'question_pages/three',
-      title: 'Typ a důvod žádosti',
+      title: 'Jaké informace žádáte?',
+      questions: ['request_employments']
+    }
+    p << {
+      path: 'question_pages/four',
+      title: 'Jaký je důvod vaší žádosti?',
       questions: ['request_legitimacy_reason']
     }
     p
   end
 
   def insured_person_questions(prefix='insured_people-[0]')
-    %w{firstname lastname birth_lastname birth_date birth_number}.map{|q| prefix+'-'+q }
+    %w{firstname lastname birth_lastname birth_date birth_number birth_place}.map do |q|
+      {name: prefix+'-'+q, label: I18n.t('model_attributes.insured_person.'+q)}
+    end
   end
 
   def both_parents?

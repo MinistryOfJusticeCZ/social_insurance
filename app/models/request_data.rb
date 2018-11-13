@@ -8,6 +8,7 @@ class RequestData
   attribute :on_day, :date
   attribute :actual_employments_only, :boolean #only actual employments
   attribute :request_legitimacy_reason, :string
+  attribute :request_employments, :boolean
 
   def insured_people
     @insured_people ||= []
