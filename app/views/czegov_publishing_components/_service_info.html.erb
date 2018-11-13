@@ -25,15 +25,36 @@
         rel: "external"
       } %>
 
-      <h2 class="heading-m">Než začnete</h2>
+      <p class="small">Vyplnění tohoto formuláře bude trvat okolo 3 minut.</p>
 
-      <p class="body">Ujistěte se, že znáte:</p>
-
-      <ul class="list list--bullet">
-        <% info.prerequisities.each do |prereq| %>
-        <li><%= prereq %></li>
-        <% end %>
+      <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="before-start-tab" data-toggle="tab" href="#before-start" role="tab" aria-controls="before-start" aria-selected="true" tabindex="0">Než začnete</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="must-know-tab" data-toggle="tab" href="#must-know" role="tab" aria-controls="must-know" aria-selected="false" tabindex="-1">Co dál musíte vědět</a>
+        </li>
       </ul>
+      <div class="tab-content  pt-3" id="TabContent">
+        <section class="tab-pane show active" id="before-start" role="tabpanel" aria-labelledby="before-start-tab">
+          <h2 class="heading-m">Než začnete</h2>
+
+          <ul class="list list--bullet">
+            <li>K použití služby musíte být přihlášeni, <a href="/internals/login">přihlásit se</a></li>
+            <li>Pokud byl formulář vytvořen, můžete si ho <a href="">znovu stáhnout</a></li>
+          </ul>
+        </section>
+        <section class="tab-pane" id="must-know" role="tabpanel" aria-labelledby="must-know-tab">
+          <h2 class="heading-m">Co dál musíte vědět</h2>
+          <p class="body">Ujistěte se, že znáte:</p>
+
+          <ul class="list list--bullet">
+            <% info.prerequisities.each do |prereq| %>
+            <li><%= prereq %></li>
+            <% end %>
+          </ul>
+        </section>
+      </div>
     </div>
 
     <div class="col-lg-3 offset-lg-1">
