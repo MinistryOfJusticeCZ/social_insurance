@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6,
 h1, .heading-xl { font-size: $h1-font-size-sm; }
 h2, .heading-l { font-size: $h2-font-size-sm; }
 h3, .heading-m { font-size: $h3-font-size-sm; }
-h4, .heading-s { font-size: $h4-font-size-sm; }  
+h4, .heading-s { font-size: $h4-font-size-sm; } 
 
 //adds
 @media (min-width: 641px) {
@@ -28,9 +28,30 @@ h4, .heading-s { font-size: $h4-font-size-sm; }
   h5, .heading-xs { font-size: $h5-font-size; }
 }
 
+
+// move this to conditionals.css
+p, ul, li, ol {
+  font-size: 16px;
+} 
+
+//adds
+@media (min-width: 641px) {
+  p, ul, li, ol {
+    font-size: inherit;
+  }
+}
+//-------------------------------------
+
 .lead {
-  font-size: $lead-font-size;
+  font-size: 16px;
   font-weight: $lead-font-weight;
+}
+
+//adds
+@media (min-width: 641px) {
+  .lead {
+    font-size: $lead-font-size;
+  }
 }
 
 // Type display classes
