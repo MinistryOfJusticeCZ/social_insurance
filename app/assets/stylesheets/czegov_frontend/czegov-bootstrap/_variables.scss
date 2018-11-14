@@ -173,7 +173,9 @@ $link-hover-decoration:     none !default;
 //
 // Style p element.
 
+$paragraph-margin-top:      0.25em;
 $paragraph-margin-bottom:   1rem !default;
+$paragraph-max-width:       38em;
 
 
 // Grid breakpoints
@@ -201,7 +203,7 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px
+  xl: 1024px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
