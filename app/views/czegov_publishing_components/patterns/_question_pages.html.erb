@@ -11,7 +11,7 @@
         <%= bootstrap_form_for(@information_request) do |f| %>
           <%= hidden_field_tag(:page_number, question_pages.page_number) %>
 
-          <%= render question_pages.page_partial_path, page: question_pages.current_page %>
+          <%= render question_pages.page_partial_path, page: question_pages.current_page, entity: question_pages.model %>
 
           <%= render "czegov_publishing_components/components/button", {
             text: question_pages.last_page? ? "Zobrazit souhrn" : 'Pokračovat'
