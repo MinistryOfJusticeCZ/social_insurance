@@ -1,4 +1,8 @@
-<% person_number ||= 0 %>
+<%
+person_number ||= 0
+person ||= entity.insured_people && entity.insured_people[person_number]
+person ||= InsuredPerson.new
+%>
 <div class="form-group">
   <fieldset class="fieldset" role="group">
     <legend><h3 class="mb-0">Jméno a příjmení</h3></legend>
@@ -8,7 +12,7 @@
         text: page[:questions][0][:label]
       },
       name: "information_request[insured_people_attributes][#{person_number}][firstname]",
-      value: entity.insured_people[0].firstname
+      value: person.firstname
     } %>
 
     <%= render "czegov_publishing_components/components/input", {
@@ -16,7 +20,7 @@
         text: page[:questions][1][:label]
       },
       name: "information_request[insured_people_attributes][#{person_number}][lastname]",
-      value: entity.insured_people[0].lastname
+      value: person.lastname
     } %>
 
     <%= render "czegov_publishing_components/components/input", {
@@ -24,7 +28,7 @@
         text: page[:questions][2][:label]
       },
       name: "information_request[insured_people_attributes][#{person_number}][birth_lastname]",
-      value: entity.insured_people[0].birth_lastname
+      value: person.birth_lastname
     } %>
 
   </fieldset>
@@ -43,7 +47,7 @@
           <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(3i)]">
             Den
           </label>
-          <input class="form-control date-input__input input--width-2" id="expiry-day" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(3i)]" type="number" pattern="[0-9]*" value="<%= entity.insured_people[0].birth_date.try('day') %>">
+          <input class="form-control date-input__input input--width-2" id="expiry-day" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(3i)]" type="number" pattern="[0-9]*" value="<%= person.birth_date.try('day') %>">
         </div>
       </div>
       <div class="date-input__item">
@@ -51,7 +55,7 @@
           <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(2i)]">
             Měsíc
           </label>
-          <input class="form-control date-input__input input--width-2" id="expiry-month" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(2i)]" type="number" pattern="[0-9]*" value="<%= entity.insured_people[0].birth_date.try('month') %>">
+          <input class="form-control date-input__input input--width-2" id="expiry-month" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(2i)]" type="number" pattern="[0-9]*" value="<%= person.birth_date.try('month') %>">
         </div>
       </div>
       <div class="date-input__item">
@@ -59,7 +63,7 @@
           <label class="label date-input__label" for="information_request[insured_people_attributes][<%= person_number %>][birth_date(1i)]">
             Rok
           </label>
-          <input class="form-control date-input__input input--width-4" id="expiry-year" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(1i)]" type="number" pattern="[0-9]*" value="<%= entity.insured_people[0].birth_date.try('year') %>">
+          <input class="form-control date-input__input input--width-4" id="expiry-year" name="information_request[insured_people_attributes][<%= person_number %>][birth_date(1i)]" type="number" pattern="[0-9]*" value="<%= person.birth_date.try('year') %>">
         </div>
       </div>
     </div>
@@ -76,7 +80,7 @@
           text: page[:questions][4][:label]
         },
         name: "information_request[insured_people_attributes][#{person_number}][birth_number]",
-        value: entity.insured_people[0].birth_number
+        value: person.birth_number
       } %>
     </div>
   </fieldset>
@@ -92,7 +96,7 @@
           text: page[:questions][5][:label]
         },
         name: "information_request[insured_people_attributes][#{person_number}][birth_place]",
-        value: entity.insured_people[0].birth_place
+        value: person.birth_place
       } %>
     </div>
   </fieldset>
