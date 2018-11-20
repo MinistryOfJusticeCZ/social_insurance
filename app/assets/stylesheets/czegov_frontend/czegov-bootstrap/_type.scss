@@ -21,29 +21,29 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .heading-xl { 
-  font-size: $h1-font-size-sm; 
-  font-size: 32px;
+  font-size: 32px; 
+  font-size: $h1-font-size-sm;
   line-height: 36px;
   margin: 56px 0 0;
 }
 
 h2, .heading-l { 
-  font-size: $h2-font-size-sm; 
-  font-size: 24px;
+  font-size: 24px; 
+  font-size: $h2-font-size-sm;
   line-height: 32px;;
   margin: 56px 0 0;
 }
 
 h3, .heading-m { 
-  font-size: $h3-font-size-sm; 
-  font-size: 20px;
+  font-size: 20px; 
+  font-size: $h3-font-size-sm;
   line-height: 28px;
   margin: 32px 0 0;
 }
 
 h4, .heading-s { 
-  font-size: $h4-font-size-sm;
   font-size: 18px;
+  font-size: $h4-font-size-sm;
   line-height: 28px;
   margin: 24px 0 0;
 }  
@@ -51,29 +51,29 @@ h4, .heading-s {
 //adds
 @media (min-width: 641px) {
   h1, .heading-xl {
-    font-size: $h1-font-size;
     font-size: 48px;
+    font-size: $h1-font-size;
     line-height: 56px;
     margin: 72px 0 0;
   }
 
   h2, .heading-l { 
-    font-size: $h2-font-size; 
-    font-size: 32px; 
+    font-size: 32px;
+    font-size: $h2-font-size;  
     line-height: $headings-line-height * 1.66667;
     margin: 72px 0 0;
   }
 
   h3, .heading-m { 
-    font-size: $h3-font-size; 
-    font-size: 24px;
+    font-size: 24px; 
+    font-size: $h3-font-size;
     line-height: 32px;
     margin: 40px 0 0;
   }
 
   h4, .heading-s { 
-    font-size: $h4-font-size; 
-    font-size: 22px;
+    font-size: 22px; 
+    font-size: $h4-font-size;
     line-height: 32px;
     margin: 32px 0 0;
   }
