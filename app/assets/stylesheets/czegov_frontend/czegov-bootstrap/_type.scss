@@ -9,24 +9,81 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
   color: $headings-color;
 }
 
-//check _variables.scss for font-sizes
-h1, .heading-xl { font-size: $h1-font-size-sm; }
-h2, .heading-l { font-size: $h2-font-size-sm; }
-h3, .heading-m { font-size: $h3-font-size-sm; }
-h4, .heading-s { font-size: $h4-font-size-sm; } 
+h1, h2, h3, h4, h5, h6,
+.heading-xl, .heading-l, .heading-m, .heading-s, .heading-xs, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  color: $headings-color;
+}
+
+h1, .heading-xl { 
+  font-size: 32px; 
+  font-size: $h1-font-size-sm;
+  line-height: 36px;
+  margin: 56px 0 0;
+}
+
+h2, .heading-l { 
+  font-size: 24px; 
+  font-size: $h2-font-size-sm;
+  line-height: 32px;;
+  margin: 56px 0 0;
+}
+
+h3, .heading-m { 
+  font-size: 20px; 
+  font-size: $h3-font-size-sm;
+  line-height: 28px;
+  margin: 32px 0 0;
+}
+
+h4, .heading-s { 
+  font-size: 18px;
+  font-size: $h4-font-size-sm;
+  line-height: 28px;
+  margin: 24px 0 0;
+}  
 
 //adds
 @media (min-width: 641px) {
-  h1, .heading-xl { font-size: $h1-font-size; }
-  h2, .heading-l { font-size: $h2-font-size; }
-  h3, .heading-m { font-size: $h3-font-size; }
-  h4, .heading-s { font-size: $h4-font-size; }
-  h5, .heading-xs { font-size: $h5-font-size; }
+  h1, .heading-xl {
+    font-size: 48px;
+    font-size: $h1-font-size;
+    line-height: 56px;
+    margin: 72px 0 0;
+  }
+
+  h2, .heading-l { 
+    font-size: 32px;
+    font-size: $h2-font-size;  
+    line-height: $headings-line-height * 1.66667;
+    margin: 72px 0 0;
+  }
+
+  h3, .heading-m { 
+    font-size: 24px; 
+    font-size: $h3-font-size;
+    line-height: 32px;
+    margin: 40px 0 0;
+  }
+
+  h4, .heading-s { 
+    font-size: 22px; 
+    font-size: $h4-font-size;
+    line-height: 32px;
+    margin: 32px 0 0;
+  }
+
+  h5, .heading-xs { 
+    font-size: $h5-font-size; 
+    line-height: $headings-line-height;
+  }
 }
+
 
 
 // move this to conditionals.css

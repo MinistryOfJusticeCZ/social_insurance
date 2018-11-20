@@ -27,7 +27,35 @@
 
       <p class="small">Vyplnění tohoto formuláře bude trvat okolo 3 minut.</p>
 
-      <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+      <div class="tablist-wrapper">
+        <ul>
+          <li>
+            <a href="#section1" class="active">Než začnete</a>
+          </li>
+          <li>
+            <a href="#section2">Co dál musíte vědět</a>
+          </li>
+        </ul>
+        <section id="section1" class="tab-pane">
+          <h2 class="mt-0">Než začnete</h2>
+          <ul class="list list--bullet">
+            <li>K použití služby musíte být přihlášeni, <a href="/internals/login">přihlásit se</a></li>
+            <li>Pokud byl formulář vytvořen, můžete si ho <a href="">znovu stáhnout</a></li>
+          </ul>
+        </section>
+        <section id="section2" class="tab-pane">
+          <h2 class="mt-0">Co dál musíte vědět</h2>
+          <p class="body">Ujistěte se, že znáte:</p>
+
+          <ul class="list list--bullet">
+            <% info.prerequisities.each do |prereq| %>
+            <li><%= prereq %></li>
+            <% end %>
+          </ul>
+        </section>
+      </div>
+
+      <!-- <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link active" id="before-start-tab" data-toggle="tab" href="#before-start" role="tab" aria-controls="before-start" aria-selected="true" tabindex="0">Než začnete</a>
         </li>
@@ -54,12 +82,12 @@
             <% end %>
           </ul>
         </section>
-      </div>
+      </div> -->
     </div>
 
     <div class="col-lg-3 offset-lg-1">
       <aside class="app-related-items" role="complementary">
-        <h2 class="heading-m--aside" id="subsection-title">
+        <h2 class="heading-s" id="subsection-title">
           Kontakt
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
