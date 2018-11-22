@@ -12,7 +12,13 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
     }]
     p << {
       path: 'question_pages/two',
-      title: individual? ? 'Základní údaje požadované osoby' : 'Základní údaje matky požadované osoby',
+      title:  if individual?
+                'Základní údaje požadované osoby'
+              elsif father?
+                'Základní údaje otce požadované osoby'
+              else
+                'Základní údaje matky požadované osoby'
+              end
       questions: insured_person_questions
     }
     p << {
@@ -45,6 +51,14 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
 
   def individual?
     model.insured_person_type == 'individual'
+  end
+
+  def mother?
+    model.insured_person_type == 'mother'
+  end
+
+  def father?
+    model.insured_person_type == 'father'
   end
 
 end
