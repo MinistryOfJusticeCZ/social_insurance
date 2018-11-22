@@ -41,7 +41,7 @@ class InformationRequestsController < ApplicationController
   private
     def prepare_params
       session[:information_request] ||= {}
-      session[:information_request].merge!(create_params) if params['information_request']
+      session[:information_request].deep_merge!(create_params) if params['information_request']
       session[:information_request]
     end
 

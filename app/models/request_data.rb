@@ -16,7 +16,7 @@ class RequestData
 
   def insured_people_attributes=(attrs)
     @insured_people = []
-    attrs = attrs.values if attrs.is_a?(Hash)
+    attrs = attrs.keys.sort.map{|k| attrs[k] } if attrs.is_a?(Hash)
     attrs.each do |person_attrs|
       pers = InsuredPerson.new
       pers.assign_attributes(person_attrs)
