@@ -1,12 +1,12 @@
 (function() {
   // Get relevant elements and collections
-  const tabbed = document.querySelector('.tablist-wrapper');
-  const tablist = tabbed.querySelector('ul');
-  const tabs = tablist.querySelectorAll('a');
-  const panels = tabbed.querySelectorAll('[id^="section"]');
-  
+  var tabbed = document.querySelector('.tablist-wrapper');
+  var tablist = tabbed.querySelector('ul');
+  var tabs = tablist.querySelectorAll('a');
+  var panels = tabbed.querySelectorAll('[id^="section"]');
+
   // The tab switching function
-  const switchTab = (oldTab, newTab) => {
+  var switchTab = (oldTab, newTab) => {
     newTab.focus();
     // Make the active tab focusable by the user (Tab key)
     newTab.removeAttribute('tabindex');
@@ -21,17 +21,17 @@
     panels[oldIndex].hidden = true;
     panels[index].hidden = false;
   }
-  
+
   // Add the tablist role to the first <ul> in the .tablist-wrapper container
   tablist.setAttribute('role', 'tablist');
-  
+
   // Add semantics are remove user focusability for each tab
   Array.prototype.forEach.call(tabs, (tab, i) => {
     tab.setAttribute('role', 'tab');
     tab.setAttribute('id', 'tab' + (i + 1));
     tab.setAttribute('tabindex', '-1');
     tab.parentNode.setAttribute('role', 'presentation');
-    
+
     // Handle clicking of tabs for mouse users
     tab.addEventListener('click', e => {
       e.preventDefault();
@@ -40,7 +40,7 @@
         switchTab(currentTab, e.currentTarget);
       }
     });
-    
+
     // Handle keydown events for keyboard users
     tab.addEventListener('keydown', e => {
       // Get the index of the current tab in the tabs node list
@@ -56,16 +56,16 @@
       }
     });
   });
-  
+
   // Add tab panel semantics and hide them all
   Array.prototype.forEach.call(panels, (panel, i) => {
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('tabindex', '-1');
     let id = panel.getAttribute('id');
     panel.setAttribute('aria-labelledby', tabs[i].id);
-    panel.hidden = true; 
+    panel.hidden = true;
   });
-  
+
   // Initially activate the first tab and reveal the first tab panel
   tabs[0].removeAttribute('tabindex');
   tabs[0].setAttribute('aria-selected', 'true');
