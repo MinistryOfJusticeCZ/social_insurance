@@ -14,7 +14,7 @@ p {
 
 .app-related-items {
   border-top: 10px solid $blue;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   & h2 {
     margin-top: 1rem;
@@ -148,74 +148,82 @@ p {
   text-align: center
 }
 
-[role="tablist"] {
-  padding: 0;
-}
+// [role="tablist"] {
+//   padding: 0;
+// }
 
-[role="tablist"] li, [role="tablist"] a {
-  display: inline-block;
-}
+// [role="tablist"] li, [role="tablist"] a {
+//   display: inline-block;
+// }
 
-[role="tablist"] a {
-  text-decoration: none;
-  padding: 0.5rem 1em;
-}
+// [role="tablist"] a {
+//   text-decoration: none;
+//   padding: 0.5rem 1em;
+// }
 
-[role="tablist"] [aria-selected] {
-  border: 2px solid;
-  background: #fff;
-  border-bottom: 0;
-  position: relative;
-  top: 2px;
-}
+// [role="tablist"] [aria-selected] {
+//   border: 2px solid;
+//   background: #fff;
+//   border-bottom: 0;
+//   position: relative;
+//   top: 2px;
+// }
 
-[role="tabpanel"] {
-  border: 2px solid;
-  padding: 1.5rem;
-}
+// [role="tabpanel"] {
+//   border: 2px solid;
+//   padding: 1.5rem;
+// }
 
-[role="tabpanel"] * + * {
-  margin-top: 0.75rem;
-}
+// [role="tabpanel"] * + * {
+//   margin-top: 0.75rem;
+// }
 
-*:focus {
-  outline: none;
-  box-shadow: inset 0 0 0 4px lightBlue;
-}
-
-@media (max-width: 550px) {
+// @media (max-width: 550px) {
   
-  [role="tablist"] li, [role="tablist"] a {
-    display: block;
-    position: static;
-  }
+//   [role="tablist"] li, [role="tablist"] a {
+//     display: block;
+//     position: static;
+//   }
   
-  [role="tablist"] a {
-    border: 2px solid #222 !important;
-  }
+//   [role="tablist"] a {
+//     border: 2px solid #222 !important;
+//   }
   
-  [role="tablist"] li + li a {
-    border-top: 0 !important;
-  }
+//   [role="tablist"] li + li a {
+//     border-top: 0 !important;
+//   }
   
-  [role="tablist"] [aria-selected] {
-    position: static;
-  }
+//   [role="tablist"] [aria-selected] {
+//     position: static;
+//   }
   
-  [role="tablist"] [aria-selected]::after {
-    content: '\0020⬅';
-  }
   
-  [role="tabpanel"] {
-    border-top: 0;
-  }
   
-}
+//   [role="tabpanel"] {
+//     border-top: 0;
+//   }  
+// }
 
-.ie8 .custom-control-input {
-  top: 50px;
-}
+// .js-tabby .tabs-pane {
+//   border: 0;
+//   clip: rect(0 0 0 0);
+//   height: 1px;
+//   margin: -1px;
+//   overflow: hidden;
+//   padding: 0;
+//   position: absolute;
+//   width: 1px;
 
-.ie9 .custom-control-input {
-  top: 50px;
-}
+//   &.active {
+//     clip: auto;
+//     height: auto;
+//     margin: 0;
+//     overflow: visible;
+//     position: static;
+//     width: auto;
+//   }
+
+//   &:focus {
+//     outline: none;
+//   }
+// }

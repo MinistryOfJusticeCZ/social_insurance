@@ -5,4 +5,3 @@
 //= require azahara_schema/application
 //= require egov_utils/application
 //= require_tree .
-//= require ./czegov_js/tab

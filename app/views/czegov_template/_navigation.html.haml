@@ -1,6 +1,6 @@
 -# navigation styled for Bootstrap 4.0
 - logo = local_assigns.fetch(:logo, 'czegov_template/czegov_logo.svg')
-%nav.navbar.navbar-expand-lg.navbar-dark.pt-2.pl-3.pb-2.pl-lg-0.pt-lg-2.pb-lg-2
+%nav.navbar.navbar-expand-lg.navbar-dark.pt-2.pl-3.pb-2.pl-lg-0.pt-lg-2.pb-lg-2{"style" => "background-color: #000;"}
   .container
     = link_to '/', class: 'navbar-brand mr-0 mr-md-2', title: t(:title_goto_homepage), 'aria-label' => "Justice.cz - #{t(:app_name)}" do
       .navbar-brand__logo

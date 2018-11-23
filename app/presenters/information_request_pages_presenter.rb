@@ -12,6 +12,7 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
     }]
     p << {
       path: 'question_pages/two',
+      questions: insured_person_questions,
       title:  if individual?
                 'Základní údaje požadované osoby'
               elsif father?
@@ -19,7 +20,6 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
               else
                 'Základní údaje matky požadované osoby'
               end
-      questions: insured_person_questions
     }
     p << {
       path: 'question_pages/two_father',
