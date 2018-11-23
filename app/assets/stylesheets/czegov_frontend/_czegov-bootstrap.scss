@@ -208,7 +208,7 @@ input[type="number"] {
   z-index: 3;
 }
 
-.sr-only {
+.sr-only-focusable:focus {
   background: $blue;
   color: $white;
   font-weight: 700;

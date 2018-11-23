@@ -57,3 +57,21 @@ ul {
   background: #f7b400;
   color: #000;
 }
+
+.navbar > .container > a {
+  cursor: pointer;
+}
+
+.navbar-brand__logo {
+  float: left;
+  display: inline-block;
+  clear: both;
+}
+
+.navbar-brand__divider {
+  display: none;
+}
+
+.navbar-brand__name {
+  display: inline-block;
+}
