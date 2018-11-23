@@ -22,8 +22,8 @@
     = render 'czegov_publishing_components/components/phase_banner', phase: 'nové'
     %header.header{role: 'banner'}
       = render 'czegov_template/navigation'
-    %div#container{role: 'main'}
-      #content.container
+    %div.container
+      %main.wrapper#content{role: 'main'}
         = render 'layouts/egov_utils/messages'
         = content_for?(:content) ? content_for(:content) : yield
     = render 'cookies_eu/consent_banner'
