@@ -72,7 +72,10 @@ module Cssz
       #
       # Interface of cssz allows interval as from to dates, but it is not needed by courts
       def interval
-        {"#{types_ns}:KeDni" =>  (data.on_day || Date.today).to_date.iso8601}
+        from = data.interval_from || Date.new(Date.today.year - 1, 1, 1)
+        res = {"#{types_ns}:ZacatekIntervalu" =>  from.to_date.iso8601}
+        res.merge!("#{types_ns}:KonecIntervalu" =>  data.interval_to.to_date.iso8601) if data.interval_to
+        res
       end
 
       # Returns a identification of the insured person from the inputed data.

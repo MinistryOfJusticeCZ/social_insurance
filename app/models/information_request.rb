@@ -2,8 +2,7 @@ class InformationRequest < ApplicationRecord
 
   enum insured_person_type: {individual: 1, mother: 4, father: 8, parents: 12}, _prefix: 'request_for_'
 
-  delegate  'on_day', 'on_day=',
-            'insured_people', 'insured_people_attributes=',
+  delegate  'insured_people', 'insured_people_attributes=',
             'actual_employments_only', 'actual_employments_only=',
             'request_legitimacy_reason', 'request_legitimacy_reason=',
             'request_employments', 'request_employments=',

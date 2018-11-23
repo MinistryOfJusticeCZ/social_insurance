@@ -37,7 +37,6 @@ module Cssz
         {
           "#{request_ns}:Pojistenec" => insured_person_details(person_data),
           "#{request_ns}:Obdobi" => interval,
-          "#{request_ns}:PouzeOtevreneVztahy" => convert_boolean(data.actual_employments_only, true),
           "#{request_ns}:DuvodOpravnenostiDotazu" => data.request_legitimacy_reason,
         }
       end

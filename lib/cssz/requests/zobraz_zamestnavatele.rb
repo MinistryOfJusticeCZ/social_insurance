@@ -28,6 +28,10 @@ module Cssz
         data.insured_people[index]
       end
 
+      def interval
+        {"#{types_ns}:KeDni" =>  Date.today.to_date.iso8601}
+      end
+
       def inner_body
         {
           "#{request_ns}:Pojistenec" => insured_person_details(person_data),
