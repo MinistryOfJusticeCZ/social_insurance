@@ -26,4 +26,5 @@
       %main.wrapper#content{role: 'main'}
         = render 'layouts/egov_utils/messages'
         = content_for?(:content) ? content_for(:content) : yield
+        = render 'information_requests/contacts-footer' unless current_page?(root_path)
     = render 'cookies_eu/consent_banner'
