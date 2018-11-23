@@ -1,7 +1,24 @@
 !!!
-%html{lang: I18n.locale}
+
+//rewrite hardcoded locale
+%html{lang: "cs", dir: "ltr", xmlns: "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %link{rel: "shorcut icon", href: "favicon.ico", type: "image/x-icon"}
+    %link{rel: "apple-touch-icon", href: "apple-touch-icon.png"}
+    %meta{:http-equiv => "x-ua-compatible", :content => "ie=edge"}
+    %meta{:theme-color => "#000"}
+
+    //commented because no og
+    / %meta{:property => "og:type", :content ="government"}
+    / %meta{:property => "og:title", :content => "Intranet Ministerstva spravedlnosti"}
+    / %meta{:property => "og:site_name", :content => "Intranet Ministerstva spravedlnosti"}
+    / %meta{:property => "og:description", :content => "Rozvíjíme IT státní správy koncepčně."}
+    / %meta{:property => "og:locale", :content => "cs_CZ"}
+    / %meta{:property => "og:street-address", :content => "Vyšehradská 16"}
+    / %meta{:property => "og:locality", :content => "Praha"}
+    / %meta{:property => "og:logo", :content =>"" size="307x59"}
+
     %title= content_for?(:title) ? yield(:title) : t(:app_name)
     %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : t(:app_description)}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
@@ -26,5 +43,5 @@
       %main.wrapper#content{role: 'main'}
         = render 'layouts/egov_utils/messages'
         = content_for?(:content) ? content_for(:content) : yield
-        = render 'information_requests/contacts-footer' unless current_page?(root_path)
+        = render 'czegov_template/contacts-footer' unless current_page?(root_path)
     = render 'cookies_eu/consent_banner'
