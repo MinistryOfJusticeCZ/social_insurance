@@ -21,12 +21,12 @@
 // $black:    #323232 !default;
 
 $white:    #fff !default;
-$gray-100: #f0f1f2 !default;
+$gray-100: #fafac8 !default;
 $gray-200: #dee2e6 !default;
 $gray-300: #aeb7bd !default;
 $gray-400: #768692 !default;
-$gray-500: #425563 !default;
-$black:    #323232 !default;
+$gray-500: #545454 !default;
+$black:    #000000 !default;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -45,9 +45,9 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #00549b !default;
-$purple:  #993636 !default;
-$red:     #d50005 !default;
+$blue:    #11457e !default; //was 00549b
+$purple:  #8A2878 !default;
+$red:     #a6212c !default;
 $orange:  #f7b400 !default;
 $yellow:  #ffed00 !default;
 $green:   #006435 !default;
@@ -687,6 +687,7 @@ $navbar-toggler-padding-y:          .5rem !default; //default was .25rem
 $navbar-toggler-padding-x:          .75rem !default;
 $navbar-toggler-font-size:          $font-size-lg !default;
 $navbar-toggler-border-radius:      $btn-border-radius !default;
+$navbar-toggler-border-width:       3px !default;
 
 $navbar-dark-color:                 $white !default; //default was rgba($white, .5)
 $navbar-dark-hover-color:           $black !default; //default was rgba($white, .75)

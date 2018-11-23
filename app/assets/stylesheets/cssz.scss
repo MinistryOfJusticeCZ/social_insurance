@@ -178,11 +178,6 @@ p {
   margin-top: 0.75rem;
 }
 
-*:focus {
-  outline: none;
-  box-shadow: inset 0 0 0 4px lightBlue;
-}
-
 @media (max-width: 550px) {
   
   [role="tablist"] li, [role="tablist"] a {
@@ -210,12 +205,4 @@ p {
     border-top: 0;
   }
   
-}
-
-.ie8 .custom-control-input {
-  top: 50px;
-}
-
-.ie9 .custom-control-input {
-  top: 50px;
 }

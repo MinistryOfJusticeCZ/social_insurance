@@ -36,6 +36,7 @@
 @import "bootstrap/print";
 
 body {
+  font-family: 'Tahoma', helvetica, arial, sans-serif;
   font-size: 120% !important;
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0;
@@ -44,22 +45,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+[role=main] {
+  padding: 30px 0;
+}
+
 a {
   border-bottom: 1px solid;
 
   &:hover {
     background: $orange;
     box-shadow: 0 0 0 4px $orange;
-    color: #323232;
+    color: $black;
   }
 
   &:focus {
     background-color: $orange;
-    color: #323232;
+    color: $black;
   }
 
   &:visited {
     color: $purple;
+  }
+  &:visited:hover, &:visited:focus {
+    color: $black;
   }
 
   &[role=button]:hover {
@@ -119,15 +127,15 @@ input[type="number"] {
   display: flex !important;
 }
 
-.navbar-brand__logo::after {
-  content: "";
-  height: 50px;
-  display: flex;
-  border-left: .15rem solid #fff;
-  margin: auto 1rem auto 0.5rem;
-  padding: 0;
-  width: 0;
-}
+// .navbar-brand__logo::after {
+//   content: "";
+//   height: 50px;
+//   display: flex;
+//   border-left: .15rem solid #fff;
+//   margin: auto 1rem auto 0.5rem;
+//   padding: 0;
+//   width: 0;
+// }
 
 .navbar-brand__name {
   display: flex;
@@ -153,4 +161,35 @@ input[type="number"] {
   .navbar-brand__name div:last-of-type {
     font-size: inherit;
   }
+}
+
+.navbar-brand__logo-fallback {
+  position: relative;
+  width: 50px;
+  height: 53px;
+  border: 0;
+  vertical-align: middle;
+}
+
+.navbar-brand__divider {
+  width: 2px;
+  margin-right: 12px;
+  margin-left: 7px;
+
+  & .navbar-brand__divider__block {
+    height: 16px;
+    display: block;
+  }
+}
+
+.navbar-brand__divider__block--white {
+  background-color: $white;
+}
+
+.navbar-brand__divider__block--red {
+  background-color: #D7141A;
+}
+
+.navbar-brand__divider__block--blue {
+  background-color: $blue;
 }
