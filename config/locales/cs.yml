@@ -26,6 +26,14 @@ cs:
       birth_number: Rodné číslo
       birth_place: Místo narození
 
+  components:
+    back_link:
+      back: 'Zpět'
+    contents_list:
+      contents: Obsah
+    radio:
+      or: 'nebo'
+
   # helpers:
   #   action:
   #     appeal:
