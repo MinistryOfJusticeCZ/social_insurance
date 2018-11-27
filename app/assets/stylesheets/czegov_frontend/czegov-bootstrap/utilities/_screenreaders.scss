@@ -1,0 +1,27 @@
+//
+// Screenreaders
+//
+// Add wrapper for skip links due to custom skip links we use
+// This class is called '.skip-link-wrapper'
+
+.skip-link-wrapper ul {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.skip-link-wrapper ul li {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 100%;
+  z-index: 3;
+}
+
+.sr-only {
+  @include sr-only();
+}
+
+.sr-only-focusable {
+  @include sr-only-focusable();
+}

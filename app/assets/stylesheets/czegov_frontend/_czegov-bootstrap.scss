@@ -32,7 +32,7 @@
 @import "bootstrap/popover";
 @import "bootstrap/carousel";
 @import "czegov-bootstrap/callout";
-@import "bootstrap/utilities";
+@import "czegov-bootstrap/utilities";
 @import "bootstrap/print";
 
 body {
@@ -99,20 +99,6 @@ input[type="number"] {
   .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
     font-size: inherit;
   }
-}
-
-.skip-link-wrapper ul {
-  list-style-type: none;
-  margin-bottom: 0;;
-}
-
-.skip-link-wrapper ul li {
-  left: 0;
-  position: absolute;
-  text-align: center;
-  top: 10px;
-  width: 100%;
-  z-index: 3;
 }
 
 details summary {
