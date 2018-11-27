@@ -37,11 +37,7 @@
 
 body {
   font-size: 120% !important;
-  font-variant-ligatures: none;
-  font-feature-settings: "liga" 0;
-  -ms-overflow-style: scrollbar;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  
 }
 
 [role=main] {
@@ -80,10 +76,6 @@ a {
   &.btn:visited {
     color: $white;
   }
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
