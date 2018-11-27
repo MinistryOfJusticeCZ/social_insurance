@@ -2,7 +2,7 @@
 @import "czegov-bootstrap/variables";
 @import "czegov-bootstrap/mixins";
 @import "bootstrap/root";
-@import "bootstrap/reboot";
+@import "czegov-bootstrap/reboot";
 @import "czegov-bootstrap/type";
 @import "bootstrap/images";
 @import "czegov-bootstrap/code";
@@ -36,7 +36,6 @@
 @import "bootstrap/print";
 
 body {
-  font-family: 'Tahoma', helvetica, arial, sans-serif;
   font-size: 120% !important;
   font-variant-ligatures: none;
   font-feature-settings: "liga" 0;
@@ -119,7 +118,7 @@ input[type="number"] {
 }
 
 .navbar-brand {
-  display: flex !important;;
+  display: flex !important;
 
   &:hover, &:focus {
     color: $black !important;
