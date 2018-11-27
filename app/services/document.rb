@@ -7,20 +7,10 @@ class Document
     "#{EgovUtils::Settings['ctd_url'] || Rails.configuration.try(:ctd_url)}/api/v1/templates/#{template_id}/documents.json"
   end
 
-  attr_reader :request
+  attr_reader :context_data
 
-  def initialize(request)
-    @request = request
-  end
-
-  def context_data
-    {
-      "person" => {
-        'firstname' => request.person_data.firstname,
-        'lastname' => request.person_data.lastname
-      },
-      'employments' => request.response['employments']
-    }
+  def initialize(context_data)
+    @context_data = context_data
   end
 
   def cssz_response(input)
