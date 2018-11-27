@@ -78,17 +78,17 @@ a {
   }
 }
 
-.phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
-  margin-bottom: 0;
+.phase-banner-wrapper .phase-content .phase {
+  margin: 0;
   font-size: 16px;
 }
 
 @media (min-width: 641px) {
-  .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
+  .phase-banner-wrapper .phase-content .phase {
     margin-bottom: 0;
   }
 
-  .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
+  .phase-banner-wrapper .phase-content .phase {
     font-size: inherit;
   }
 }
