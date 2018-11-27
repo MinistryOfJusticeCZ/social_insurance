@@ -19,7 +19,7 @@
 @import "czegov-bootstrap/navbar";
 @import "bootstrap/card";
 @import "bootstrap/breadcrumb";
-@import "bootstrap/pagination";
+@import "czegov-bootstrap/pagination";
 @import "czegov-bootstrap/badge";
 @import "czegov-bootstrap/jumbotron";
 @import "czegov-bootstrap/alert";
@@ -99,94 +99,6 @@ input[type="number"] {
   .phase-banner-wrapper .wrapper-content .phase-wrapper-text p {
     font-size: inherit;
   }
-}
-
-.navbar-brand:hover, .navbar-brand:focus {
-  border-bottom: 0;
-
-  & > .navbar-brand__name {
-    text-decoration: underline;
-  }
-}
-
-.navbar-brand__logo {
-  align-items: center;
-}
-
-.navbar-brand__logo svg {
-  display: flex;
-}
-
-.navbar-brand {
-  display: flex !important;
-
-  &:hover, &:focus {
-    color: $black !important;
-  }
-}
-
-.navbar-brand__logo {
-  display: flex !important;
-}
-
-.navbar-brand__name {
-  display: flex;
-  flex-direction: column;
-  white-space: normal;
-}
-
-.navbar-brand__name div:first-of-type {
-  font-weight: 700 !important;
-  text-transform: uppercase;
-  font-size: 19px;
-  font-size: 1em;
-}
-
-.navbar-brand__name div:last-of-type {
-  font-size: 19px;
-  font-size: 1rem;
-}
-
-@media (min-width: 641px) {
-  .navbar-brand__name div:first-of-type {
-    font-size: 21px;
-    font-size: 1.18em;
-  }
-
-  .navbar-brand__name div:last-of-type {
-    font-size: inherit;
-  }
-}
-
-.navbar-brand__logo-fallback {
-  position: relative;
-  width: 50px;
-  height: 53px;
-  border: 0;
-  vertical-align: middle;
-}
-
-.navbar-brand__divider {
-  width: 2px;
-  margin-right: 12px;
-  margin-left: 7px;
-
-  & .navbar-brand__divider__block {
-    height: 16px;
-    display: block;
-  }
-}
-
-.navbar-brand__divider__block--white {
-  background-color: $white;
-}
-
-.navbar-brand__divider__block--red {
-  background-color: #D7141A;
-}
-
-.navbar-brand__divider__block--blue {
-  background-color: $blue;
 }
 
 .skip-link-wrapper ul {
