@@ -204,14 +204,27 @@ input[type="number"] {
   z-index: 3;
 }
 
-.sr-only-focusable:focus {
-  background: $blue;
-  color: $white;
-  font-weight: 700;
-  padding: 15px;
-  z-index: 50;
+details summary {
+  color: $blue;
+  margin-bottom: 0.25em;
+  padding-left: 8px;
+
+  &:hover {
+    background: $orange;
+    box-shadow: 0 0 0 4px $orange;
+    color: $black;
+  }
+
+  &:focus {
+    color: $black;
+    background-color: $orange;
+    box-shadow: 0 0 0 5px $orange;
+  }
 }
 
-.sr-only-focusable:focus:visited {
-  color: $white;
+details dl {
+  border-left: 4px solid $gray-300;
+  margin-top: 8px;
+  padding: 16px;
+  padding-left: 16px;
 }
