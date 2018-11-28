@@ -12,98 +12,27 @@
 
     <div class="checkboxes">
       <div class="custom-control custom-checkbox">
-
-        <input class="custom-control-input" id="why-reason-for-information-1" name="why-reason-for-information" type="checkbox" value="pension">
-        <label class="label custom-control-label" for="why-reason-for-information-1">
-          Prochází evidencí ČSSZ???
-        </label>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="why-reason-for-information-2" name="why-reason-for-information" type="checkbox" value="contanct-information">
-        <label class="label custom-control-label" for="why-reason-for-information-2">
-          Aktuální kontaktní adresu či jiné kontaktní údaje
-        </label>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="why-reason-for-information-3" name="why-reason-for-information" type="checkbox" value="recieve-pension" aria-controls="condition-why-reason-for-information-3" aria-expanded="false">
-        <label class="label custom-control-label" for="why-reason-for-information-3">
-          Pobírá důchod &ndash; od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán
-        </label>
-      </div>
-      <div class="checkboxes__conditional" id="condition-why-reason-for-information-3">
-        <div class="form-group">
-          <div class="row">
-            <div class="col-lg-2 align-self-center text-center">
-              <span>od roku</span>
-            </div>
-            <div class="col-lg-2 justify-content-center">
-              <label class="label" for="pick-date-range-benefits">
-                Rok od
-              </label>
-              <input class="form-control input--width-4" id="pick-date-range-benefits" name="pick-date-range-benefits" type="number">
-            </div>
-
-            <div class="col-lg-2 align-self-center text-center">
-              do roku
-            </div>
-
-            <div class="col-lg-2 justify-content-center">
-              <label class="label" for="pick-date-range-benefits">
-                Rok od
-              </label>
-              <input class="form-control input--width-4" id="pick-date-range-benefits" name="pick-date-range-benefits" type="number">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="why-reason-for-information-4" name="why-reason-for-information" type="checkbox" value="recieve-benefits" aria-controls="condition-why-reason-for-information-1" aria-expanded="false">
-        <label class="label custom-control-label" for="why-reason-for-information-4">
-          Pobírá dávky &ndash; které a od kdy, jakým způsobem a na jakou adresu jsou zasílány
-        </label>
-      </div>
-      <div class="checkboxes__conditional" id="condition-why-reason-for-information-4">
-        <div class="form-group">
-          <div class="row">
-            <div class="col-lg-2 align-self-center text-center">
-              <span>od roku</span>
-            </div>
-            <div class="col-lg-2 justify-content-center">
-              <label class="label" for="pick-date-range-benefits">
-                Rok od
-              </label>
-              <input class="form-control input--width-4" id="pick-date-range-benefits" name="pick-date-range-benefits" type="number">
-            </div>
-
-            <div class="col-lg-2 align-self-center text-center">
-              do roku
-            </div>
-
-            <div class="col-lg-2 justify-content-center">
-              <label class="label" for="pick-date-range-benefits">
-                Rok od
-              </label>
-              <input class="form-control input--width-4" id="pick-date-range-benefits" name="pick-date-range-benefits" type="number">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="why-reason-for-information-5" name="why-reason-for-information" type="checkbox" value="work-inability">
-        <label class="label custom-control-label" for="why-reason-for-information-5">
-          Pracovní neschopnost &ndash; doba trvání pracovní neschopnosti, jakou uvádí adresu, na které se zdržuje v době pracovní neschopnosti
-        </label>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input class="custom-control-input" id="request_types-6" name="information_request[request_employments]" type="checkbox" value="1">
-        <label class="label custom-control-label" for="request_types-6">
-          V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem
-        </label>
+        <%= render "czegov_publishing_components/components/checkboxes", {
+          name: "favourite_colour",
+          items: [
+            {
+              label: "Pobírá důchod – od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán",
+              value: "red"
+            },
+            {
+              label: "Pobírá dávky – které a od kdy, jakým způsobem a na jakou adresu jsou zasílány",
+              value: "green"
+            },
+            {
+              label: "Pracovní neschopnost – doba trvání pracovní neschopnosti, jakou uvádí adresu, na které se zdržuje v době pracovní neschopnosti",
+              value: "blue"
+            },
+            {
+              label: "V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem",
+              value: "blue"
+            }
+          ]
+        } %>
       </div>
     </div>
   </fieldset>

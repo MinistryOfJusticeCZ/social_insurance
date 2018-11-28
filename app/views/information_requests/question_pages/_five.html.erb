@@ -13,23 +13,12 @@
             {
               value: "individual",
               checked: entity.insured_person_type == 'individual',
-              text: "Jedinec (požadovaná osoba musí být zletilá)"
+              text: "Vybrat datum"
             },
-            :or,
             {
               value: "mother",
               checked: entity.insured_person_type == 'mother',
               text: "Matka požadované osoby"
-            },
-            {
-              value: "father",
-              checked: entity.insured_person_type == 'father',
-              text: "Otec požadované osoby"
-            },
-            {
-              value: "parents",
-              checked: entity.insured_person_type == 'parents',
-              text: "Matka i otec zároveň"
             }
           ]
         } %>
