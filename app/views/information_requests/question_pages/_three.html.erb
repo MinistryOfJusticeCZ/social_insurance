@@ -13,7 +13,7 @@
     <div class="checkboxes">
       <div class="custom-control custom-checkbox">
         <%= render "czegov_publishing_components/components/checkboxes", {
-          name: "favourite_colour",
+          name: "information_request[requested_informations]",
           items: [
             {
               label: "Pobírá důchod – od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán",
@@ -25,14 +25,15 @@
             },
             {
               label: "Pracovní neschopnost – doba trvání pracovní neschopnosti, jakou uvádí adresu, na které se zdržuje v době pracovní neschopnosti",
-              value: "blue"
+              value: "incapacities"
             },
             {
               label: "V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem",
-              value: "blue"
+              value: "employments"
             }
           ]
-        } %>
+      	} %>
+
       </div>
     </div>
   </fieldset>

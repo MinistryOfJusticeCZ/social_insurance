@@ -43,9 +43,10 @@ module Cssz
 
       def parse_response(soap_response)
         data = soap_response.body[:ikre_zobraz_seznam_pn_pojistence_odpoved]
-        disabilities = Array.wrap(data[:odpoved_data][:pracovni_neschopnost])
-        disabilities_data = disabilities.collect do |neschopnost|
+        incapacities = Array.wrap(data[:odpoved_data][:pracovni_neschopnost])
+        incapacities_data = incapacities.collect do |neschopnost|
           {
+            'decision_number' => neschopnost[:cislo_rozhodnuti],
             'start' => neschopnost[:zacatek_pracovni_neschopnosti],
             'end'   => neschopnost[:konec_pracovni_neschopnosti],
             'length' => neschopnost[:delka_pripadu]
@@ -54,7 +55,7 @@ module Cssz
 
         {
           'records_not_found' => 'VAROVANI' == data[:aplikacni_status][:vysledek_kod],
-          'work_disabilities' =>  disabilities_data
+          'incapacities' =>  incapacities_data
         }
       end
 
