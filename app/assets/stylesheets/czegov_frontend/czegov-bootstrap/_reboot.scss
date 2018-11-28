@@ -18,6 +18,8 @@
 //    we force a non-overlapping, non-auto-hiding scrollbar to counteract.
 // 6. Change the default tap highlight to be completely transparent in iOS.
 
+// We added properties for better font rendering and disable ligatures (not working for some Google Fonts)
+
 *,
 *::before,
 *::after {
@@ -63,6 +65,13 @@ body {
   color: $body-color;
   text-align: left; // 3
   background-color: $body-bg; // 2
+
+  //adds
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -137,7 +146,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 ol ol,
@@ -387,6 +396,17 @@ input[type="month"] {
   // See https://bugs.webkit.org/show_bug.cgi?id=139848
   // and https://github.com/twbs/bootstrap/issues/11266
   -webkit-appearance: listbox;
+}
+
+// Hide the spin-buttons in webkit and moz based browsers
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; // Preventive: delete any space that might not be apparent
 }
 
 textarea {

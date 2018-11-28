@@ -8,7 +8,7 @@
 @import "bootstrap/mixins/image";
 @import "bootstrap/mixins/badge";
 @import "bootstrap/mixins/resize";
-@import "bootstrap/mixins/screen-reader";
+@import "mixins/screen-reader";
 @import "bootstrap/mixins/size";
 @import "bootstrap/mixins/reset-text";
 @import "bootstrap/mixins/text-emphasis";
@@ -17,7 +17,7 @@
 @import "bootstrap/mixins/visibility";
 
 // // Components
-@import "bootstrap/mixins/alert";
+@import "mixins/alert";
 @import "mixins/buttons";
 @import "bootstrap/mixins/caret";
 @import "bootstrap/mixins/pagination";

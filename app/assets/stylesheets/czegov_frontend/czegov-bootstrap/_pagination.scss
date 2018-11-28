@@ -1,0 +1,54 @@
+// Adds pagination summary
+// Showing number of links shown on page and total number of links
+//
+// Needs to be reworked
+// Delete hardcoded values, use variables
+
+.pagination {
+  display: flex;
+  padding: 0;
+  @include list-unstyled();
+  @include border-radius();
+}
+
+.page-item {
+  display: inline-block;
+  list-style: none;
+}
+
+.page-link {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.page-link:hover,
+.page-link:focus {
+  background: $orange;
+  outline: 3px solid $orange;
+}
+
+.page-link.active {
+  color: $black;
+  font-weight: 700;
+  border: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.page-link.active:hover,
+.page-link.active:focus {
+  color: $black;
+  background: none;
+}
+
+.pagination__summary {
+  padding: 5px 0;
+}
+
+@media (min-width: 641px) {
+  .pagination__summary {
+      float: right;
+  }
+}

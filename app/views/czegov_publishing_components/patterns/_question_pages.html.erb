@@ -1,24 +1,19 @@
-<div class="container">
+<div class="row">
+  <div class="col-lg-8">
+    <%= render "czegov_publishing_components/components/title", {
+      title: question_pages.page_title,
+      margin_bottom: 4
+    } %>
+    <!--form action="/form-handler" method="post" novalidate-->
+    <%= bootstrap_form_for(@information_request) do |f| %>
+      <%= hidden_field_tag(:page_number, question_pages.page_number) %>
 
-  <main id="main-content" class="main-wrapper" role="main">
-    <div class="row">
-      <div class="col-lg-8">
-        <%= render "czegov_publishing_components/components/title", {
-          title: question_pages.page_title,
-          margin_bottom: 4
-        } %>
-        <!--form action="/form-handler" method="post" novalidate-->
-        <%= bootstrap_form_for(@information_request) do |f| %>
-          <%= hidden_field_tag(:page_number, question_pages.page_number) %>
+      <%= render question_pages.page_partial_path, page: question_pages.current_page, entity: question_pages.model %>
 
-          <%= render question_pages.page_partial_path, page: question_pages.current_page, entity: question_pages.model %>
-
-          <%= render "czegov_publishing_components/components/button", {
-            text: question_pages.last_page? ? "Zobrazit souhrn" : 'Pokračovat'
-          } %>
-          <div><%= link_to 'Zrušit', "/" %></div>
-        <% end %>
-      </div>
-    </div>
-  </main>
+      <%= render "czegov_publishing_components/components/button", {
+        text: question_pages.last_page? ? "Zobrazit souhrn" : 'Pokračovat'
+      } %>
+      <div style="margin-top: 24px;"><%= link_to 'Zrušit', "/" %></div>
+    <% end %>
+  </div>
 </div>

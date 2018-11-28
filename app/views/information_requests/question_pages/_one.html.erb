@@ -1,36 +1,41 @@
 <div class="form-group">
 
-  <div class="radios">
-    <div class="custom-control custom-radio">
-      <%= render "czegov_publishing_components/components/radio", {
-        name: "information_request[insured_person_type]",
-        items: [
-          {
-            value: "individual",
-            checked: entity.insured_person_type == 'individual',
-            text: "Jedinec (požadovaná osoba musí být zletilá)"
-          },
-          :or,
-          {
-            value: "mother",
-            checked: entity.insured_person_type == 'mother',
-            text: "Matka požadované osoby"
-          },
-          {
-            value: "father",
-            checked: entity.insured_person_type == 'father',
-            text: "Otec požadované osoby"
-          },
-          {
-            value: "parents",
-            checked: entity.insured_person_type == 'parents',
-            text: "Matka i otec zároveň"
-          }
-        ]
-      } %>
-    </div>
-  </div>
+  <fieldset class="fieldset">
+    <legend class="fieldset__legend fieldset__legend--xl">
+      <%= page[:title] %>
+    </legend>
 
+    <div class="radios">
+      <div class="custom-control custom-radio" role="radiogroup">
+        <%= render "czegov_publishing_components/components/radio", {
+          name: "information_request[insured_person_type]",
+          items: [
+            {
+              value: "individual",
+              checked: entity.insured_person_type == 'individual',
+              text: "Jedinec (požadovaná osoba musí být zletilá)"
+            },
+            :or,
+            {
+              value: "mother",
+              checked: entity.insured_person_type == 'mother',
+              text: "Matka požadované osoby"
+            },
+            {
+              value: "father",
+              checked: entity.insured_person_type == 'father',
+              text: "Otec požadované osoby"
+            },
+            {
+              value: "parents",
+              checked: entity.insured_person_type == 'parents',
+              text: "Matka i otec zároveň"
+            }
+          ]
+        } %>
+      </div>
+    </div>
+  </fieldset>
 </div>
 
 

@@ -21,12 +21,12 @@
 // $black:    #323232 !default;
 
 $white:    #fff !default;
-$gray-100: #fafac8 !default;
+$gray-100: #ededed !default;
 $gray-200: #dee2e6 !default;
 $gray-300: #aeb7bd !default;
 $gray-400: #768692 !default;
 $gray-500: #545454 !default;
-$black:    #000000 !default;
+$black:    #1e1e1e !default;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -157,7 +157,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $gray-100 !default;
+$body-bg:                   #fdfbfa !default;
 $body-color:                $black !default;
 
 // Links

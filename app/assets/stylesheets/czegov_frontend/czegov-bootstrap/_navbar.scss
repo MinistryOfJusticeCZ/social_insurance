@@ -2,6 +2,9 @@
 //
 // Navbar
 // Navbar brand
+// Navbar brand logo
+// Navbar brand divider
+// Navbar brand name
 // Navbar nav
 // Navbar text
 // Navbar divider
@@ -38,6 +41,11 @@
 // Navbar brand
 //
 // Used for brand, project, or site names.
+//
+// Using BEM, we gave to a wrapper around [name_of_the_site] and [name_of_the_service] 
+// class '.navbar-brand__name'
+// 
+// This class should be underlined on hover to give an association of a link
 
 .navbar-brand {
   display: flex; //default was inline-block
@@ -51,9 +59,113 @@
 
   @include hover-focus {
     text-decoration: none;
+    border-bottom: 0;
+
+    & > .navbar-brand__name {
+      color: $black;
+      text-decoration: underline;
+    }
   }
 }
 
+// Navbar brand logo
+//
+// Brand logo must be in SVG format, and has a fallback
+// Due to fallback for >=IE8, it has '.navbar-brand__logo-fallback' class
+//
+// Needs to be reworked
+// Delete hardcoded values and use variables
+
+.navbar-brand__logo {
+  align-items: center;
+}
+
+.navbar-brand__logo svg {
+  display: flex;
+}
+
+.navbar-brand__logo {
+  display: flex;
+}
+
+.navbar-brand__logo-fallback {
+  position: relative;
+  width: 50px;
+  height: 53px;
+  border: 0;
+  vertical-align: middle;
+}
+
+// Navbar brand divider
+// Not to get confused with nav-divider, https://github.com/twbs/bootstrap-rubygem/blob/d71068f82a13817ad04870d6646b75c5e1492608/assets/stylesheets/bootstrap/mixins/_nav-divider.scss
+//
+// Used as a visual separator of the brand logo and the brand name wrapper
+//
+// It symbolizes national colours of the Czech republic
+//
+// Visit https://www.schemecolor.com/czech-republic-flag-colors.php for colours
+//
+// Needs to be reworked
+// Delete hardcoded values and use variables
+
+.navbar-brand__divider {
+  width: 2px;
+  margin-right: 12px;
+  margin-left: 7px;
+
+  & .navbar-brand__divider__block {
+    height: 16px;
+    display: block;
+  }
+}
+
+.navbar-brand__divider__block--white {
+  background-color: $white;
+}
+
+.navbar-brand__divider__block--red {
+  background-color: #D7141A;
+}
+
+.navbar-brand__divider__block--blue {
+  background-color: $blue;
+}
+
+// Navbar brand name
+//
+// Used as a wrapper: a name of the site, and a name of the service (if there's any -- if not use Go to Homepage)
+//
+// Needs to be reworked
+// Delete hardcoded values and use variables
+
+.navbar-brand__name {
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+}
+
+.navbar-brand__name div:first-of-type {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-size: 1em;
+}
+
+.navbar-brand__name div:last-of-type {
+  font-size: 19px;
+  font-size: 1rem;
+}
+
+@media (min-width: 641px) {
+  .navbar-brand__name div:first-of-type {
+    font-size: 21px;
+    font-size: 1.18em;
+  }
+
+  .navbar-brand__name div:last-of-type {
+    font-size: inherit;
+  }
+}
 
 // Navbar nav
 //
@@ -76,7 +188,6 @@
     float: none;
   }
 }
-
 
 // Navbar text
 //
@@ -201,58 +312,10 @@
 //
 // Styles for switching between navbars with light or dark background.
 
-// Dark links against a light background
-.navbar-light {
-  .navbar-brand {
-    color: $navbar-light-active-color;
+// ----IMPORTANT-----
+// We deleted '.navbar-light' class
 
-    @include hover-focus {
-      color: $navbar-light-active-color;
-    }
-  }
-
-  .navbar-nav {
-    .nav-link {
-      color: $navbar-light-color;
-
-      @include hover-focus {
-        color: $navbar-light-hover-color;
-      }
-
-      &.disabled {
-        color: $navbar-light-disabled-color;
-      }
-    }
-
-    .show > .nav-link,
-    .active > .nav-link,
-    .nav-link.show,
-    .nav-link.active {
-      color: $navbar-light-active-color;
-    }
-  }
-
-  .navbar-toggler {
-    color: $navbar-light-color;
-    border-color: $navbar-light-toggler-border-color;
-  }
-
-  .navbar-toggler-icon {
-    background-image: $navbar-light-toggler-icon-bg;
-  }
-
-  .navbar-text {
-    color: $navbar-light-color;
-    a {
-      color: $navbar-light-active-color;
-
-      @include hover-focus {
-        color: $navbar-light-active-color;
-      }
-    }
-  }
-}
-
+// Use only '.navbar-dark' class
 // White links against a dark background
 .navbar-dark {
   background-color: $blue;

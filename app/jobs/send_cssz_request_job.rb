@@ -18,7 +18,7 @@ class SendCsszRequestJob < ApplicationJob
       req.send
       data = employments_data(req, data)
 
-      if information_request.request_incapacities
+      if information_request.requested_informations.include?('incapacities')
         req = Cssz::SeznamPracovnichNeschopnosti.new(ir)
         req.person_index = idx
         req.send
@@ -53,7 +53,7 @@ class SendCsszRequestJob < ApplicationJob
     def incapacities_data(request, data={})
       data.deep_merge({
         'request' => {
-          'incapacities' => !!information_request.request_incapacities
+          'incapacities' => true
         },
         'incapacities' => request.response['incapacities']
       })
