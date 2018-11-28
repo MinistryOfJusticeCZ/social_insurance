@@ -1,40 +1,25 @@
 <div class="form-group">
-
-  <fieldset class="fieldset">
-    <legend class="fieldset__legend fieldset__legend--xl">
-      <%= page[:title] %>
-    </legend>
-    <p>Můžete zvolit i více položek.</p>
-
-    <%= render "czegov_publishing_components/components/lead_paragraph", {
-      text: "O požadované osobě chci vědět"
-    } %>
-
-    <div class="checkboxes">
-      <div class="custom-control custom-checkbox">
-        <%= render "czegov_publishing_components/components/checkboxes", {
-          name: "information_request[requested_informations]",
-          items: [
-            {
-              label: "Pobírá důchod – od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán",
-              value: "red"
-            },
-            {
-              label: "Pobírá dávky – které a od kdy, jakým způsobem a na jakou adresu jsou zasílány",
-              value: "green"
-            },
-            {
-              label: "Pracovní neschopnost – doba trvání pracovní neschopnosti",
-              value: "incapacities"
-            },
-            {
-              label: "V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem",
-              value: "employments"
-            }
-          ]
-      	} %>
-
-      </div>
-    </div>
-  </fieldset>
+  <%# "O požadované osobě chci vědět" %>
+  <%= render "czegov_publishing_components/components/checkboxes", {
+    heading: page[:title],
+    name: "information_request[requested_informations]",
+    items: [
+      {
+        label: "Pobírá důchod – od kdy, druh a výše důchodu, jakým způsobem a na jakou adresu je zasílán",
+        value: "red"
+      },
+      {
+        label: "Pobírá dávky – které a od kdy, jakým způsobem a na jakou adresu jsou zasílány",
+        value: "green"
+      },
+      {
+        label: "Pracovní neschopnost – doba trvání pracovní neschopnosti",
+        value: "incapacities"
+      },
+      {
+        label: "V evidenci veden jako zaměstnanec, a kdo je jejím zaměstnavatelem",
+        value: "employments"
+      }
+    ]
+	} %>
 </div>
