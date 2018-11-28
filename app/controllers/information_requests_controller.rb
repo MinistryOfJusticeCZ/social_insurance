@@ -51,7 +51,7 @@ class InformationRequestsController < ApplicationController
           :insured_person_type,
           :on_day, :actual_employments_only,
           :request_legitimacy_reason,
-          :requested_informations,
+          requested_informations: [],
           insured_people_attributes: [
             :firstname, :lastname,
             :birth_date, :birth_number,

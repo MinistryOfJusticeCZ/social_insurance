@@ -29,7 +29,7 @@ class InformationRequestPagesPresenter < CzegovPublishingComponents::QuestionPag
     p << {
       path: 'question_pages/three',
       title: 'Jaké informace žádáte?',
-      questions: ['request_employments']
+      questions: ['requested_informations']
     }
     p << {
       path: 'question_pages/four',
