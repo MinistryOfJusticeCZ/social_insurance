@@ -15,3 +15,8 @@
   padding-left: 0;
   @include border-radius(0);
 }
+
+//adds
+.jumbotron .jumbotron-panel__title, .jumbotron-panel__body {
+  text-align: center
+}

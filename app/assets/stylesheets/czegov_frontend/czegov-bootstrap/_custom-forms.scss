@@ -7,11 +7,13 @@
 //
 // Base class takes care of all the key behavioral aspects.
 
+// We added 'hint', 'radios__divider' and 'checkboxes__conditional' classes
+
 .custom-control {
   position: relative;
   display: block;
   min-height: 30px;
-  padding: 0 0 0 30px;
+  padding: 0;
   margin-bottom: 10px;
   clear: left;
 }
@@ -68,9 +70,14 @@
 // Build the custom controls out of pseudo-elements.
 
 .custom-control-label {
-  display: inline-block;
-  margin-bottom: 0;
-  padding: 8px 15px 5px;
+  display: block;
+  float: none;
+  clear: left;
+  position: relative;
+  background: $white;
+  border: 1px solid $gray-300;
+  padding: 20px 30px 15px 45px;
+  margin-bottom: 10px;
   cursor: pointer;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -104,6 +111,11 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
+  }
+
+  &:hover {
+    outline: 3px $black solid;
+    outline-offset: -3px;
   }
 }
 
@@ -143,8 +155,13 @@
     }
     &::after {
       opacity: 1;
+      outline: 3px $black solid;
+      outline-offset: -3px;
       //background-image: $custom-checkbox-indicator-icon-checked;
     }
+
+    outline: 3px $black solid;
+    outline-offset: -3px;
   }
 
   .custom-control-input:indeterminate ~ .custom-control-label {
@@ -206,6 +223,8 @@
       //background-image: $custom-radio-indicator-icon-checked;
       opacity: 1;
     }
+    outline: 3px $black solid;
+    outline-offset: -3px;
   }
 
   .custom-control-input:disabled {
@@ -516,4 +535,40 @@
 .custom-file-label,
 .custom-select {
   @include transition($custom-forms-transition);
+}
+
+//adds hint
+.hint {
+  display: block;
+  margin-bottom: 15px;
+  color: $gray-500;
+}
+
+.radios__divider {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.25;
+  width: auto;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.checkboxes__conditional {
+  margin-bottom: 15px;
+  margin-left: 18px;
+  padding-left: 33px;
+  border-left: 4px solid $gray-300;
+}
+
+@media (min-width: 641px) {
+  .radios__divider {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.31579;
+  }
+
+  .checkboxes__conditional {
+    margin-bottom: 20px;
+  }
 }

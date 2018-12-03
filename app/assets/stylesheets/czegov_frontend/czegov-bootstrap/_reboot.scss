@@ -299,11 +299,10 @@ table {
 }
 
 caption {
-  padding-top: $table-cell-padding;
-  padding-bottom: $table-cell-padding;
-  color: $table-caption-color;
+  color: $black;
   text-align: left;
-  caption-side: bottom;
+  font-weight: bold;
+  caption-side: top;
 }
 
 th {

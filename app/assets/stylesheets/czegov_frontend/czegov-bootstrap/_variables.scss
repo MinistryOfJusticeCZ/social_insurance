@@ -173,8 +173,8 @@ $link-hover-decoration:     none !default;
 //
 // Style p element.
 
-$paragraph-margin-top:      0.25em;
-$paragraph-margin-bottom:   1rem !default;
+$paragraph-margin-top:      0.3125em;
+$paragraph-margin-bottom:   1.25em !default;
 $paragraph-max-width:       38em;
 
 
@@ -399,6 +399,7 @@ $btn-line-height-lg:          $input-btn-line-height-lg !default;
 
 $btn-border-width:            $input-btn-border-width !default;
 
+$btn-font-size-lg:            1.3rem;
 $btn-font-weight:             $font-weight-bold !default;
 $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
 $btn-focus-width:             $input-btn-focus-width !default;
@@ -415,7 +416,7 @@ $btn-border-radius:           0 !default;
 $btn-border-radius-lg:        0 !default;
 $btn-border-radius-sm:        0 !default;
 
-$btn-transition:              color .25s ease-in, background-color .25s ease-in, border-color .25s ease-in, box-shadow .25s ease-in !default;
+$btn-transition:              color .15s ease-in, background-color .15s ease-in, border-color .15s ease-in, box-shadow .15s ease-in !default;
 
 
 // Forms
