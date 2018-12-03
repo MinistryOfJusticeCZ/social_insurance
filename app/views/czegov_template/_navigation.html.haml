@@ -6,8 +6,8 @@
       .navbar-brand__logo
         = render 'czegov_template/govcz_logotype', 'role' => 'presentation', 'focusable' => 'false'
       .navbar-brand__name
-        %div Justice.cz
-        %div= t(:app_name)
+        %div.navbar-brand__name__sitename Justice.cz
+        %div.navbar-brand__name__servicename= t(:app_name)
     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "top_navigation", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#top_navigation", "data-toggle" => "collapse", :type => "button"}Menu
     #top_navigation.collapse.navbar-collapse
       /%ul.nav.navbar-nav.mr-auto.main-menu
