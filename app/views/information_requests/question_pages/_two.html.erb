@@ -3,6 +3,7 @@ person_number ||= 0
 person ||= entity.insured_people && entity.insured_people[person_number]
 person ||= InsuredPerson.new
 %>
+<p class="lead">V případě, že je pole označené jako nepovinné, nemusíte ho vyplňovat.</p>
 <div class="form-group">
   <fieldset class="fieldset" role="group">
     <legend><h3 class="mb-0">Jméno a příjmení</h3></legend>

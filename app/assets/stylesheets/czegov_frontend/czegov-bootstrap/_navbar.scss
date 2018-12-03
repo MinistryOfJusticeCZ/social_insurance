@@ -144,25 +144,25 @@
   white-space: normal;
 }
 
-.navbar-brand__name div:first-of-type {
+.navbar-brand__name .navbar-brand__name__sitename {
   font-weight: 700 !important;
   text-transform: uppercase;
   font-size: 19px;
   font-size: 1em;
 }
 
-.navbar-brand__name div:last-of-type {
+.navbar-brand__name .navbar-brand__name__servicename {
   font-size: 19px;
   font-size: 1rem;
 }
 
 @media (min-width: 641px) {
-  .navbar-brand__name div:first-of-type {
+  .navbar-brand__name .navbar-brand__name__sitename {
     font-size: 21px;
     font-size: 1.18em;
   }
 
-  .navbar-brand__name div:last-of-type {
+  .navbar-brand__name .navbar-brand__name__servicename {
     font-size: inherit;
   }
 }
