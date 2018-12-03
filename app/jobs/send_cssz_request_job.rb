@@ -7,6 +7,7 @@ class SendCsszRequestJob < ApplicationJob
     document_data = []
     ir.insured_people.each_with_index do |person, idx|
       data = {
+        'file_uid' => 'XX-XXX-XX/XXXX',
         "person" => {
           'firstname' => person.firstname,
           'lastname' => person.lastname
