@@ -41,7 +41,13 @@ body {
 }
 
 [role=main] {
-  padding: 30px 0;
+  padding: 10px 0;
+}
+
+@media (min-width: 761px) {
+  [role=main] {
+    padding: 30px 0;
+  }
 }
 
 a {

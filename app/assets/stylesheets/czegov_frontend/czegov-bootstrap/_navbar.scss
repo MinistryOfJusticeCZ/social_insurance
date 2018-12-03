@@ -230,8 +230,8 @@
 
   @include hover-focus {
     text-decoration: none;
-    outline: $navbar-toggler-border-width solid $orange;
-    background-color: $white;
+    //outline: $navbar-toggler-border-width solid $orange;
+    //background-color: $white;
     color: $black;
   }
 
@@ -362,9 +362,9 @@
 
     //adds
     @include hover-focus {
-      border-color: $black;
-      background-color: $white;
-      color: $black;
+      border-color: $orange;
+      //background-color: $white;
+      //color: $black;
     }
   }
 

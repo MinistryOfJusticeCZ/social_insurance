@@ -13,7 +13,6 @@
 @mixin form-control-focus() {
   &:focus {
     color: $input-focus-color;
-    border-color: $input-focus-border-color;
     outline: 3px solid $orange;
     outline-offset: 0;
   }
