@@ -1,8 +1,3 @@
-ul {
-  padding: 0;
-  margin-bottom: 0;
-}
-
 .custom-control-input {
   top: 50px;
 }
@@ -100,4 +95,16 @@ ul {
 
 input.form-control:focus {
   border: 2px solid #f7b400;
+}
+
+.row, section, .container {
+  max-width: 1140px;
+}
+
+.row .col-8, .col-lg-8 {
+  max-width: 693px;
+}
+
+.row .col-4, .col-lg-4 { 
+  max-width: 346px;
 }
