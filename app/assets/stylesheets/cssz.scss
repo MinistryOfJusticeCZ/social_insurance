@@ -3,17 +3,8 @@
   font-size: 1.2rem;
 }
 
-h1 {
-  margin-bottom: 2rem;
-}
-
-p {
-  margin-top: 0.25em;
-  max-width: 38em;
-}
-
 .app-related-items {
-  border-top: 10px solid $blue;
+  border-top: 10px solid $gray-400;
   margin-top: 3rem;
 
   & h2 {
@@ -22,39 +13,9 @@ p {
   }
 }
 
-.btn-lg {
-  font-size: 1.3rem;
-}
-
-.custom-control {
-  padding: 0;
-}
-
-.label.custom-control-label {
-  display: block;
-  float: none;
-  clear: left;
-  position: relative;
-  background: $white;
-  border: 1px solid $gray-300;
-  padding: 18px 30px 15px 45px;
-  margin-bottom: 10px;
-  cursor: pointer;
-
-  &:hover {
-    border-color: $black;
-  }
-}
-
 .fieldset .form-control {
   margin-bottom: 15px;
   font-size: inherit;
-}
-
-.hint {
-  display: block;
-  margin-bottom: 15px;
-  color: $gray-500;
 }
 
 .date-input__item {
@@ -69,35 +30,6 @@ p {
 
 .input--width-4 {
   max-width: 6.5ex;
-}
-
-.radios__divider {
-  font-weight: 400;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.25;
-  width: auto;
-  margin: 1.5rem 0;
-  text-align: left;
-}
-
-.checkboxes__conditional {
-  margin-bottom: 15px;
-  margin-left: 18px;
-  padding-left: 33px;
-  border-left: 4px solid #bfc1c3;
-}
-
-@media (min-width: 641px) {
-  .radios__divider {
-    font-size: 19px;
-    font-size: 1.1875rem;
-    line-height: 1.31579;
-  }
-
-  .checkboxes__conditional {
-    margin-bottom: 20px;
-  }
 }
 
 .app-c-download-link {
@@ -132,20 +64,6 @@ p {
   height: 1.31578947368em;
   width: 1.31578947368em;
   vertical-align: middle;
-}
-
-.custom-control-label::before {
-  top: 20px;
-  left: 10px;
-}
-
-.custom-control-label::after {
-  top: 20px;
-  left: 10px;
-}
-
-.jumbotron .jumbotron-panel__title, .jumbotron-panel__body {
-  text-align: center
 }
 
 .govuk-radios__item {

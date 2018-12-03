@@ -15,7 +15,8 @@
   border: $btn-border-width solid transparent;
 
   color: $white;
-  background-color: $green;
+  background-color: $blue;
+  border-bottom: 3px solid $black;
 
   @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
@@ -25,10 +26,16 @@
     text-decoration: none;
   }
 
+  //adds
+  &:hover {
+    text-decoration: underline;
+  }
+
   &:focus,
   &.focus {
     outline: 0;
     border: $btn-border-width solid $white;
+    border-bottom: 3px solid $white;
     box-shadow: $btn-focus-box-shadow;
     text-decoration: underline;
   }
@@ -130,7 +137,7 @@ fieldset:disabled a.btn {
 //
 
 .btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
 }
 
 .btn-sm {

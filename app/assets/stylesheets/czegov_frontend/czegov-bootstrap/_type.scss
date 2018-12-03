@@ -6,92 +6,122 @@
 
 h1, h2, h3, h4, h5, h6,
 .heading-xl, .heading-l, .heading-m, .heading-s, .heading-xs, .h6 {
-  margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
   color: $headings-color;
-  line-height: 1.3;//$line-height-base;
+  line-height: $line-height-base;
+  text-transform: none;
+  //display: block; collision with table's caption
 }
 
 h1, .heading-xl { 
   font-size: $h1-font-size-sm; 
   font-size: 32px;
-  margin: 38px 0 0;
+  line-height: 1.09375;
+  margin-top: 0.46875em;
+  margin-bottom: 0.9375em; 
+}
+
+@media (min-width: 641px) {
+  h1, .heading-xl {
+    font-size: $h1-font-size;
+    font-size: 48px;
+    line-height: 1.04167;
+    margin-top: 0.625em;
+    margin-bottom: 1.25em;
+  }
 }
 
 h2, .heading-l { 
   font-size: $h2-font-size-sm; 
   font-size: 24px;
-  margin: 38px 0 0;
+  line-height: 1.04167;
+  margin-top: 1.04167em;
+  margin-bottom: 0.41667em;
+}
+
+@media (min-width: 641px) {
+  h2, .heading-l {
+    font-size: $h2-font-size;
+    font-size: 36px;
+    line-height: 1.11111;
+    margin-top: 1.25em;
+    margin-bottom: 0.55556em;
+  }
 }
 
 h3, .heading-m { 
   font-size: $h3-font-size-sm; 
-  font-size: 20px;
-  margin: 32px 0 0;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+@media (min-width: 641px) {
+  h3, .heading-m {
+    font-size: $h3-font-size;
+    font-size: 24px;
+    line-height: 1.25;
+    margin-top: 1.875em;
+    margin-bottom: 0.83333em;
+  }
 }
 
 h4, .heading-s { 
   font-size: $h4-font-size-sm;
-  font-size: 18px;
-  margin: 24px 0 0;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-top: 0.625em;
+  margin-bottom: 0.3125em;
 }  
 
-//adds
 @media (min-width: 641px) {
-  h1, .heading-xl {
-    font-size: $h1-font-size;
-    font-size: 48px;
-    margin: 38px 0 0;
-  }
-
-  h2, .heading-l { 
-    font-size: $h2-font-size; 
-    font-size: 32px; 
-    margin: 38px 0 0;
-  }
-
-  h3, .heading-m { 
-    font-size: $h3-font-size; 
-    font-size: 24px;
-    margin: 32px 0 0;
-  }
-
-  h4, .heading-s { 
-    font-size: $h4-font-size; 
-    font-size: 22px;
-    margin: 26px 0 0;
-  }
-
-  h5, .heading-xs { 
-    font-size: $h5-font-size; 
+  h4, .heading-s {
+    font-size: $h4-font-size;
+    font-size: 19px;
+    line-height: 1.31579;
+    margin-top: 1.05263em;
   }
 }
 
-// move this to conditionals.css
-p, ul, li, ol {
-  font-size: 16px;
-} 
+.lead {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+  font-size: 18px;
+  line-height: 1.2;
+}
 
-//adds
 @media (min-width: 641px) {
-  p, ul, li, ol {
+  .lead {
+    font-size: 24px;
+    line-height: 1.25; 
+  } 
+}
+
+ul, li, ol {
+  font-size: 16px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 20px; 
+  font-size: 16px;
+}
+
+@media (min-width: 641px) {
+  p {
+    font-size: inherit;
+    margin-top: 4.21056px;
+    margin-top: 0.26316em;
+    margin-bottom: 16.8416px;
+    margin-bottom: 1.05263em; 
+  }
+  ul, li, ol {
     font-size: inherit;
   }
 }
-//-------------------------------------
 
-.lead {
-  font-size: 16px;
-  font-weight: $lead-font-weight;
-}
-
-//adds
-@media (min-width: 641px) {
-  .lead {
-    font-size: $lead-font-size;
-  }
-}
 
 // Type display classes
 .display-1 {

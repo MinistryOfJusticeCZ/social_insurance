@@ -8,7 +8,7 @@
 @import "czegov-bootstrap/code";
 @import "bootstrap/grid";
 @import "czegov-bootstrap/tables";
-@import "bootstrap/forms";
+@import "czegov-bootstrap/forms";
 @import "czegov-bootstrap/buttons";
 @import "bootstrap/transitions";
 @import "bootstrap/dropdown";
@@ -36,12 +36,17 @@
 @import "bootstrap/print";
 
 body {
-  font-size: 120% !important;
-  
+  font-size: 120% !important;  
 }
 
 [role=main] {
-  padding: 30px 0;
+  padding: 10px 0;
+}
+
+@media (min-width: 761px) {
+  [role=main] {
+    padding: 30px 0;
+  }
 }
 
 a {
