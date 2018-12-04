@@ -1,24 +1,11 @@
-# README
+# Connection to the Social insurence for Justice
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Version of the connector - PoC written in Rails, using B2B services of Czech social insurance.
+It contains basic prototype implementing newly developed design system.
 
-Things you may want to cover:
+The document generator prototype is needed to generate final PDF.
 
-* Ruby version
+No more documentation is provided, as long as it is PoC.
+Hopefully, the system is going to production soon and with it comming the documentation.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We are sorry for any inconvenience, but you can reach with us for further information.
