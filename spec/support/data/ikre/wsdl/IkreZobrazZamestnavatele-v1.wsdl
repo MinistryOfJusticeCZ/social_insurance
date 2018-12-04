@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="ZobrazZamestnavatele" 
+        xmlns="urn:cz:isvs:cssz:services:IkreZobrazZamestnavatele:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikre12="urn:cz:isvs:cssz:schemas:IkreZobrazZamestnavatele:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreZobrazZamestnavatele:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazZamestnavatele:v1">
+    <wsdl:documentation>
+        Služba externího rozhraní IKR: 3.1_IkreZobrazZamestnavatele - Informace o zaměstnavateli pojištěnce.
+        <p/>
+        Verze 1.0.0, 05.09.2013 - počáteční návrh (Jitka Žídková).
+    </wsdl:documentation>
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazZamestnavatele:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreZobrazZamestnavatele:v1" schemaLocation="../xsd/IkreZobrazZamestnavatele-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreZobrazZamestnavatele">
+        <wsdl:part element="ikre12:IkreZobrazZamestnavatele" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreZobrazZamestnavateleOdpoved">
+        <wsdl:part element="ikre12:IkreZobrazZamestnavateleOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreZobrazZamestnavatelePortType-v1">
+        <wsdl:operation name="IkreZobrazZamestnavatele">
+            <wsdl:input message="tns:IkreZobrazZamestnavatele"/>
+            <wsdl:output message="tns:IkreZobrazZamestnavateleOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreZobrazZamestnavateleBinding" type="tns:IkreZobrazZamestnavatelePortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreZobrazZamestnavatele">
+            <soap:operation soapAction="IkreZobrazZamestnavatele"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreZobrazZamestnavateleService-v1">
+        <wsdl:documentation>
+            Externí služba IKR 3.1 IkreZobrazZamestnavatele - Informace o zaměstnavateli pojištěnce.
+        </wsdl:documentation>
+        <wsdl:port binding="tns:IkreZobrazZamestnavateleBinding" name="IkreZobrazZamestnavatelePortService">
+            <soap:address location="IkreZobrazZamestnavatele/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

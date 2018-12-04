@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreZobrazStavZadostiNDPojistence:v1" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" 
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1" 
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreZobrazStavZadostiNDPojistence:v1" 
+           elementFormDefault="qualified" 
+           version="1.1.0">
+    <xs:annotation>
+        <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 3.6.2_IkreZobrazStavZadostiNDPojištěnce - Informace 
+            o stavu a průběhu vyřizování žádosti o dávku nemocenského pojištění.
+            <p/>
+            Verze 1.0.0,  16.01.2013 - počáteční návrh (Petr Obořil).
+            Verze 1.1.0,  27.03.2013 - OdpovedData: změna kardinality u seznamu NemocenskaDavka [0..N],
+                                       přidán podseznam VyrizujiciOSSZ [0..N].
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+    <xs:element name="IkreZobrazStavZadostiNDPojistence" type="IkreZobrazStavZadostiNDPojistenceType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 3.6.2 - Informace o stavu a průběhu vyřizování žádosti o dávku nemocenského 
+                pojištění - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreZobrazStavZadostiNDPojistenceOdpoved" type="IkreZobrazStavZadostiNDPojistenceOdpovedType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 3.6.2 - Informace o stavu a průběhu vyřizování žádosti o dávku nemocenského
+                pojištění - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="IkreZobrazStavZadostiNDPojistenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 3.6.2 - Informace o stavu a průběhu vyřizování žádosti o dávku nemocenského
+                pojištění - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData"
+                                type="IkrZobrazStavZadostiNDPojistenceVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreZobrazStavZadostiNDPojistenceOdpovedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 3.6.2 - Informace o stavu a průběhu vyřizování žádosti o dávku nemocenského
+                pojištění - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+                <xs:sequence>
+                    <xs:element name="OdpovedData"
+                                type="IkrZobrazStavZadostiNDPojistenceVystupDataType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazStavZadostiNDPojistenceVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazStavZadostiNDPojistence - datová věta pro vstupní data požadavku.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec" type="ikrmsg:PojistenecType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">Kompletní údaje o pojištěnci (RČ, datum narození, jméno, příjmení, rodné příjmení).</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DuvodOpravnenostiDotazu"
+                                type="ikrmsg:DuvodOpravnenostiDotazuType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Důvod oprávněnosti dotazu třetí strany na údaje o pojištěnci.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DruhDavky" type="ikrmsg:DruhDavkyType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Údaje o druhu dávky.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazStavZadostiNDPojistenceVystupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazStavZadostiNDPojistence - datová věta pro výstupní data v odpovědi.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec" type="ikrmsg:InfoOPojistenciType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Základní údaje o pojištěnci (RČ / EČP, jméno, příjmení).
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <!-- Jaka je min.kardinalita ? -->
+                    <xs:element name="NemocenskaDavka"
+                                maxOccurs="unbounded" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Seznam vyřizovaných nemocenských dávek.
+                            </xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="ikrmsg:NemocenskaDavkaVyrizovanaType">
+                                    <xs:sequence>
+                                        <xs:element name="VyrizujiciOSSZ"
+                                                    type="ikrmsg:OkresniSpravaSocialnihoZabezpeceniType"
+                                                    maxOccurs="unbounded" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation xml:lang="cs">
+                                                    Seznam vyřizujících OSSZ.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

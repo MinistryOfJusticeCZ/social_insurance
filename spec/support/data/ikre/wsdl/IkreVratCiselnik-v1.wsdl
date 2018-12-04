@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="VratCiselnik" 
+        xmlns="urn:cz:isvs:cssz:services:IkreVratCiselnik:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikreVratCiselnik="urn:cz:isvs:cssz:schemas:IkreVratCiselnik:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreVratCiselnik:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreVratCiselnik:v1">
+    <wsdl:documentation>
+        Služba externího rozhraní IKR: 0.3_IkreVratCiselnik - Vrací data číselníku.
+        <p/>
+        Verze 1.0.0, 04.04.2013 - počáteční návrh (Petr Obořil).
+        Verze 1.1.0, 04.09.2013 - nová metoda IkreVratFiltrovanyCiselnik .
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreVratCiselnik:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    elementFormDefault="qualified">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreVratCiselnik:v1" 
+                        schemaLocation="../xsd/IkreVratCiselnik-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreVratCelyCiselnik">
+        <wsdl:part element="ikreVratCiselnik:IkreVratCelyCiselnik" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreVratFiltrovanyCiselnik">
+        <wsdl:part element="ikreVratCiselnik:IkreVratFiltrovanyCiselnik" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreVratCiselnikOdpoved">
+        <wsdl:part element="ikreVratCiselnik:IkreVratCiselnikOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreVratCiselnikPortType-v1">
+        <wsdl:operation name="IkreVratCelyCiselnik">
+            <wsdl:input message="tns:IkreVratCelyCiselnik"/>
+            <wsdl:output message="tns:IkreVratCiselnikOdpoved"/>
+        </wsdl:operation>
+        <wsdl:operation name="IkreVratFiltrovanyCiselnik">
+            <wsdl:input message="tns:IkreVratFiltrovanyCiselnik"/>
+            <wsdl:output message="tns:IkreVratCiselnikOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreVratCiselnikBinding" type="tns:IkreVratCiselnikPortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreVratCelyCiselnik">
+            <soap:operation soapAction="IkreVratCelyCiselnik"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="IkreVratFiltrovanyCiselnik">
+            <soap:operation soapAction="IkreVratFiltrovanyCiselnik"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreVratCiselnikService-v1">
+        <wsdl:documentation>
+            Externí služba IkreVratCiselnik - Vrací data číselníku.
+        </wsdl:documentation>
+        <wsdl:port binding="tns:IkreVratCiselnikBinding" name="IkreVratCiselnikPortService">
+            <soap:address location="IkreVratCiselnik/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

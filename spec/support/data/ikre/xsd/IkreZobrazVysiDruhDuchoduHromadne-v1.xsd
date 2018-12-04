@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" 
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1" 
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+           elementFormDefault="qualified" 
+           version="1.1.0">
+    <xs:annotation>
+        <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 3.7 IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu.
+            <p/>
+            Verze 1.0.0,  14.11.2013 - počáteční návrh (Petr Obořil).
+            Verze 1.0.1,  19.11.2013 - změněn výstupní objekt - místo InfoOPojistenci použit datový typ PojistenecType.
+            Verze 1.1.0,  20.11.2013 - změněn výstupní objekt - místo OznameniVysledkuType použit datový typ VysledekDetailType.
+                          25.11.2013 - upravena kardinalita u OznameniVysledku.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+    <xs:element name="IkreZobrazVysiDruhDuchoduHromadne" type="IkreZobrazVysiDruhDuchoduHromadneType">
+        <xs:annotation>
+            <xs:documentation>
+                IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu - požadavek
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreZobrazVysiDruhDuchoduHromadneOdpoved" type="IkreZobrazVysiDruhDuchoduHromadneOdpovedType">
+        <xs:annotation>
+            <xs:documentation>
+                IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="IkreZobrazVysiDruhDuchoduHromadneType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData" type="IkrZobrazVysiDruhDuchoduHromadneVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreZobrazVysiDruhDuchoduHromadneOdpovedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+                <xs:sequence>
+                    <xs:element name="OdpovedData" type="IkrZobrazVysiDruhDuchoduHromadneVystupDataType"
+                                minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazVysiDruhDuchoduHromadneVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">IkreZobrazVysiDruhDuchoduHromadne - datová věta pro vstupní data požadavku.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="ZaznamVstup" maxOccurs="100">
+                        <xs:annotation>
+                            <xs:documentation>Parametry pro zjištění důchodu jednoho pojištěnce.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Pojistenec" type="ikrmsg:PojistenecType">
+                                    <xs:annotation>
+                                        <xs:documentation>Kompletní údaje o pojištěnci (RČ, datum narození, jméno, příjmení, rodné příjmení).</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="Obdobi" type="ikrmsg:PozadovaneObdobiZlevaUzavreneType">
+                                    <xs:annotation>
+                                        <xs:documentation>Určení období, za které jsou požadovány informace.</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="DuvodOpravnenostiDotazu" type="ikrmsg:DuvodOpravnenostiDotazuType">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="cs">
+                                Důvod oprávněnosti dotazu třetí strany na údaje o pojištěnci.
+                            </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="Priznak" type="ikrmsg:PriznakType">
+                                    <xs:annotation>
+                                        <xs:documentation>Dvoustavový příznak.</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazVysiDruhDuchoduHromadneVystupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">IkreZobrazVysiDruhDuchoduHromadne - datová věta pro výstupní data v odpovědi.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="ZaznamVystup" maxOccurs="100">
+                        <xs:annotation>
+                            <xs:documentation>Údaje o důchodu jednoho pojištěnce.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="Pojistenec" type="ikrmsg:PojistenecType">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="cs">Kompletní údaje o pojištěnci (RČ, datum narození, jméno, příjmení, rodné příjmení).</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="OznameniVysledku" type="ikrmsg:VysledekDetailType" minOccurs="0"
+                                            maxOccurs="unbounded"/>
+                                <xs:element name="Duchod" maxOccurs="unbounded" minOccurs="0"
+                                            type="ikrmsg:DuchodPodrobnyType">
+                                    <xs:annotation>
+                                        <xs:documentation>Údaje o důchodu vyplaceném pojištěnci z ČSSZ.</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="Srazka" maxOccurs="unbounded" minOccurs="0" type="ikrmsg:SrazkaType">
+                                    <xs:annotation>
+                                        <xs:documentation>Údaje o srážce uplatňované na dávku vyplacenou pojištěnci z ČSSZ.</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
