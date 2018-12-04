@@ -27,7 +27,7 @@ class CsszService
       data = employments_data(req, data)
 
       if information_request.requested_informations.include?('incapacities')
-        req = Cssz::SeznamPracovnichNeschopnosti.new(information_request)
+        req = Cssz::Requests::SeznamPracovnichNeschopnosti.new(information_request)
         req.person_index = idx
         req.send
         data = incapacities_data(req, data)
