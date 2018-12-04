@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="ZobrazSeznamPNPojistence" 
+        xmlns="urn:cz:isvs:cssz:services:IkreZobrazSeznamPNPojistence:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikre35="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamPNPojistence:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreZobrazSeznamPNPojistence:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazSeznamPNPojistence:v1">
+    <wsdl:documentation>
+        Služba externího rozhraní IKR: 3.5_IkreZobrazSeznamPNPojistence - Informace o dočasné 
+        pracovní neschopnosti.
+        <p/>
+        Verze 1.0.0, 18.1.2013 - počáteční návrh (Petr Obořil).
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazSeznamPNPojistence:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamPNPojistence:v1" 
+                        schemaLocation="../xsd/IkreZobrazSeznamPNPojistence-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreZobrazSeznamPNPojistence">
+        <wsdl:part element="ikre35:IkreZobrazSeznamPNPojistence" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreZobrazSeznamPNPojistenceOdpoved">
+        <wsdl:part element="ikre35:IkreZobrazSeznamPNPojistenceOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreZobrazSeznamPNPojistencePortType-v1">
+        <wsdl:operation name="IkreZobrazSeznamPNPojistence">
+            <wsdl:input message="tns:IkreZobrazSeznamPNPojistence"/>
+            <wsdl:output message="tns:IkreZobrazSeznamPNPojistenceOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreZobrazSeznamPNPojistenceBinding" type="tns:IkreZobrazSeznamPNPojistencePortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreZobrazSeznamPNPojistence">
+            <soap:operation soapAction="IkreZobrazSeznamPNPojistenceDotaz"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreZobrazSeznamPNPojistenceService-v1">
+        <wsdl:documentation>
+            Externí služba IKR 3.5 IkreZobrazSeznamPNPojistence - Informace o dočasné 
+            pracovní neschopnosti.
+        </wsdl:documentation>
+        <wsdl:port binding="tns:IkreZobrazSeznamPNPojistenceBinding" name="IkreZobrazSeznamPNPojistencePortService">
+            <soap:address location="IkreZobrazSeznamPNPojistence/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

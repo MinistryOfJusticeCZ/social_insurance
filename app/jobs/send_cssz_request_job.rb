@@ -4,32 +4,8 @@ class SendCsszRequestJob < ApplicationJob
   def perform(request_id, serialized)
     ir = InformationRequest.find(request_id)
     ir.assign_attributes(serialized)
-    document_data = []
-    ir.insured_people.each_with_index do |person, idx|
-      data = {
-        'file_uid' => 'XX-XXX-XX/XXXX',
-        "person" => {
-          'firstname' => person.firstname,
-          'lastname' => person.lastname
-        }
-      }
 
-      req = Cssz::Requests::ZobrazZamestnavatele.new(ir)
-      req.person_index = idx
-      req.send
-      data = employments_data(req, data)
-
-      if information_request.requested_informations.include?('incapacities')
-        req = Cssz::SeznamPracovnichNeschopnosti.new(ir)
-        req.person_index = idx
-        req.send
-        data = incapacities_data(req, data)
-      else
-        data.deep_merge({ 'request' => {'incapacities' => false} })
-      end
-
-      document_data << data
-    end
+    document_data = CsszService.new(ir)
 
     document_data.each_with_index do |data, idx|
       file = ir.file_path(idx)
@@ -40,23 +16,4 @@ class SendCsszRequestJob < ApplicationJob
     end
   end
 
-  private
-
-    def employments_data(request, data={})
-      data.deep_merge({
-        'request' => {
-          'employments' => true
-        },
-        'employments' => request.response['employments'],
-      })
-    end
-
-    def incapacities_data(request, data={})
-      data.deep_merge({
-        'request' => {
-          'incapacities' => true
-        },
-        'incapacities' => request.response['incapacities']
-      })
-    end
 end

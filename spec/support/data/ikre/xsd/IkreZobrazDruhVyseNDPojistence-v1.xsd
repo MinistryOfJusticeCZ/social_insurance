@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreZobrazDruhVyseNDPojistence:v1" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" 
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1" 
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreZobrazDruhVyseNDPojistence:v1" 
+           elementFormDefault="qualified" 
+           version="1.0.0">
+    <xs:annotation>
+        <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 3.6.1 IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění.
+            <p/>
+            Verze 1.0.0,  14.11.2013 - počáteční návrh (Petr Obořil).
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+    <xs:element name="IkreZobrazDruhVyseNDPojistence" type="IkreZobrazDruhVyseNDPojistenceType">
+        <xs:annotation>
+            <xs:documentation>
+                IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění - požadavek
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreZobrazDruhVyseNDPojistenceOdpoved" type="IkreZobrazDruhVyseNDPojistenceOdpovedType">
+        <xs:annotation>
+            <xs:documentation>
+                IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="IkreZobrazDruhVyseNDPojistenceType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData" type="IkrZobrazDruhVyseNDPojistenceVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreZobrazDruhVyseNDPojistenceOdpovedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+                <xs:sequence>
+                    <xs:element name="OdpovedData" type="IkrZobrazDruhVyseNDPojistenceVystupDataType"
+                                minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazDruhVyseNDPojistenceVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">IkreZobrazDruhVyseNDPojistence - datová věta pro vstupní data požadavku.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec" type="ikrmsg:PojistenecType">
+                        <xs:annotation>
+                            <xs:documentation>Kompletní údaje o pojištěnci (RČ, datum narození, jméno, příjmení, rodné příjmení).</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Obdobi" type="ikrmsg:PouzeObdobiZlevaUzavreneType">
+                        <xs:annotation>
+                            <xs:documentation>Určení období, za které jsou požadovány informace.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DuvodOpravnenostiDotazu" type="ikrmsg:DuvodOpravnenostiDotazuType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Důvod oprávněnosti dotazu třetí strany na údaje o pojištěnci.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ZpusobVyplaty" type="ikrmsg:PriznakType">
+                        <xs:annotation>
+                            <xs:documentation>Dvoustavový příznak.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DruhDavky" type="ikrmsg:DruhDavkyType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Údaje o druhu dávky.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazDruhVyseNDPojistenceVystupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">IkreZobrazDruhVyseNDPojistence - datová věta pro výstupní data v odpovědi.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec" type="ikrmsg:InfoOPojistenciType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Základní údaje o pojištěnci (RČ / EČP, jméno, příjmení).
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NemocenskaDavka" maxOccurs="unbounded" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">Seznam vyplacených nemocenských dávek.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="ikrmsg:NemocenskaDavkaVyplacenaType"/>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
