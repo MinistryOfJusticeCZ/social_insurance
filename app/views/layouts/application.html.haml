@@ -43,12 +43,12 @@
     /[if IE 9]
       %link{href: "https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css", rel: "stylesheet"}
       %script{src: "https://cdn.jsdelivr.net/g/html5shiv@3.7.3"}
-      = stylesheet_link_tag 'czegov_frontend/bootstrap-ie8', media: 'all', 'data-turbolinks-track' => 'reload'
     /[if lte IE 8]
       %link{href: "https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie8.min.css", rel: "stylesheet"}
       %script{src: "https://cdn.jsdelivr.net/g/html5shiv@3.7.3"}
       = stylesheet_link_tag 'czegov_frontend/bootstrap-ie8', media: 'all', 'data-turbolinks-track' => 'reload'
   %body
+    = render 'czegov_template/cookies-bar'
     = render 'czegov_template/skippy'
     = render 'czegov_publishing_components/components/phase_banner', phase: 'nové'
     %header.header{role: 'banner'}
@@ -58,4 +58,3 @@
         = render 'layouts/egov_utils/messages'
         = content_for?(:content) ? content_for(:content) : yield
         = render 'czegov_template/contacts-footer' unless current_page?(root_path)
-    = render 'cookies_eu/consent_banner'
