@@ -49,7 +49,7 @@ $grays: map-merge(
 // Tested agains Link contrast checker, https://webaim.org/resources/linkcontrastchecker/
 // and https://webaim.org/resources/contrastchecker/
 
-$blue:    #342fff !default; //was 11457e
+$blue:    #005d9f !default; //was 11457e
 $purple:  purple !default;
 $red:     #a6212c !default;
 $orange:  orange !default;
@@ -161,7 +161,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   #f9f9f9 !default;
 $body-color:                $black !default;
 
 // Links
@@ -207,7 +207,7 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px
+  xl: 1024px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
