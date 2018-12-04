@@ -20,13 +20,13 @@
 // $gray-900: #323232 !default;
 // $black:    #323232 !default;
 
-$white:    #fff !default;
+$white:    white !default;
 $gray-100: #ededed !default;
 $gray-200: #dee2e6 !default;
 $gray-300: #aeb7bd !default;
 $gray-400: #768692 !default;
 $gray-500: #545454 !default;
-$black:    #1e1e1e !default;
+$black:    #000 !default;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -45,11 +45,15 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #11457e !default; //was 00549b
-$purple:  #8A2878 !default;
+// Using these colours to get WCAG 2.0 AAA contrast level
+// Tested agains Link contrast checker, https://webaim.org/resources/linkcontrastchecker/
+// and https://webaim.org/resources/contrastchecker/
+
+$blue:    #342fff !default; //was 11457e
+$purple:  purple !default;
 $red:     #a6212c !default;
-$orange:  #f7b400 !default;
-$yellow:  #ffed00 !default;
+$orange:  orange !default;
+$yellow:  yellow !default;
 $green:   #006435 !default;
 
 $colors: () !default;
@@ -157,7 +161,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #fdfbfa !default;
+$body-bg:                   $white !default;
 $body-color:                $black !default;
 
 // Links
