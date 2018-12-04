@@ -41,7 +41,7 @@
 [role="tablist"] li .active.nav-link {
   border: none;
   font-weight: 400;
-  color: blue;
+  color: #005d9f;
   text-decoration: underline;
 }
 
@@ -98,7 +98,7 @@ input.form-control:focus {
 }
 
 .row, section, .container {
-  max-width: 1140px;
+  max-width: 1024;
 }
 
 .row .col-8, .col-lg-8 {
