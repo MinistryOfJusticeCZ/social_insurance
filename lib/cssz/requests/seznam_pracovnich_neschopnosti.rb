@@ -44,6 +44,7 @@ module Cssz
       def parse_response(soap_response)
         data = soap_response.body[:ikre_zobraz_seznam_pn_pojistence_odpoved]
         incapacities = Array.wrap(data[:odpoved_data][:pracovni_neschopnost])
+        # if Cssz::Settings.stub_test_data?
         incapacities_data = incapacities.collect do |neschopnost|
           {
             'decision_number' => neschopnost[:cislo_rozhodnuti],

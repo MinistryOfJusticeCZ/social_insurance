@@ -113,7 +113,7 @@ RSpec.describe CsszService do
       data = subject.get_cssz_data.first
       expect(data).to have_key('person')
       expect(data).to have_key('incapacities')
-      expect(data['incapacities'].first).to have_key('')
+      expect(data['incapacities'].first).to have_key('decision_number')
     end
 
   end

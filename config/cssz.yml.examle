@@ -8,3 +8,6 @@ organization_ds_id: kq4aawz
 client_certificate_file: /srv/social_insurence_justice/shared/ISCSSZ.pem
 client_key_file: /srv/social_insurence_justice/shared/ISCSSZ_key.pem
 client_key_password: strongpassword #password for a key_file
+# For most of the servicies there are no data on CSSZ site.
+# This option can be set true on staging server for pluging test data into the responses.
+#stub_test_data: false
