@@ -1,45 +1,70 @@
 !!!
 %html{lang: I18n.locale, dir: "ltr", xmlns: "http://www.w3.org/1999/xhtml"}
   %head
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, viewport-fit=cover"}    
+    / Basic Page Needs ================================================== 
+    %meta{:charset => "utf-8"}
+    / Added chrome=1 for better IE fallback
     %meta{:http-equiv => "x-ua-compatible", :content => "ie=edge,chrome=1"}
-    %meta{:theme-color => "#11457e"}
+    / DELETE WHEN NOT NEEDED
+    %meta{:name => "robots", :content => "noindex, nofollow"}
+
+    / Mobile Specifif Metas =============================================
+    %meta{:name => "HandheldFriendly", :content => "True"}  
+    %meta{:name => "MobileOptimized", :content => "320"}    
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, viewport-fit=cover"} 
+
+    / Title and meta desc =============================================== 
+    %title= content_for?(:title) ? yield(:title) : t(:app_name)
+    %meta{:content => content_for?(:title) ? yield(:title) : t(:app_name), :property => "og:title"}    
+    
+    %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : t(:app_description)}    
+    %meta{:content => content_for?(:description) ? yield(:description) : t(:app_description), :property => "og:description"}   
+    
+    %meta{:name => "twitter:card", :value => "summary"}
+    %meta{:name => "twitter:site", :value => "@SpravedlnostIT"}
+    %meta{:content => "article", :property => "og:type"}
+
+    %link{:rel => "canonical", :href => "https://justice.cz"}
+    %meta{:content => "https://justice.cz", :property => "og:url"}    
+
+    / Favicons and theme colour ======================================== 
+
+    / 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices
+    %link{rel: "apple-touch-icon", sizes: "57x57", href: "/apple-icon-57x57.png"}
+
+    / 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini
+    %link{rel: "apple-touch-icon", sizes: "72x72", href: "/apple-icon-72x72.png"}
+    
+    / 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch
+    %link{rel: "apple-touch-icon", sizes: "114x114", href: "/apple-icon-114x114.png"}
+
+    / 144x144 (precomposed) for iPad 3rd and 4th generation
+    %link{rel: "apple-touch-icon", sizes: "144x144", href: "/apple-icon-144x144.png"}
+
+    / 192x192, as recommended for Android
+    / http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+    %link{rel: "shorcut icon", type: "image/x-icon", sizes: "192x192" , href: "/android-icon-192x192.png"}
+
+    / 128x128
+    %link{rel: "shorcut icon", type: "image/x-icon", href: "favicon.ico"}
 
     %link{rel: "apple-touch-icon", href: "apple-touch-icon.png"}
-    %link{rel: "apple-touch-icon", sizes: "57x57", href: "/apple-icon-57x57.png"}
-    %link{rel: "apple-touch-icon", sizes: "60x60", href: "/apple-icon-60x60.png"}
-    %link{rel: "apple-touch-icon", sizes: "72x72", href: "/apple-icon-72x72.png"}
-    %link{rel: "apple-touch-icon", sizes: "76x76", href: "/apple-icon-76x76.png"}
-    %link{rel: "apple-touch-icon", sizes: "114x114", href: "/apple-icon-114x114.png"}
-    %link{rel: "apple-touch-icon", sizes: "120x120", href: "/apple-icon-120x120.png"}
-    %link{rel: "apple-touch-icon", sizes: "144x144", href: "/apple-icon-144x144.png"}
-    %link{rel: "apple-touch-icon", sizes: "152x152", href: "/apple-icon-152x152.png"}
-    %link{rel: "apple-touch-icon", sizes: "180x180", href: "/apple-icon-180x180.png"}
-    %link{rel: "shorcut icon", type: "image/x-icon", sizes: "192x192" , href: "/android-icon-192x192.png"}
-    %link{rel: "shorcut icon", type: "image/x-icon", href: "favicon.ico"}
-    %link{rel: "shorcut icon", type: "image/x-icon", sizes: "32x32", href: "/favicon-32x32.png"}
-    %link{rel: "shorcut icon", type: "image/x-icon", sizes: "96x96", href: "/favicon-96x96.png"}
-    %link{rel: "shorcut icon", type: "image/x-icon", sizes: "16x16", href: "/favicon-16x16.png"}
 
-    //commented because no og
-    / %meta{:property => "og:type", :content ="government"}
-    / %meta{:property => "og:title", :content => "Intranet Ministerstva spravedlnosti"}
-    / %meta{:property => "og:site_name", :content => "Intranet Ministerstva spravedlnosti"}
-    / %meta{:property => "og:description", :content => "Rozvíjíme IT státní správy koncepčně."}
-    / %meta{:property => "og:locale", :content => "cs_CZ"}
-    / %meta{:property => "og:street-address", :content => "Vyšehradská 16"}
-    / %meta{:property => "og:locality", :content => "Praha"}
-    / %meta{:property => "og:logo", :content =>"" size="307x59"}
-
-    %title= content_for?(:title) ? yield(:title) : t(:app_name)
-    %meta{:name => "description", :content => content_for?(:description) ? yield(:description) : t(:app_description)}
+    / Theme colour set as 'national blue, $blue variable'
+    %meta{:theme-color => "#11457e"}
+    
+    / CSS and scripts =================================================  
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = javascript_pack_tag 'application'
     = i18n_js_set_locales_tag
-    = csrf_meta_tags
     = google_analytics_snippet unless internal_network?
+
+    / Prevent cross-site scripting
+    = csrf_meta_tags
+
+    / IE fallback ===================================================== 
     /[if IE 9]
       %link{href: "https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css", rel: "stylesheet"}
       %script{src: "https://cdn.jsdelivr.net/g/html5shiv@3.7.3"}
