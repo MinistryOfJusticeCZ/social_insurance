@@ -55,7 +55,7 @@ module Cssz
               }
             end
           else
-            incapacities_data = [
+            [
               {
                 'decision_number' => '152645',
                 'start' => Date.new(4, 11, 2018),
