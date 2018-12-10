@@ -47,7 +47,7 @@
                <!--You have a CHOICE of the next 2 items at this level-->
                <!--urn2:EvidencniCisloPojistence>?</urn2:EvidencniCisloPojistence-->
                <urn2:RodneCislo>6102201160</urn2:RodneCislo>
-               <urn2:PojistenecId>?</urn2:PojistenecId>
+               <!--urn2:PojistenecId>?</urn2:PojistenecId-->
                <urn2:Jmeno>Pavla</urn2:Jmeno>
                <urn2:Prijmeni>Hars</urn2:Prijmeni>
             </urn:Pojistenec>
