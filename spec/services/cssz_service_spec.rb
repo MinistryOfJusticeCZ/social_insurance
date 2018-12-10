@@ -97,7 +97,8 @@ RSpec.describe CsszService do
         client_id: 'MSP',
         organization_name: 'Ministerstvo spravedlnosti',
         organization_ico: '021546554',
-        organization_ds_id: 'klsdaf'
+        organization_ds_id: 'klsdaf',
+        stub_test_data?: false
       )
       stub_const('Cssz::Settings', set_dbl)
       stub_getting_wsdl_definitions
