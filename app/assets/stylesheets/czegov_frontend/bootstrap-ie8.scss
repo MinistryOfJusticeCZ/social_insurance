@@ -4,7 +4,7 @@
 
 .navbar-dark .navbar-nav .nav-link {
   float: right;
-  color: #fff;
+  color: #fff !important;
   font-weight: bold;
 }
 
@@ -107,4 +107,37 @@ input.form-control:focus {
 
 .row .col-4, .col-lg-4 { 
   max-width: 300px;
+}
+
+footer {
+  max-width: auto;
+}
+
+.tag {
+  color: #fff;
+}
+
+.row::after, 
+.navbar::after,
+.hero__content::after, 
+.notice::after, 
+fieldset::after, 
+.form-section::after, 
+.form-group::after, 
+#content::after, 
+.panel::after, 
+#footer::after,
+#footer .footer-meta::after, 
+.header::after, 
+.header__container::after, 
+.task-list-item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.navbar-service-links-wrapper {
+  display: block;
+  clear: none;
+  float: right;
 }
