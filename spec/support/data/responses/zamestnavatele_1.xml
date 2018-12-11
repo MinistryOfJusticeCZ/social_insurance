@@ -1,0 +1,90 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:cz:isvs:cssz:schemas:IkreZobrazZamestnavatele:v1" xmlns:urn1="urn:cz:isvs:cssz:schemas:IkreMessages:v1" xmlns:urn2="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:IkreZobrazZamestnavateleOdpoved verzeSluzby="1">
+         <urn1:OdpovedHlavicka>
+            <urn1:KodSluzby>IkreZobrazZamestnavatele</urn1:KodSluzby>
+            <urn1:PozadavekInfo>
+               <urn2:Cas>?</urn2:Cas>
+               <!--Optional:-->
+               <urn2:DuvodUcel>Aha</urn2:DuvodUcel>
+               <urn2:Popis>Neznam popis</urn2:Popis>
+               <urn2:VstupniKanalId>B2B</urn2:VstupniKanalId>
+               <urn2:PozadovanyVystupniKanalId>B2B</urn2:PozadovanyVystupniKanalId>
+            </urn1:PozadavekInfo>
+            <urn1:KlientInfo>
+               <urn2:TypKlienta>OVM</urn2:TypKlienta>
+               <urn2:KlientId>MSP</urn2:KlientId>
+               <!--Optional:-->
+               <!--urn2:JmenoUzivatele>?</urn2:JmenoUzivatele-->
+               <!--Optional:-->
+               <urn2:OrganizaceInfo>
+                  <urn2:NazevOrganizace>Ministerstvo spravedlnosti</urn2:NazevOrganizace>
+                  <!--Optional:-->
+                  <urn2:ICO>021546554</urn2:ICO>
+               </urn2:OrganizaceInfo>
+               <!--Optional:-->
+               <urn2:IdentifikatorDatoveSchranky>klsdaf</urn2:IdentifikatorDatoveSchranky>
+            </urn1:KlientInfo>
+            <urn1:OdpovedInfo>
+               <urn2:Cas>?</urn2:Cas>
+               <urn2:Status>
+                  <urn2:VysledekKod>OK</urn2:VysledekKod>
+               </urn2:Status>
+            </urn1:OdpovedInfo>
+            <urn1:JednotneEvidencniCislo>?</urn1:JednotneEvidencniCislo>
+         </urn1:OdpovedHlavicka>
+         <urn2:AplikacniStatus>
+            <urn2:VysledekKod>OK</urn2:VysledekKod>
+         </urn2:AplikacniStatus>
+         <!--Optional:-->
+         <urn:OdpovedData>
+            <urn:Pojistenec>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <!--urn2:EvidencniCisloPojistence>?</urn2:EvidencniCisloPojistence-->
+               <urn2:RodneCislo>6102201160</urn2:RodneCislo>
+               <urn2:PojistenecId>?</urn2:PojistenecId>
+               <urn2:Jmeno>Pavla</urn2:Jmeno>
+               <urn2:Prijmeni>Hars</urn2:Prijmeni>
+            </urn:Pojistenec>
+            <!--Zero or more repetitions:-->
+            <urn:ZamestnaniZamestnavatelem>
+               <urn2:UctarnaZamestnavatele>
+                  <urn2:VariabilniSymbol>12314567484</urn2:VariabilniSymbol>
+                  <urn2:Nazev>Firma2</urn2:Nazev>
+                  <!--Optional:-->
+                  <urn2:IdentifikacniCisloOrganizace>64564</urn2:IdentifikacniCisloOrganizace>
+               </urn2:UctarnaZamestnavatele>
+               <!--Optional:-->
+               <urn2:Adresa>
+                  <urn2:NazevTypuAdresy>?</urn2:NazevTypuAdresy>
+                  <!--Optional:-->
+                  <urn2:Ulice>?</urn2:Ulice>
+                  <!--Optional:-->
+                  <urn2:CisloDomu>?</urn2:CisloDomu>
+                  <!--Optional:-->
+                  <urn2:CisloOrientacni>?</urn2:CisloOrientacni>
+                  <!--Optional:-->
+                  <urn2:CisloPopisne>?</urn2:CisloPopisne>
+                  <!--Optional:-->
+                  <urn2:NazevCastiObce>?</urn2:NazevCastiObce>
+                  <!--Optional:-->
+                  <urn2:NazevMestskeCasti>?</urn2:NazevMestskeCasti>
+                  <urn2:NazevObce>?</urn2:NazevObce>
+                  <!--Optional:-->
+                  <urn2:NazevStatu>?</urn2:NazevStatu>
+                  <!--Optional:-->
+                  <urn2:PostovniSmerovaciCislo>?</urn2:PostovniSmerovaciCislo>
+               </urn2:Adresa>
+               <urn2:Zamestnani>
+                  <urn2:ZacatekVztahu>1981-02-16</urn2:ZacatekVztahu>
+                  <!--Optional:-->
+                  <urn2:KonecVztahu>1989-02-16</urn2:KonecVztahu>
+                  <urn2:NazevDruhuCinnosti>Maka a maka</urn2:NazevDruhuCinnosti>
+                  <urn2:ZamestnaniMalehoRozsahu>0</urn2:ZamestnaniMalehoRozsahu>
+               </urn2:Zamestnani>
+            </urn:ZamestnaniZamestnavatelem>
+         </urn:OdpovedData>
+      </urn:IkreZobrazZamestnavateleOdpoved>
+   </soapenv:Body>
+</soapenv:Envelope>

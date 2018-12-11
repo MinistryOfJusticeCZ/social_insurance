@@ -1,0 +1,15 @@
+/ 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices
+/ 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini
+/ 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch
+/ 144x144 (precomposed) for iPad 3rd and 4th generation
+- %w(57 72 114 144).each do |size|
+  = favicon_link_tag "apple-icon-#{size}x#{size}.png", rel: 'apple-touch-icon', type: 'image/png', sizes: "#{size}x#{size}"
+
+/ 192x192, as recommended for Android
+/ http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+= favicon_link_tag 'android-icon-192x192.png', rel: "shorcut icon", type: "image/x-icon", sizes: "192x192"
+
+/ 128x128
+%link{ href: '/favicon.ico', rel: "shortcut icon", type: "image/x-icon" }
+
+= favicon_link_tag "apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png'

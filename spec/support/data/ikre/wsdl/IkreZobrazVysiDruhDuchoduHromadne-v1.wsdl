@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="ZobrazVysiDruhDuchoduHromadne" 
+        xmlns="urn:cz:isvs:cssz:services:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikreZobrazVysiDruhDuchoduHromadne="urn:cz:isvs:cssz:schemas:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazVysiDruhDuchoduHromadne:v1">
+    <wsdl:documentation>
+        Služba externího rozhraní IKR: 3.7_IkreZobrazVysiDruhDuchoduHromadne - Informace o výši a druhu pobíraného důchodu.
+        <p/>
+        Verze 1.0.0, 14.11.2013 - počáteční návrh (Petr Obořil).
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    elementFormDefault="qualified">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreZobrazVysiDruhDuchoduHromadne:v1" 
+                        schemaLocation="../xsd/IkreZobrazVysiDruhDuchoduHromadne-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreZobrazVysiDruhDuchoduHromadne">
+        <wsdl:part element="ikreZobrazVysiDruhDuchoduHromadne:IkreZobrazVysiDruhDuchoduHromadne" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreZobrazVysiDruhDuchoduHromadneOdpoved">
+        <wsdl:part element="ikreZobrazVysiDruhDuchoduHromadne:IkreZobrazVysiDruhDuchoduHromadneOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreZobrazVysiDruhDuchoduHromadnePortType-v1">
+        <wsdl:operation name="IkreZobrazVysiDruhDuchoduHromadne">
+            <wsdl:input message="tns:IkreZobrazVysiDruhDuchoduHromadne"/>
+            <wsdl:output message="tns:IkreZobrazVysiDruhDuchoduHromadneOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreZobrazVysiDruhDuchoduHromadneBinding" type="tns:IkreZobrazVysiDruhDuchoduHromadnePortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreZobrazVysiDruhDuchoduHromadne">
+            <soap:operation soapAction="IkreZobrazVysiDruhDuchoduHromadne"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreZobrazVysiDruhDuchoduHromadneService-v1">
+        <wsdl:documentation>Informace o výši a druhu pobíraného důchodu.</wsdl:documentation>
+        <wsdl:port binding="tns:IkreZobrazVysiDruhDuchoduHromadneBinding" name="IkreZobrazVysiDruhDuchoduHromadnePortService">
+            <soap:address location="IkreZobrazVysiDruhDuchoduHromadne/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

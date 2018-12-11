@@ -10,7 +10,14 @@ module Cssz
     source (File.exists?(Cssz.config_file) ? Cssz.config_file : {})
 
     # namespace Rails.env
+
+    def stub_test_data?
+      !!stub_test_data
+    end
   end
+
+  # if false or nil, than false
+  Settings['stub_test_data'] ||= false
 end
 
 require 'cssz/service'

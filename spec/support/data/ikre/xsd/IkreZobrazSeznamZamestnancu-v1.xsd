@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamZamestnancu:v1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1"
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1"
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamZamestnancu:v1" elementFormDefault="qualified"
+           version="1.1.0">
+  <xs:annotation>
+    <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 3.3_IkreZobrazSeznamZamestnancu - Seznam zaměstnanců účastných 
+            pojištění konkrétního zaměstnavatele.
+            <p/>
+            Verze 1.0.0,  06.09.2013 - počáteční návrh (Jitka Žídková).
+            Verze 1.1.0,  12.02.2012 - Vstupní objekt IdentifikacniCisloOrganizace nahrazen objektem IdentifikaceZamestnavatele
+        </xs:documentation>
+  </xs:annotation>
+  <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1"
+             schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+  <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+  <xs:element name="IkreZobrazSeznamZamestnancu" type="IkreZobrazSeznamZamestnancuType">
+    <xs:annotation>
+      <xs:documentation>
+                Ikre 3.3 - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele - požadavek.
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IkreZobrazSeznamZamestnancuOdpoved" type="IkreZobrazSeznamZamestnancuOdpovedType">
+    <xs:annotation>
+      <xs:documentation>
+                Ikre 3.3 - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele - odpověď.
+            </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="IkreZobrazSeznamZamestnancuType">
+    <xs:annotation>
+      <xs:documentation xml:lang="cs">
+                Ikre 3.3 - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele - požadavek.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+        <xs:sequence>
+          <xs:element name="PozadavekData" type="IkrZobrazSeznamZamestnancuVstupDataType">
+            <xs:annotation>
+              <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IkreZobrazSeznamZamestnancuOdpovedType">
+    <xs:annotation>
+      <xs:documentation xml:lang="cs">
+                Ikre 3.3 - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele - odpověď.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+        <xs:sequence>
+          <xs:element name="OdpovedData" type="IkrZobrazSeznamZamestnancuVystupDataType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IkrZobrazSeznamZamestnancuVstupDataType">
+    <xs:annotation>
+      <xs:documentation xml:lang="cs">
+                IkreZobrazSeznamZamestnancu - datová věta pro vstupní data požadavku.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+        <xs:sequence>
+          <xs:element name="IdentifikaceZamestnavatele" type="ikrmsg:IdentifikaceZamestnavateleType">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">
+                  Identifikace zaměstnavatele identifikačním číslem organizace (IČO).
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="PozadovaneObdobi" type="ikrmsg:PozadovaneObdobiType">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">
+                Období, za které jsou požadovány informace.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DuvodOpravnenostiDotazu" type="ikrmsg:DuvodOpravnenostiDotazuType">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">
+                  Důvod oprávněnosti dotazu třetí strany na údaje o pojištěnci.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IkrZobrazSeznamZamestnancuVystupDataType">
+    <xs:annotation>
+      <xs:documentation xml:lang="cs">
+                IkreZobrazSeznamZamestnancu - datová věta pro výstupní data v odpovědi.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+        <xs:sequence>
+          <xs:element name="Zamestnavatel" type="ikrmsg:ZamestnavatelType">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">
+                                Základní údaje o pojištěnci (RČ / EČP, jméno, příjmení).
+                            </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ZamestnaniPojistence" type="ikrmsg:ZamestnaniPojistenceType" maxOccurs="unbounded"
+                      minOccurs="0">
+            <xs:annotation>
+              <xs:documentation xml:lang="cs">
+                                Seznam vyřizovaných nemocenských dávek.
+                            </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
