@@ -5,7 +5,7 @@ class SendCsszRequestJob < ApplicationJob
     ir = InformationRequest.find(request_id)
     ir.assign_attributes(serialized)
 
-    document_data = CsszService.new(ir)
+    document_data = CsszService.new(ir).get_cssz_data
 
     document_data.each_with_index do |data, idx|
       file = ir.file_path(idx)
