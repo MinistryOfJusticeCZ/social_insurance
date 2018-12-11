@@ -35,6 +35,15 @@ class CsszService
         data.deep_merge({ 'request' => {'incapacities' => false} })
       end
 
+      if information_request.requested_informations.include?('sickness_benefits')
+        req = Cssz::Requests::NemocenskeDavky.new(information_request)
+        req.person_index = idx
+        req.send
+        data = sickness_benefits_data(req, data)
+      else
+        data.deep_merge({ 'request' => {'sickness_benefits' => false} })
+      end
+
       document_data << data
     end
 
@@ -61,5 +70,13 @@ class CsszService
       })
     end
 
+    def sickness_benefits_data(request, data={})
+      data.deep_merge({
+        'request' => {
+          'sickness_benefits' => true
+        },
+        'sickness_benefits' => request.response['sickness_benefits']
+      })
+    end
 
 end

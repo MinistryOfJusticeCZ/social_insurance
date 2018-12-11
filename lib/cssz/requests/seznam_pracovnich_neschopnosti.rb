@@ -70,11 +70,23 @@ module Cssz
       def stubed_test_data
         {
           'records_found' => true,
-          'incapacities' =>  [
+          'incapacities' => [
             {
               'decision_number' => '152645',
               'start' => Date.new(2018, 11, 4),
               'end' => Date.new(2018, 11, 19),
+              'length' => 15
+            },
+            {
+              'decision_number' => '152642',
+              'start' => Date.new(2018, 10, 4),
+              'end' => Date.new(2018, 10, 19),
+              'length' => 15
+            },
+            {
+              'decision_number' => '152635',
+              'start' => Date.new(2018, 8, 4),
+              'end' => Date.new(2018, 8, 19),
               'length' => 15
             }
           ]
