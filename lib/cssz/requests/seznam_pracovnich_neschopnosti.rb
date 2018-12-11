@@ -41,33 +41,43 @@ module Cssz
         }
       end
 
+      def send
+        super unless Cssz::Settings.stub_test_data?
+      end
+
       def parse_response(soap_response)
-        data = soap_response.body[:ikre_zobraz_seznam_pn_pojistence_odpoved]
-        incapacities = Array.wrap(data[:odpoved_data][:pracovni_neschopnost])
-        incapacities_data =
-          if !Cssz::Settings.stub_test_data?
-            incapacities.collect do |neschopnost|
-              {
-                'decision_number' => neschopnost[:cislo_rozhodnuti],
-                'start' => neschopnost[:zacatek_pracovni_neschopnosti],
-                'end'   => neschopnost[:konec_pracovni_neschopnosti],
-                'length' => neschopnost[:delka_pripadu]
-              }
-            end
-          else
-            [
-              {
-                'decision_number' => '152645',
-                'start' => Date.new(4, 11, 2018),
-                'end' => Date.new(19, 11, 2018),
-                'length' => 15
-              }
-            ]
+        if !Cssz::Settings.stub_test_data?
+          data = soap_response.body[:ikre_zobraz_seznam_pn_pojistence_odpoved]
+          incapacities = Array.wrap(data[:odpoved_data][:pracovni_neschopnost])
+          incapacities_data = incapacities.collect do |neschopnost|
+            {
+              'decision_number' => neschopnost[:cislo_rozhodnuti],
+              'start' => neschopnost[:zacatek_pracovni_neschopnosti],
+              'end'   => neschopnost[:konec_pracovni_neschopnosti],
+              'length' => neschopnost[:delka_pripadu]
+            }
           end
 
+          {
+            'records_found' => 'OK' == data[:aplikacni_status][:vysledek_kod],
+            'incapacities' =>  incapacities_data
+          }
+        else
+          stubed_test_data
+        end
+      end
+
+      def stubed_test_data
         {
-          'records_not_found' => 'VAROVANI' == data[:aplikacni_status][:vysledek_kod],
-          'incapacities' =>  incapacities_data
+          'records_found' => true,
+          'incapacities' =>  [
+            {
+              'decision_number' => '152645',
+              'start' => Date.new(4, 11, 2018),
+              'end' => Date.new(19, 11, 2018),
+              'length' => 15
+            }
+          ]
         }
       end
 
