@@ -8,10 +8,10 @@
     / DELETE WHEN NOT NEEDED
     %meta{:name => "robots", :content => "noindex, nofollow"}
 
-    / Mobile Specifif Metas =============================================
-    %meta{:name => "HandheldFriendly", :content => "True"}
-    %meta{:name => "MobileOptimized", :content => "320"}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, viewport-fit=cover"}
+    / Mobile Specific Metas =============================================
+    %meta{:name => "HandheldFriendly", :content => "True"}  
+    %meta{:name => "MobileOptimized", :content => "320"}    
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, viewport-fit=cover"} 
 
     / Title and meta desc ===============================================
     %title= content_for?(:title) ? yield(:title) : t(:app_name)

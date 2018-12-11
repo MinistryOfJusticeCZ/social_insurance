@@ -99,6 +99,11 @@ a {
   }
 }
 
+details {
+  display: block;
+  clear: both;
+}
+
 details summary {
   color: $blue;
   margin-bottom: 0.25em;
@@ -122,4 +127,29 @@ details dl {
   margin-top: 8px;
   padding: 16px;
   padding-left: 16px;
+}
+
+.row::after, 
+.navbar::after,
+.hero__content::after, 
+.notice::after, 
+fieldset::after, 
+.form-section::after, 
+.form-group::after, 
+#content::after, 
+.panel::after, 
+#footer::after,
+#footer .footer-meta::after, 
+.header::after, 
+.header__container::after, 
+.task-list-item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.navbar-service-links-wrapper {
+  display: block;
+  clear: none;
+  float: right;
 }
