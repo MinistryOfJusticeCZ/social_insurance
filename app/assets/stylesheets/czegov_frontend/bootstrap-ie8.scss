@@ -16,6 +16,11 @@
   padding: 0;
 }
 
+.tab-pane.active {
+  background-color: #f9f9f9; //beware
+  color: #000;
+}
+
 [role="tablist"] {
   border-bottom: none;    
   display: inline;
@@ -114,7 +119,7 @@ footer {
 }
 
 .tag {
-  color: #fff;
+  color: #fff !important;
 }
 
 .row::after, 
@@ -140,4 +145,13 @@ fieldset::after,
   display: block;
   clear: none;
   float: right;
+}
+
+.navbar a {
+  color: #fff;
+  cursor: pointer;
+
+  &:visited, &:link {
+    color: #fff;
+  }
 }

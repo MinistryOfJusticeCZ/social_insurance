@@ -99,6 +99,11 @@ a {
   }
 }
 
+details {
+  display: block;
+  clear: both;
+}
+
 details summary {
   color: $blue;
   margin-bottom: 0.25em;
