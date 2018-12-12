@@ -65,13 +65,9 @@
     = csrf_meta_tags
 
     / IE fallback ===================================================== 
-    /[if IE 9]
-      %link{href: "https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie9.min.css", rel: "stylesheet"}
+    /[if lte IE 9]
       %script{src: "https://cdn.jsdelivr.net/g/html5shiv@3.7.3"}
-    /[if lte IE 8]
-      %link{href: "https://cdn.jsdelivr.net/gh/coliff/bootstrap-ie8/css/bootstrap-ie8.min.css", rel: "stylesheet"}
-      %script{src: "https://cdn.jsdelivr.net/g/html5shiv@3.7.3"}
-      = stylesheet_link_tag 'czegov_frontend/bootstrap-ie8', media: 'all', 'data-turbolinks-track' => 'reload'
+      = stylesheet_link_tag 'czegov_frontend/bootstrap-ie-fallback', media: 'all', 'data-turbolinks-track' => 'reload'
   %body
     = render 'czegov_template/cookies-bar'
     = render 'czegov_template/skippy'
