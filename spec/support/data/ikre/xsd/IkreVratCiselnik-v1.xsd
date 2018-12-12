@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreVratCiselnik:v1" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" 
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1" 
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreVratCiselnik:v1" 
+           elementFormDefault="qualified" 
+           version="1.1.0">
+    <xs:annotation>
+        <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 0.3_IkreVratCiselnik - Vrací data číselníku.
+            <p/>
+            Verze 1.0.0,  04.04.2013 - počáteční návrh (Petr Obořil).
+            Verze 1.1.0,  04.09.2013 - nová metoda IkreVratFiltrovanyCiselnik .
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+    <xs:element name="IkreVratCelyCiselnik" type="IkreVratCelyCiselnikType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 0.3 - Data pro celý číselník - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreVratFiltrovanyCiselnik" type="IkreVratFiltrovanyCiselnikType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 0.3 - Data pro filtrovaný číselník - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreVratCiselnikOdpoved" type="IkreVratCiselnikOdpovedType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 0.3 - Data pro číselník - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="IkreVratCelyCiselnikType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 0.3 - Data pro celý číselník - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData" type="IkrVratCelyCiselnikVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreVratFiltrovanyCiselnikType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 0.3 - Data pro filtrovaný číselník - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData" type="IkrVratFiltrovanyCiselnikVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreVratCiselnikOdpovedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 0.3 - Data pro číselník - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+                <xs:sequence>
+                    <xs:element name="OdpovedData" type="IkrVratCiselnikVystupDataType"
+                                minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrVratCelyCiselnikVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreVratCelyCiselnik - datová věta pro vstupní data požadavku.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="UrceniCiselniku" type="ikrmsg:UrceniCiselnikuType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Určení číselníku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrVratFiltrovanyCiselnikVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreVratFiltrovanyCiselnik - datová věta pro vstupní data požadavku.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="UrceniFiltrovanehoCiselniku" type="ikrmsg:UrceniFiltrovanehoCiselnikuType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Určení filtrovaného číselníku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrVratCiselnikVystupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreVratCiselnik - datová věta pro výstupní data v odpovědi.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="ZaznamCiselniku" type="ikrmsg:ZaznamCiselnikuType"
+                                minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Záznam číselníku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

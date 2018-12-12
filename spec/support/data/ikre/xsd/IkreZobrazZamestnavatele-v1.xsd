@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:cz:isvs:cssz:schemas:IkreZobrazZamestnavatele:v1" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:ikrmsg="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" 
+           xmlns:ikremsg="urn:cz:isvs:cssz:schemas:IkreMessages:v1" 
+           targetNamespace="urn:cz:isvs:cssz:schemas:IkreZobrazZamestnavatele:v1" 
+           elementFormDefault="qualified" 
+           version="1.0.1">
+    <xs:annotation>
+        <xs:documentation xml:lang="cs">
+            Služba externího rozhraní IKR: 3.1 IkreZobrazZamestnavatele - Informace o zaměstnavateli pojištěnce.
+            <p/>
+            Verze 1.0.0,  05.09.2013 - počáteční návrh (Jitka Žídková).
+            Verze 1.0.1,  06.09.2013 - přejmenování typu PozadovaneObdobi na PozadovaneObdobiType v souladu s opravou IkrMessageTypes.xsd
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkrMessageTypes:v1" schemaLocation="../../ikr/xsd/IkrMessageTypes.xsd"/>
+    <xs:import namespace="urn:cz:isvs:cssz:schemas:IkreMessages:v1" schemaLocation="IkreMessages.xsd"/>
+    <xs:element name="IkreZobrazZamestnavatele" type="IkreZobrazZamestnavateleType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 1.2 - Informace o zaměstnavateli pojištěnce - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="IkreZobrazZamestnavateleOdpoved" type="IkreZobrazZamestnavateleOdpovedType">
+        <xs:annotation>
+            <xs:documentation>
+                Ikre 3.1 - Informace o zaměstnavateli pojištěnce - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="IkreZobrazZamestnavateleType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 3.1 - Informace o zaměstnavateli pojištěnce - požadavek.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkrePozadavekAbstractType">
+                <xs:sequence>
+                    <xs:element name="PozadavekData" type="IkrZobrazZamestnavateleVstupDataType">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu požadavku.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkreZobrazZamestnavateleOdpovedType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                Ikre 3.1 - Informace o zaměstnavateli pojištěnce - odpověď.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikremsg:IkreOdpovedAbstractType">
+                <xs:sequence>
+                    <xs:element name="OdpovedData" type="IkrZobrazZamestnavateleVystupDataType"
+                                minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Definice obálky pro datovou větu odpovědi na požadavek.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazZamestnavateleVstupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazZamestnavatele - datová věta pro vstupní data požadavku.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrPozadavekDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec"
+                                type="ikrmsg:PojistenecType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Kompletní údaje o pojištěnci (RČ, datum narození, jméno, příjmení, rodné příjmení).
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Obdobi" type="ikrmsg:PozadovaneObdobiType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Určení období, za které jsou požadovány informace.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PouzeOtevreneVztahy" type="ikrmsg:PriznakType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Příznak, zda je požadováno na výstupu uvést jen otevřené pojistné vztahy, nebo i uzavřené..
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DuvodOpravnenostiDotazu" type="ikrmsg:DuvodOpravnenostiDotazuType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Důvod oprávněnosti dotazu třetí strany na údaje o pojištěnci.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IkrZobrazZamestnavateleVystupDataType">
+        <xs:annotation>
+            <xs:documentation xml:lang="cs">
+                IkreZobrazZamestnavatele - datová věta pro výstupní data v odpovědi.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ikrmsg:IkrOdpovedDataAbstractType">
+                <xs:sequence>
+                    <xs:element name="Pojistenec" type="ikrmsg:InfoOPojistenciType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Základní údaje o pojištěnci (RČ / EČP, jméno, příjmení).
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ZamestnaniZamestnavatelem" minOccurs="0" maxOccurs="unbounded"
+                                type="ikrmsg:ZamestnaniZamestnavatelemType">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="cs">
+                                Seznam jednotlivých údajů o trvání provádění daného druhu činnosti a daném zaměstnavateli.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

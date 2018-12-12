@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="ZobrazDruhVyseNDPojistence" 
+        xmlns="urn:cz:isvs:cssz:services:IkreZobrazDruhVyseNDPojistence:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikreZobrazDruhVyseNDPojistence="urn:cz:isvs:cssz:schemas:IkreZobrazDruhVyseNDPojistence:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreZobrazDruhVyseNDPojistence:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazDruhVyseNDPojistence:v1">
+    <wsdl:documentation>
+        Služby externího rozhraní IKR: 3.6.1_IkreZobrazDruhVyseNDPojistence - Informace o druhu a výši vyplacených dávek nemocenského pojištění.
+        <p/>
+        Verze 1.0.0, 14.11.2013 - počáteční návrh (Petr Obořil).
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazDruhVyseNDPojistence:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                    elementFormDefault="qualified">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreZobrazDruhVyseNDPojistence:v1" 
+                        schemaLocation="../xsd/IkreZobrazDruhVyseNDPojistence-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreZobrazDruhVyseNDPojistence">
+        <wsdl:part element="ikreZobrazDruhVyseNDPojistence:IkreZobrazDruhVyseNDPojistence" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreZobrazDruhVyseNDPojistenceOdpoved">
+        <wsdl:part element="ikreZobrazDruhVyseNDPojistence:IkreZobrazDruhVyseNDPojistenceOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreZobrazDruhVyseNDPojistencePortType-v1">
+        <wsdl:operation name="IkreZobrazDruhVyseNDPojistence">
+            <wsdl:input message="tns:IkreZobrazDruhVyseNDPojistence"/>
+            <wsdl:output message="tns:IkreZobrazDruhVyseNDPojistenceOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreZobrazDruhVyseNDPojistenceBinding" type="tns:IkreZobrazDruhVyseNDPojistencePortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreZobrazDruhVyseNDPojistence">
+            <soap:operation soapAction="IkreZobrazDruhVyseNDPojistence"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreZobrazDruhVyseNDPojistenceService-v1">
+        <wsdl:documentation>Informace o druhu a výši vyplacených dávek nemocenského pojištění.</wsdl:documentation>
+        <wsdl:port binding="tns:IkreZobrazDruhVyseNDPojistenceBinding" name="IkreZobrazDruhVyseNDPojistencePortService">
+            <soap:address location="IkreZobrazDruhVyseNDPojistence/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

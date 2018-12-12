@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="ZobrazSeznamZamestnancu" 
+        xmlns="urn:cz:isvs:cssz:services:IkreZobrazSeznamZamestnancu:v1" 
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:ikreZobrazSeznamZamestnancu="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamZamestnancu:v1" 
+        xmlns:tns="urn:cz:isvs:cssz:services:IkreZobrazSeznamZamestnancu:v1" 
+        targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazSeznamZamestnancu:v1">
+    <wsdl:documentation>
+        Služba externího rozhraní IKR: 3.3 - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele.
+        <p/>
+        Verze 1.0.0, 06.09.2013 - počáteční návrh (Jitka Žídková).
+    </wsdl:documentation>
+    
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:cz:isvs:cssz:services:IkreZobrazSeznamZamestnancu:v1" 
+		    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:cz:isvs:cssz:schemas:IkreZobrazSeznamZamestnancu:v1" 
+                        schemaLocation="../xsd/IkreZobrazSeznamZamestnancu-v1.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="IkreZobrazSeznamZamestnancu">
+        <wsdl:part element="ikreZobrazSeznamZamestnancu:IkreZobrazSeznamZamestnancu" name="Parametry"/>
+    </wsdl:message>
+    <wsdl:message name="IkreZobrazSeznamZamestnancuOdpoved">
+        <wsdl:part element="ikreZobrazSeznamZamestnancu:IkreZobrazSeznamZamestnancuOdpoved" name="Vysledek"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="IkreZobrazSeznamZamestnancuPortType-v1">
+        <wsdl:operation name="IkreZobrazSeznamZamestnancu">
+            <wsdl:input message="tns:IkreZobrazSeznamZamestnancu"/>
+            <wsdl:output message="tns:IkreZobrazSeznamZamestnancuOdpoved"/>
+        </wsdl:operation>
+    </wsdl:portType>
+           
+    <wsdl:binding name="IkreZobrazSeznamZamestnancuBinding" type="tns:IkreZobrazSeznamZamestnancuPortType-v1">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IkreZobrazSeznamZamestnancu">
+            <soap:operation soapAction="IkreZobrazSeznamZamestnancu"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="IkreZobrazSeznamZamestnancuService-v1">
+        <wsdl:documentation>
+            Externí služba IKR 3.3 IkreZobrazSeznamZamestnancu - Seznam zaměstnanců účastných pojištění konkrétního zaměstnavatele.
+        </wsdl:documentation>
+        <wsdl:port binding="tns:IkreZobrazSeznamZamestnancuBinding" name="IkreZobrazSeznamZamestnancuPortService">
+            <soap:address location="IkreZobrazSeznamZamestnancu/v1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
