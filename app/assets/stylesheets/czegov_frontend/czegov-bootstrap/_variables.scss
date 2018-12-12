@@ -45,11 +45,14 @@ $grays: map-merge(
   $grays
 );
 
-// Using these colours (specifically: $blue) to get WCAG 2.0 AAA (almost) contrast level
+// Using these colours (specifically: $blue) to get WCAG 2.0 AAA contrast level
 // Tested agains Link contrast checker, https://webaim.org/resources/linkcontrastchecker/
 // and https://webaim.org/resources/contrastchecker/
+// 'Link to Body Text WCAG A: Fail' is incorrect, 3.00:1 means pass
+// Although Background colour must be #fff
 
-$blue:    #005d9f !default; //was 11457e
+
+$blue:    #005C9A !default; //was 11457e
 $purple:  purple !default;
 $red:     #a6212c !default;
 $orange:  orange !default;
@@ -161,7 +164,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #f9f9f9 !default;
+$body-bg:                   #FAFAFA !default;
 $body-color:                $black !default;
 
 // Links
