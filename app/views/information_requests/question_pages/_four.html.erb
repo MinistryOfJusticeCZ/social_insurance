@@ -1,9 +1,41 @@
 <div class="form-group">
-  <%= render "czegov_publishing_components/components/input", {
-    label: {
-      text: "Oprávněnost dotazu"
-    },
-    name: "information_request[request_legitimacy_reason]",
-    value: entity.request_legitimacy_reason
-  } %>
+  <fieldset class="fieldset">
+    <legend class="fieldset__legend fieldset__legend--xl">
+      <%= page[:title] %>
+    </legend>
+
+    <div class="date-input" id="expiry">
+      <div class="date-input__item">
+        <div class="form-group">
+          <label class="label date-input__label" for="ADD_THIS">
+            Od roku
+          </label>
+          <input class="form-control date-input__input input--width-2" id="expiry-day" name="ADD_THIS" type="number" pattern="[0-9]*" value="ADD_THIS %>">
+        </div>
+      </div>
+      <div class="date-input__item">
+        <div class="form-group">
+          <label class="label date-input__label" for="ADD_THIS">
+            Do roku
+          </label>
+          <input class="form-control date-input__input input--width-2" id="expiry-month" name="ADD_THIS" type="number" pattern="[0-9]*" value="ADD_THIS %>">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  
+  <fieldset class="fieldset">
+    <legend class="fieldset__legend fieldset__legend--xl">
+      <%= page[:title] %>
+    </legend>
+
+    <%= render "czegov_publishing_components/components/input", {
+      label: {
+        text: "Oprávněnost dotazu"
+      },
+      name: "information_request[request_legitimacy_reason]",
+      value: entity.request_legitimacy_reason
+    } %>
+  </fieldset>
 </div>
+

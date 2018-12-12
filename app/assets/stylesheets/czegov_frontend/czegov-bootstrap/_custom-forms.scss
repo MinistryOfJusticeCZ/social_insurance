@@ -26,8 +26,8 @@
 .custom-control-input {
   position: absolute;
   z-index: 1;
-  top: 0;
-  left: 0;
+  top: 20;
+  left: 10;
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -104,7 +104,7 @@
     content: "";
     position: absolute;
     top: 20px;
-    left: 01ppxx;
+    left: 10px;
     width: 1.8rem;
     height: 1.8rem;
     content: "";
@@ -135,7 +135,7 @@
     top: 30px;
     left: 16px;
     width: 18px;
-    height: 7px;
+    height: 9px;
     transform: rotate(-45deg);
     border: solid;
         border-top-color: currentcolor;
@@ -155,8 +155,6 @@
     }
     &::after {
       opacity: 1;
-      outline: 3px $black solid;
-      outline-offset: -3px;
       //background-image: $custom-checkbox-indicator-icon-checked;
     }
 
