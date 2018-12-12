@@ -7,6 +7,7 @@ class RequestData
 
   attribute :on_day, :date
   attribute :actual_employments_only, :boolean #only actual employments
+  attribute :include_addresses, :boolean #include addresses to receive payments
   attribute :request_legitimacy_reason, :string
 
   def insured_people

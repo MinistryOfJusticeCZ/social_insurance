@@ -7,6 +7,7 @@ class InformationRequest < ApplicationRecord
 
   delegate  'insured_people', 'insured_people_attributes=',
             'actual_employments_only', 'actual_employments_only=',
+            'include_addresses', 'include_addresses=',
             'request_legitimacy_reason', 'request_legitimacy_reason=',
             to: :request_data
 
